@@ -28,6 +28,7 @@
             font-feature-settings: "cv03", "cv04", "cv11";
         }
     </style>
+    {{ $style ?? '' }}
 </head>
 
 <body class="font-sans antialiased">
@@ -50,6 +51,7 @@
     </div>
     <script src="/student/js/tabler.min.js?1684106062" defer></script>
     <script src="/student/js/demo.min.js?1684106062" defer></script>
+    {{ $script ?? '' }}
 </body>
 
 </html>
