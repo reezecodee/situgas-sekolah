@@ -6,6 +6,7 @@ use App\Http\Controllers\Student\DashboardController;
 use App\Http\Controllers\Student\HelpController;
 use App\Http\Controllers\Student\LetterSubmissionController;
 use App\Http\Controllers\Student\MyClassController;
+use App\Http\Controllers\Student\NotificationController;
 use App\Http\Controllers\Student\PKLActivityController;
 use App\Http\Controllers\Student\PresenceController;
 use App\Http\Controllers\Student\ProfileController;
@@ -59,5 +60,10 @@ Route::prefix('student')->group(function () {
         Route::get('/profile', 'profile')->name('student.profile');
         Route::get('/data-pribadi', 'privacyData')->name('student.privacyData');
         Route::get('/ganti-password', 'changePassword')->name('student.changePassword');
+    });
+
+    Route::controller(NotificationController::class)->group(function(){
+        Route::get('/notifikasi', 'index')->name('student.notification');
+        Route::get('/baca-notifikasi', 'read')->name('student.readNotification');
     });
 });

@@ -55,8 +55,11 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
                             <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Last updates</h3>
+                                <div class="card-header d-flex justify-content-between">
+                                    <h3 class="card-title">Notifikasi terbaru</h3>
+                                    <a href="{{ route('student.notification') }}">
+                                        <button class="btn btn-primary">Lihat semua</button>
+                                    </a>
                                 </div>
                                 <div class="list-group list-group-flush list-group-hoverable">
                                     <div class="list-group-item">
