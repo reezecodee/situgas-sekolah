@@ -139,18 +139,18 @@
                                     saya</x-student.link.dropdown-item>
                             </x-slot>
                         </x-student.link.nav-dropdown>
-                        <x-student.link.nav-dropdown title="Kegiatan belajar" page-target="kegiatan-belajar">
+                        <x-student.link.nav-dropdown title="Kegiatan belajar" page-target="kegiatan">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                             </svg>
                             <x-slot name="subitem">
-                                <x-student.link.dropdown-item href=""
-                                    page-target="kegiatan-belajar">Presensi</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item href="" page-target="kegiatan-belajar">Ruang
+                                <x-student.link.dropdown-item :href="route('student.presence')"
+                                    page-target="kegiatan/presensi">Presensi</x-student.link.dropdown-item>
+                                <x-student.link.dropdown-item href="" page-target="kegiatan/penugasan">Ruang
                                     penugasan</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item href="" page-target="kegiatan-belajar">Kegiatan
+                                <x-student.link.dropdown-item href="" page-target="kegiatan/pkl">Kegiatan
                                     PKL</x-student.link.dropdown-item>
                             </x-slot>
                         </x-student.link.nav-dropdown>

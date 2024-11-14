@@ -3,6 +3,7 @@
 use App\Http\Controllers\Student\CalendarController;
 use App\Http\Controllers\Student\DashboardController;
 use App\Http\Controllers\Student\MyClassController;
+use App\Http\Controllers\Student\PresenceController;
 use App\Http\Controllers\Student\SubjectScheduleController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,12 @@ Route::prefix('student')->group(function () {
 
         Route::controller(MyClassController::class)->group(function () {
             Route::get('/kelas-saya', 'index')->name('student.myClass');
+        });
+    });
+
+    Route::prefix('kegiatan')->group(function () {
+        Route::controller(PresenceController::class)->group(function () {
+            Route::get('/presensi', 'index')->name('student.presence');
         });
     });
 });
