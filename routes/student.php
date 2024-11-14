@@ -3,6 +3,7 @@
 use App\Http\Controllers\Student\AssignmentController;
 use App\Http\Controllers\Student\CalendarController;
 use App\Http\Controllers\Student\DashboardController;
+use App\Http\Controllers\Student\HelpController;
 use App\Http\Controllers\Student\LetterSubmissionController;
 use App\Http\Controllers\Student\MyClassController;
 use App\Http\Controllers\Student\PKLActivityController;
@@ -47,5 +48,9 @@ Route::prefix('student')->group(function () {
         Route::get('/izin-tidak-hadir', 'premitAbsent')->name('student.premitAbsent');
         Route::get('/dispenisasi', 'premitDispensation')->name('student.premitDispensation');
         Route::get('/permohonan-pkl', 'premitPleaInternship')->name('student.premitPleaInternship');
+    });
+
+    Route::controller(HelpController::class)->group(function(){
+        Route::get('/bantuan', 'index')->name('student.help');
     });
 });
