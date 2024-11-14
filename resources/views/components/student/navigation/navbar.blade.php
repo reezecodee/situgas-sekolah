@@ -101,8 +101,8 @@
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <a href="./profile.html" class="dropdown-item">Profile</a>
-                        <a href="./sign-in.html" class="dropdown-item">Logout</a>
+                        <a href="{{ route('student.profile') }}" class="dropdown-item">Profile</a>
+                        <a href="" class="dropdown-item">Logout</a>
                     </div>
                 </div>
             </div>

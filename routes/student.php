@@ -8,6 +8,7 @@ use App\Http\Controllers\Student\LetterSubmissionController;
 use App\Http\Controllers\Student\MyClassController;
 use App\Http\Controllers\Student\PKLActivityController;
 use App\Http\Controllers\Student\PresenceController;
+use App\Http\Controllers\Student\ProfileController;
 use App\Http\Controllers\Student\SubjectScheduleController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,5 +53,11 @@ Route::prefix('student')->group(function () {
 
     Route::controller(HelpController::class)->group(function(){
         Route::get('/bantuan', 'index')->name('student.help');
+    });
+
+    Route::controller(ProfileController::class)->group(function(){
+        Route::get('/profile', 'profile')->name('student.profile');
+        Route::get('/data-pribadi', 'privacyData')->name('student.privacyData');
+        Route::get('/ganti-password', 'changePassword')->name('student.changePassword');
     });
 });
