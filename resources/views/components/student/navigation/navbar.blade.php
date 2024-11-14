@@ -150,7 +150,7 @@
                                     page-target="kegiatan/presensi">Presensi</x-student.link.dropdown-item>
                                 <x-student.link.dropdown-item :href="route('student.assignment')" page-target="kegiatan/penugasan">Ruang
                                     penugasan</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item href="" page-target="kegiatan/pkl">Kegiatan
+                                <x-student.link.dropdown-item :href="route('student.pkl')" page-target="kegiatan/pkl">Kegiatan
                                     PKL</x-student.link.dropdown-item>
                             </x-slot>
                         </x-student.link.nav-dropdown>

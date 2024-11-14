@@ -4,6 +4,7 @@ use App\Http\Controllers\Student\AssignmentController;
 use App\Http\Controllers\Student\CalendarController;
 use App\Http\Controllers\Student\DashboardController;
 use App\Http\Controllers\Student\MyClassController;
+use App\Http\Controllers\Student\PKLActivityController;
 use App\Http\Controllers\Student\PresenceController;
 use App\Http\Controllers\Student\SubjectScheduleController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,10 @@ Route::prefix('student')->group(function () {
 
         Route::controller(AssignmentController::class)->group(function () {
             Route::get('/penugasan', 'index')->name('student.assignment');
+        });
+
+        Route::controller(PKLActivityController::class)->group(function () {
+            Route::get('/pkl', 'index')->name('student.pkl');
         });
     });
 });
