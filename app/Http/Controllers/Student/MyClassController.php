@@ -11,6 +11,6 @@ class MyClassController extends Controller
     {
         $title = 'Kelas Saya';
 
-        return view('student-pages.kelas-saya.index', compact('title'));
+        return view('student-pages.akademik.kelas.index', compact('title'));
     }
 }

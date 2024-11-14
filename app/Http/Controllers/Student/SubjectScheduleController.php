@@ -11,6 +11,6 @@ class SubjectScheduleController extends Controller
     {
         $title = 'Jadwal Pelajaran';
 
-        return view('student-pages.mata-pelajaran.index', compact('title'));
+        return view('student-pages.akademik.pelajaran.index', compact('title'));
     }
 }

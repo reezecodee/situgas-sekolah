@@ -11,6 +11,6 @@ class CalendarController extends Controller
     {
         $title = 'Kalender Akademik';
 
-        return view('student-pages.akademik.index', compact('title'));
+        return view('student-pages.akademik.kalender.index', compact('title'));
     }
 }
