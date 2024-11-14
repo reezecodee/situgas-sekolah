@@ -134,8 +134,7 @@
                             <x-slot name="subitem">
                                 <x-student.link.dropdown-item :href="route('student.calendar')" page-target="kalender-akademik">Kalender
                                     akademik</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item href="" page-target="akademik">Jadwal mata
-                                    pelajaran</x-student.link.dropdown-item>
+                                <x-student.link.dropdown-item :href="route('student.subjectSchedule')" page-target="akademik">Jadwal pelajaran</x-student.link.dropdown-item>
                                 <x-student.link.dropdown-item href="" page-target="akademik">Kelas
                                     saya</x-student.link.dropdown-item>
                             </x-slot>
