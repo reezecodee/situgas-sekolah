@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Student\AssignmentController;
 use App\Http\Controllers\Student\CalendarController;
 use App\Http\Controllers\Student\DashboardController;
 use App\Http\Controllers\Student\MyClassController;
@@ -29,6 +30,10 @@ Route::prefix('student')->group(function () {
     Route::prefix('kegiatan')->group(function () {
         Route::controller(PresenceController::class)->group(function () {
             Route::get('/presensi', 'index')->name('student.presence');
+        });
+
+        Route::controller(AssignmentController::class)->group(function () {
+            Route::get('/penugasan', 'index')->name('student.assignment');
         });
     });
 });

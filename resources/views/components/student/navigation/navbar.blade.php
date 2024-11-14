@@ -148,7 +148,7 @@
                             <x-slot name="subitem">
                                 <x-student.link.dropdown-item :href="route('student.presence')"
                                     page-target="kegiatan/presensi">Presensi</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item href="" page-target="kegiatan/penugasan">Ruang
+                                <x-student.link.dropdown-item :href="route('student.assignment')" page-target="kegiatan/penugasan">Ruang
                                     penugasan</x-student.link.dropdown-item>
                                 <x-student.link.dropdown-item href="" page-target="kegiatan/pkl">Kegiatan
                                     PKL</x-student.link.dropdown-item>
