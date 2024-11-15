@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignUuid('subject_id')->constrained('subjects');
             $table->foreignUuid('class_id')->constrained('classrooms');
             $table->foreignUuid('teacher_id')->constrained('teachers');
-            $table->enum('hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu']);
+            $table->string('hari');
             $table->time('jam_mulai');
             $table->time('jam_selesai');
             $table->timestamps();
