@@ -21,16 +21,16 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu wali kelas</span>
                 </li>
-                <x-staff.link.sidebar-item icon="ti-users" page-target="murid-bimbingan" href="">
+                <x-staff.link.sidebar-item icon="ti-users" page-target="wali-kelas/murid-bimbingan" :href="route('homeroom.guidance')">
                     Murid bimbingan
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-report" page-target="rekapitulasi-nilai" href="">
+                <x-staff.link.sidebar-item icon="ti-report" page-target="rekapitulasi-nilai" :href="route('homeroom.recapitulation')">
                     Rekapitulasi nilai
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-rubber-stamp" page-target="buat-surat-undangan" href="">
+                <x-staff.link.sidebar-item icon="ti-rubber-stamp" page-target="surat-undangan" :href="route('homeroom.invitattion')">
                     Buat surat undangan
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" href="">
+                <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" :href="route('staff.notification')">
                     Kirim notifikasi
                 </x-staff.link.sidebar-item>
                 <li class="nav-small-cap">
@@ -67,6 +67,9 @@
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-users" page-target="manajemen-siswa" href="">
                     Manajemen siswa
+                </x-staff.link.sidebar-item>
+                <x-staff.link.sidebar-item icon="ti-settings" page-target="manajemen-aplikasi" href="">
+                    Manajemen aplikasi
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-news" page-target="buat-berita" href="">
                     Buat berita

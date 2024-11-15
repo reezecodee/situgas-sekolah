@@ -13,3 +13,7 @@
 
     </x-slot>
 </x-layout.student>
+
+<x-layout.staff :title="$title">
+    ppp
+</x-layout.staff>
