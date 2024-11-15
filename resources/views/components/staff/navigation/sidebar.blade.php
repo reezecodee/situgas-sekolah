@@ -1,8 +1,8 @@
 <aside class="left-sidebar">
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.html" class="text-nowrap logo-img">
-                <img src="https://www.cybermakassar.com/asset/foto_berita/siakad-app.png" width="150" alt="" />
+            <a href="" class="text-nowrap logo-img">
+                <img src="https://utfs.io/f/1Vi5BNMUOBYhDOSAZe8RbNw0TePuECxWqiodzAnkc2G5lZKH" width="150" alt="" />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-8"></i>
@@ -37,19 +37,19 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu guru</span>
                 </li>
-                <x-staff.link.sidebar-item icon="ti-door-enter" page-target="masuk-kelas" href="">
+                <x-staff.link.sidebar-item icon="ti-door-enter" page-target="guru/masuk-kelas" :href="route('masuk-kelas.index')">
                     Masuk kelas
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-upload" page-target="upload-materi" href="">
+                <x-staff.link.sidebar-item icon="ti-upload" page-target="guru/upload-materi" :href="route('upload-materi.index')">
                     Upload materi
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-pencil-plus" page-target="buat-tugas" href="">
+                <x-staff.link.sidebar-item icon="ti-pencil-plus" page-target="guru/buat-tugas" :href="route('buat-tugas.index')">
                     Buat tugas
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-chart-dots" page-target="penilaian-tugas" href="">
+                <x-staff.link.sidebar-item icon="ti-chart-dots" page-target="guru/penilaian-tugas" :href="route('penilaian-tugas.index')">
                     Penilaian tugas
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-mailbox" page-target="kirim-hasil-studi" href="">
+                <x-staff.link.sidebar-item icon="ti-mailbox" page-target="guru/kirim-hasil-studi" :href="route('kirim-hasil-studi.index')">
                     Kirim hasil studi
                 </x-staff.link.sidebar-item>
                 <li class="nav-small-cap">
@@ -70,6 +70,9 @@
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-settings" page-target="manajemen-aplikasi" href="">
                     Manajemen aplikasi
+                </x-staff.link.sidebar-item>
+                <x-staff.link.sidebar-item icon="ti-calendar" page-target="kalender-akaedmik" href="">
+                    Kalender akademik
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-news" page-target="buat-berita" href="">
                     Buat berita

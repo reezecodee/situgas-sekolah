@@ -6,8 +6,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                <a href=".">
-                    <img src="" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                <a href="">
+                    <img src="https://utfs.io/f/1Vi5BNMUOBYhDOSAZe8RbNw0TePuECxWqiodzAnkc2G5lZKH" height="32" width="102" alt="Tabler" class="navbar-brand-image">
                 </a>
             </h1>
             <div class="navbar-nav flex-row order-md-last">
