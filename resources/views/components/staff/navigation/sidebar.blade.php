@@ -56,31 +56,31 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu admin</span>
                 </li>
-                <x-staff.link.sidebar-item icon="ti-chart-bubble" page-target="manajemen-program-studi" href="">
+                <x-staff.link.sidebar-item icon="ti-chart-bubble" page-target="admin/prodi" :href="route('prodi.index')">
                     Manajemen program studi
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-building-bank" page-target="manajemen-guru" href="">
+                <x-staff.link.sidebar-item icon="ti-building-bank" page-target="admin/kelas" :href="route('kelas.index')">
                     Manajemen kelas
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-school" page-target="manajemen-guru" href="">
+                <x-staff.link.sidebar-item icon="ti-school" page-target="admin/guru" :href="route('guru.index')">
                     Manajemen guru
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-users" page-target="manajemen-siswa" href="">
+                <x-staff.link.sidebar-item icon="ti-users" page-target="admin/siswa" :href="route('siswa.index')">
                     Manajemen siswa
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-settings" page-target="manajemen-aplikasi" href="">
+                <x-staff.link.sidebar-item icon="ti-settings" page-target="admin/aplikasi" :href="route('aplikasi.index')">
                     Manajemen aplikasi
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-calendar" page-target="kalender-akaedmik" href="">
+                <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender" :href="route('kalender.index')">
                     Kalender akademik
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-news" page-target="buat-berita" href="">
                     Buat berita
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-paperclip" page-target="buat-surat" href="">
+                <x-staff.link.sidebar-item icon="ti-paperclip" page-target="admin/surat" :href="route('surat.index')">
                     Buat surat
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" href="">
+                <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" :href="route('staff.notification')">
                     Kirim notifikasi
                 </x-staff.link.sidebar-item>
             </ul>
