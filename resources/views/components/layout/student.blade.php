@@ -29,24 +29,22 @@
         }
     </style>
     {{ $style ?? '' }}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
 </head>
 
 <body class="font-sans antialiased">
     <script src="/student/js/demo-theme.min.js?1684106062"></script>
     <div class="page">
-        <x-student.navigation.navbar/>
+        <x-student.navigation.navbar />
         <div class="page-wrapper">
             {{ $header ?? '' }}
             <div class="page-body">
                 <div class="container-xl">
-                    <div class="card">
-                        <div class="card-body">
-                            {{ $slot }}
-                        </div>
-                    </div>
+                    {{ $slot }}
                 </div>
             </div>
-            <x-student.navigation.footer/>
+            <x-student.navigation.footer />
         </div>
     </div>
     <script src="/student/js/tabler.min.js?1684106062" defer></script>

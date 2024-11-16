@@ -7,7 +7,11 @@
         <x-student.navigation.page-header page-pretitle="overview" :page-title="$title" />
     </x-slot>
 
-    <div id="calendar"></div>
+    <div class="card">
+        <div class="card-body">
+            <div id="calendar"></div>
+        </div>
+    </div>
 
     <x-slot name="script">
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
