@@ -28,7 +28,7 @@
                                 <i class="ti ti-user fs-6"></i>
                                 <p class="mb-0 fs-3">Profile Saya</p>
                             </a>
-                            <a href=""
+                            <a href="#" onclick="confirmCreate()"
                                 class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                         </div>
                     </div>

@@ -39,6 +39,8 @@
     <script src="/staff/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="/staff/libs/simplebar/dist/simplebar.js"></script>
     <script src="/staff/js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/swal.js"></script>
 </body>
 
 </html>

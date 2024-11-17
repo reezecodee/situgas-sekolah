@@ -50,6 +50,8 @@
     <script src="/student/js/tabler.min.js?1684106062" defer></script>
     <script src="/student/js/demo.min.js?1684106062" defer></script>
     {{ $script ?? '' }}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/swal.js"></script>
 </body>
 
 </html>
