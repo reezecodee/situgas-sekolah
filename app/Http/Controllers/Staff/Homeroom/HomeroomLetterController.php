@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Staff\Homeroom;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LetterInvitationController extends Controller
+class HomeroomLetterController extends Controller
 {
     public function index()
     {
-        $title = 'Buat Surat Undangan';
+        $title = 'Buat Surat';
 
-        return view('staff-pages.homeroom.rekap-nilai', compact('title'));
+        return view('staff-pages.homeroom.surat', compact('title'));
     }
 }

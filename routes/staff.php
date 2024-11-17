@@ -9,7 +9,8 @@ use App\Http\Controllers\Staff\Admin\StudentController;
 use App\Http\Controllers\Staff\Admin\TeacherController;
 use App\Http\Controllers\Staff\DashboardController;
 use App\Http\Controllers\Staff\Homeroom\GuidanceStudentController;
-use App\Http\Controllers\Staff\Homeroom\LetterInvitationController;
+use App\Http\Controllers\Staff\Homeroom\HomeroomLetterController;
+use App\Http\Controllers\Staff\Homeroom\InternshipController;
 use App\Http\Controllers\Staff\Homeroom\RecapitulationController;
 use App\Http\Controllers\Staff\NotificationController;
 use App\Http\Controllers\Staff\Teacher\AssignmentController;
@@ -33,12 +34,16 @@ Route::prefix('staff')->group(function () {
             Route::get('/murid-bimbingan', 'index')->name('homeroom.guidance');
         });
 
+        Route::controller(InternshipController::class)->group(function(){
+            Route::get('/manajemen-pkl', 'index')->name('homeroom.internship');
+        });
+        
         Route::controller(RecapitulationController::class)->group(function(){
             Route::get('/rekapitulasi-nilai', 'index')->name('homeroom.recapitulation');
         });
 
-        Route::controller(LetterInvitationController::class)->group(function(){
-            Route::get('/surat-undangan', 'index')->name('homeroom.invitattion');
+        Route::controller(HomeroomLetterController::class)->group(function(){
+            Route::get('/surat', 'index')->name('homeroom.invitattion');
         });
     });
 

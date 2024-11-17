@@ -27,8 +27,11 @@
                 <x-staff.link.sidebar-item icon="ti-report" page-target="rekapitulasi-nilai" :href="route('homeroom.recapitulation')">
                     Rekapitulasi nilai
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-rubber-stamp" page-target="surat-undangan" :href="route('homeroom.invitattion')">
-                    Buat surat undangan
+                <x-staff.link.sidebar-item icon="ti-briefcase" page-target="manajemen-pkl" :href="route('homeroom.internship')">
+                    Manajemen PKL
+                </x-staff.link.sidebar-item>
+                <x-staff.link.sidebar-item icon="ti-rubber-stamp" page-target="surat" :href="route('homeroom.invitattion')">
+                    Buat surat
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" :href="route('staff.notification')">
                     Kirim notifikasi
