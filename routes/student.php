@@ -48,7 +48,6 @@ Route::prefix('student')->group(function () {
 
     Route::prefix('surat')->controller(LetterSubmissionController::class)->group(function(){
         Route::get('/izin-tidak-hadir', 'premitAbsent')->name('student.premitAbsent');
-        Route::get('/dispenisasi', 'premitDispensation')->name('student.premitDispensation');
         Route::get('/permohonan-pkl', 'premitPleaInternship')->name('student.premitPleaInternship');
     });
 

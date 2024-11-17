@@ -166,8 +166,6 @@
                             <x-slot name="subitem">
                                 <x-student.link.dropdown-item :href="route('student.premitAbsent')" page-target="surat/izin-tidak-hadir">Surat izin
                                     tidak hadir</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item :href="route('student.premitDispensation')" page-target="surat/dispenisasi">Surat izin
-                                    dispenisasi</x-student.link.dropdown-item>
                                 <x-student.link.dropdown-item :href="route('student.premitPleaInternship')" page-target="surat/permohonan-pkl">Surat
                                     permohonan PKL</x-student.link.dropdown-item>
                             </x-slot>

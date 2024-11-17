@@ -14,13 +14,6 @@ class LetterSubmissionController extends Controller
         return view('student-pages.surat.izin-kehadiran', compact('title'));
     }
 
-    public function premitDispensation()
-    {
-        $title = 'Surat Izin Dispenisasi';
-
-        return view('student-pages.surat.dispenisasi', compact('title'));
-    }
-
     public function premitPleaInternship()
     {
         $title = 'Surat Permohonan PKL';
