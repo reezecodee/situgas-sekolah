@@ -46,11 +46,8 @@
                 <x-staff.link.sidebar-item icon="ti-upload" page-target="guru/upload-materi" :href="route('upload-materi.index')">
                     Upload materi
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-pencil-plus" page-target="guru/buat-tugas" :href="route('buat-tugas.index')">
-                    Buat tugas
-                </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-chart-dots" page-target="guru/penilaian-tugas" :href="route('penilaian-tugas.index')">
-                    Penilaian tugas
+                <x-staff.link.sidebar-item icon="ti-pencil-plus" page-target="guru/penugasan" :href="route('penugasan.index')">
+                    Penugasan
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-mailbox" page-target="guru/kirim-hasil-studi" :href="route('kirim-hasil-studi.index')">
                     Kirim hasil studi

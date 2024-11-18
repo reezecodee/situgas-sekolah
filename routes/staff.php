@@ -17,7 +17,6 @@ use App\Http\Controllers\Staff\ProfileController;
 use App\Http\Controllers\Staff\Teacher\AssignmentController;
 use App\Http\Controllers\Staff\Teacher\EnterClassroomController;
 use App\Http\Controllers\Staff\Teacher\StudyResultController;
-use App\Http\Controllers\Staff\Teacher\TaskEvaluationController;
 use App\Http\Controllers\Staff\Teacher\UploadMateriController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,8 +54,7 @@ Route::prefix('staff')->group(function () {
     Route::prefix('guru')->group(function(){
         Route::resource('/masuk-kelas', EnterClassroomController::class);
         Route::resource('/upload-materi', UploadMateriController::class);
-        Route::resource('/buat-tugas', AssignmentController::class);
-        Route::resource('/penilaian-tugas', TaskEvaluationController::class);
+        Route::resource('/penugasan', AssignmentController::class);
         Route::resource('/kirim-hasil-studi', StudyResultController::class);
     });
 

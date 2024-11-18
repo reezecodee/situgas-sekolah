@@ -12,7 +12,7 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $title = 'Buat Tugas';
+        $title = 'Penugasan Siswa';
 
         return view('staff-pages.teacher.tugas.index', compact('title'));
     }
