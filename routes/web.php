@@ -8,3 +8,4 @@ Route::get('/', function () {
 
 require __DIR__.'/student.php';
 require __DIR__.'/staff.php';
+require __DIR__.'/datatables.php';

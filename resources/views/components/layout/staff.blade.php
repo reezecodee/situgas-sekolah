@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ $title }}</title>
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -13,6 +14,8 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="/staff/css/styles.min.css" />
+
+    {{ $style ?? '' }}
 </head>
 
 <body class="font-sans antialiased">
@@ -41,6 +44,9 @@
     <script src="/staff/js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/swal.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    {{ $script ?? '' }}
 </body>
 
 </html>
