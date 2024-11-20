@@ -22,7 +22,9 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Buat Kelas Baru';
+
+        return view('staff-pages.admin.kelas.buat-kelas', compact('title'));
     }
 
     /**

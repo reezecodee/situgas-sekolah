@@ -5,7 +5,9 @@ use App\Http\Controllers\Staff\Admin\CalendarController;
 use App\Http\Controllers\Staff\Admin\ClassroomController;
 use App\Http\Controllers\Staff\Admin\LetterController;
 use App\Http\Controllers\Staff\Admin\MajorController;
+use App\Http\Controllers\Staff\Admin\SchoolYearController;
 use App\Http\Controllers\Staff\Admin\StudentController;
+use App\Http\Controllers\Staff\Admin\SubjectController;
 use App\Http\Controllers\Staff\Admin\TeacherController;
 use App\Http\Controllers\Staff\DashboardController;
 use App\Http\Controllers\Staff\Homeroom\GuidanceStudentController;
@@ -59,10 +61,12 @@ Route::prefix('staff')->group(function () {
     });
 
     Route::prefix('admin')->group(function(){
+        Route::resource('/tahun-ajaran', SchoolYearController::class);
         Route::resource('/prodi', MajorController::class);
         Route::resource('/kelas', ClassroomController::class);
         Route::resource('/guru', TeacherController::class);
         Route::resource('/siswa', StudentController::class);
+        Route::resource('/pelajaran', SubjectController::class);
         Route::resource('/aplikasi', ApplicationController::class);
         Route::resource('/kalender', CalendarController::class);
         Route::resource('/surat', LetterController::class);

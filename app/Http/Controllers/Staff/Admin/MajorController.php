@@ -22,7 +22,9 @@ class MajorController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Buat Program Studi';
+
+        return view('staff-pages.admin.prodi.buat-prodi', compact('title'));
     }
 
     /**

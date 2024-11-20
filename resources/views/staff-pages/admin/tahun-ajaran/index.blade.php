@@ -1,7 +1,7 @@
 <x-layout.staff :title="$title">
     <div class="mb-4 d-flex justify-content-end">
-        <a href="{{ route('guru.create') }}">
-            <button class="btn btn-primary">Tambah Guru</button>
+        <a href="{{ route('tahun-ajaran.create') }}">
+            <button class="btn btn-primary">Buat Tahun Ajaran Baru</button>
         </a>
     </div>
     <table id="studentsTable" class="table table-bordered table-striped">

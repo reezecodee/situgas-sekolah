@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Staff\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $title = 'Manajemen Guru';
+        $title = 'Mata Pelajaran';
 
-        return view('staff-pages.admin.guru.index', compact('title'));
+        return view('staff-pages.admin.pelajaran.index', compact('title'));
     }
 
     /**
@@ -22,9 +22,9 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        $title = 'Tambah Guru';
+        $title = 'Tambah Mata Pelajaran';
 
-        return view('staff-pages.admin.guru.tambah-guru', compact('title'));
+        return view('staff-pages.admin.pelajaran.buat-pelajaran', compact('title'));
     }
 
     /**
