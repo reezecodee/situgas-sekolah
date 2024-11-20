@@ -65,7 +65,10 @@
                 <x-staff.link.sidebar-item icon="ti-building-bank" page-target="admin/kelas" :href="route('kelas.index')">
                     Manajemen kelas
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-school" page-target="admin/guru" :href="route('guru.index')">
+                <x-staff.link.sidebar-item icon="ti-ruler-2" page-target="admin/admin" :href="route('admin.index')">
+                    Manajemen admin
+                </x-staff.link.sidebar-item>
+                <x-staff.link.sidebar-item icon="ti-chalkboard" page-target="admin/guru" :href="route('guru.index')">
                     Manajemen guru
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-users" page-target="admin/siswa" :href="route('siswa.index')">

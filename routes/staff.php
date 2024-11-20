@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Staff\Admin\AdminController;
 use App\Http\Controllers\Staff\Admin\ApplicationController;
 use App\Http\Controllers\Staff\Admin\CalendarController;
 use App\Http\Controllers\Staff\Admin\ClassroomController;
@@ -65,6 +66,7 @@ Route::prefix('staff')->group(function () {
         Route::resource('/prodi', MajorController::class);
         Route::resource('/kelas', ClassroomController::class);
         Route::resource('/guru', TeacherController::class);
+        Route::resource('/admin', AdminController::class);
         Route::resource('/siswa', StudentController::class);
         Route::resource('/pelajaran', SubjectController::class);
         Route::resource('/aplikasi', ApplicationController::class);
