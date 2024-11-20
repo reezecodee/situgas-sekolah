@@ -33,6 +33,9 @@
             </a>
         </div>
     </div>
+    <form action="{{ route('cetak') }}" method="get">
+        <button type="submit" class="btn btn-primary">Cetak</button>
+    </form>
     <x-slot name="script">
 
     </x-slot>

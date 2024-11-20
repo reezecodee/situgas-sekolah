@@ -36,9 +36,15 @@ class LetterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        $query = $request->query('type');
+
+        if($query == 'undangan rapat'){
+            return view('staff-pages.admin.surat.undangan-rapat');
+        }else{
+            return view('staff-pages.admin.surat.undangan-rapat');
+        }
     }
 
     /**
