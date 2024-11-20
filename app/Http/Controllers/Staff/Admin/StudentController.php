@@ -22,7 +22,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Manajemen Siswa';
+
+        return view('staff-pages.admin.siswa.tambah-siswa', compact('title'));
     }
 
     /**

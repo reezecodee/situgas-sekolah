@@ -1,4 +1,9 @@
 <x-layout.staff :title="$title">
+    <div class="mb-4 d-flex justify-content-end">
+        <a href="{{ route('siswa.create') }}">
+            <button class="btn btn-primary">Tambah Siswa Baru</button>
+        </a>
+    </div>
     <table id="studentsTable" class="table table-bordered table-striped">
         <thead>
             <tr>
