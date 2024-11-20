@@ -22,7 +22,9 @@ class CalendarController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Buat Jadwal';
+
+        return view('staff-pages.admin.kalender.buat-jadwal', compact('title'));
     }
 
     /**

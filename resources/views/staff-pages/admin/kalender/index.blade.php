@@ -3,6 +3,11 @@
         <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
     </x-slot>
 
+    <div class="mb-4 d-flex justify-content-end">
+        <a href="{{ route('kalender.create') }}">
+            <button class="btn btn-primary">Buat Jadwal</button>
+        </a>
+    </div>
     <div id="calendar"></div>
 
     <x-slot name="script">
