@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Staff\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\TahunAjaranRequest;
 use App\Models\AcademicYear;
 use Illuminate\Http\Request;
 
@@ -31,11 +32,12 @@ class SchoolYearController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TahunAjaranRequest $request)
     {
         // $validatedData = $request->validated();
-        AcademicYear::create($request);
-        return redirect()->route('tahun-ajaran.index')->withSuccess('Berhasil menambahkan tahun ajaran baru.');
+
+        // AcademicYear::create($validatedData);
+        // return redirect()->route('tahun-ajaran.index')->withSuccess('Berhasil menambahkan tahun ajaran baru.');
     }
 
     /**

@@ -29,10 +29,10 @@
             <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Tanggal mulai</label>
-                    <input type="date" name="tanggal-mulai"
-                        class="form-control @error('tanggal-mulai') is-invalid @enderror"
-                        value="{{ old('tanggal-mulai') }}" autocomplete="off" required>
-                    @error('tanggal-mulai')
+                    <input type="date" name="tanggal_mulai"
+                        class="form-control @error('tanggal_mulai') is-invalid @enderror"
+                        value="{{ old('tanggal_mulai') }}" autocomplete="off" required>
+                    @error('tanggal_mulai')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
@@ -40,10 +40,10 @@
             <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Tanggal selesai</label>
-                    <input type="date" name="tanggal-selesai"
-                        class="form-control @error('tanggal-selesai') is-invalid @enderror"
-                        value="{{ old('tanggal-selesai') }}" autocomplete="off" required>
-                    @error('tanggal-selesai')
+                    <input type="date" name="tanggal_selesai"
+                        class="form-control @error('tanggal_selesai') is-invalid @enderror"
+                        value="{{ old('tanggal_selesai') }}" autocomplete="off" required>
+                    @error('tanggal_selesai')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
