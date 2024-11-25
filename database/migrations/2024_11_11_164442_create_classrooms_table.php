@@ -15,7 +15,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('homeroom_id')->constrained('teachers');
             $table->string('nama_kelas');
-            $table->string('slug')->index();
             $table->timestamps();
         });
     }

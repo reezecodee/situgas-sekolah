@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PrivacyStudents extends Model
 {
-    //
+    protected $gurded = ['id'];
+    
 }

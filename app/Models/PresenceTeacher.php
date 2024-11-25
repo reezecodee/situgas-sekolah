@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PresenceTeacher extends Model
 {
-    //
+    protected $gurded = ['id'];
+    
 }

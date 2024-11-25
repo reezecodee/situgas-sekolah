@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PeriodeAcademic extends Model
 {
-    //
+    protected $gurded = ['id'];
+    
 }

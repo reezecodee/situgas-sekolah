@@ -15,7 +15,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('kode')->unique();
             $table->string('nama_pelajaran');
-            $table->string('slug')->index();
             $table->timestamps();
         });
     }

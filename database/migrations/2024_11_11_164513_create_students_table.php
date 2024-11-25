@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignUuid('class_id')->constrained('classrooms');
             $table->string('nama');
             $table->string('telepon');
-            $table->string('slug')->index();
             $table->string('avatar')->nullable();
             $table->enum('status', ['Aktif', 'Tidak aktif']);
             $table->timestamps();

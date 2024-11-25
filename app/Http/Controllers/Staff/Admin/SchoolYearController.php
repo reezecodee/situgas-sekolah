@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Staff\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AcademicYear;
 use Illuminate\Http\Request;
 
 class SchoolYearController extends Controller
@@ -32,7 +33,9 @@ class SchoolYearController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $validatedData = $request->validated();
+        AcademicYear::create($request);
+        return redirect()->route('tahun-ajaran.index')->withSuccess('Berhasil menambahkan tahun ajaran baru.');
     }
 
     /**
