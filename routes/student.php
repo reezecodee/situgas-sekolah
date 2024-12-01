@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\Student\HelpController;
-use App\Http\Controllers\Student\NotificationController;
-use App\Http\Controllers\Student\ProfileController;
 use App\Livewire\Student\Academics\Calendar\Calendar;
 use App\Livewire\Student\Academics\Class\MyClass;
 use App\Livewire\Student\Academics\Schedule\Schedule;
