@@ -57,7 +57,7 @@
                             <div class="card">
                                 <div class="card-header d-flex justify-content-between">
                                     <h3 class="card-title">Notifikasi terbaru</h3>
-                                    <a href="{{ route('student.notification') }}">
+                                    <a wire:navigate href="{{ route('student.notification') }}">
                                         <button class="btn btn-primary">Lihat semua</button>
                                     </a>
                                 </div>
@@ -104,7 +104,7 @@
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <a href="{{ route('student.profile') }}" class="dropdown-item">Profile</a>
+                        <a wire:navigate href="{{ route('student.profile') }}" class="dropdown-item">Profile</a>
                         <a href="" class="dropdown-item">Logout</a>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                             <x-slot name="subitem">
                                 <x-student.link.dropdown-item :href="route('student.calendar')" page-target="akademik/kalender-akademik">Kalender
                                     akademik</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item :href="route('student.subjectSchedule')" page-target="akademik/jadwal-pelajaran">Jadwal pelajaran</x-student.link.dropdown-item>
+                                <x-student.link.dropdown-item :href="route('student.schedule')" page-target="akademik/jadwal-pelajaran">Jadwal pelajaran</x-student.link.dropdown-item>
                                 <x-student.link.dropdown-item :href="route('student.myClass')" page-target="akademik/kelas-saya">Kelas
                                     saya</x-student.link.dropdown-item>
                             </x-slot>
@@ -170,15 +170,6 @@
                                     permohonan PKL</x-student.link.dropdown-item>
                             </x-slot>
                         </x-student.link.nav-dropdown>
-                        <x-student.link.navitem title="Berita sekolah" page-target="berita" href="student/berita">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
-                                </svg>
-                            </span>
-                        </x-student.link.navitem>
                         <x-student.link.navitem title="Bantuan" page-target="bantuan" :href="route('student.help')">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
@@ -199,3 +190,4 @@
         </div>
     </header>
 </div>
+
