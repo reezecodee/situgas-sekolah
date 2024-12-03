@@ -31,26 +31,26 @@ use App\Livewire\Staff\Teacher\Result\StudyResult;
 use App\Livewire\Staff\Teacher\Task\ListTask;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('staff')->group(function () {
+Route::prefix('staff')->middleware('auth')->group(function () {
     Route::get('dashboard', Dashboard::class)->name('staff.dashboard');
     Route::get('kirim-notifikasi', SendNotif::class)->name('staff.notification');
     Route::get('profile-saya', Profile::class)->name('staff.profile');
 
-    Route::prefix('wali-kelas')->group(function () {
+    Route::prefix('wali-kelas')->middleware(['role:Guru', 'permission:Wali Kelas'])->group(function () {
         Route::get('murid-bimbingan', GuidanceStudent::class)->name('homeroom.guidance');
         Route::get('rekapitulasi-nilai', RecapResult::class)->name('homeroom.recapitulation');
         Route::get('surat', Letter::class)->name('homeroom.invitation');
         Route::get('manajemen-pkl', ManageIntern::class)->name('homeroom.internship');
     });
 
-    Route::prefix('guru')->group(function () {
+    Route::prefix('guru')->middleware('role:Guru')->group(function () {
         Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
         Route::get('upload-materi', ListMateri::class)->name('teacher.upload');
         Route::get('penugasan', ListTask::class)->name('teacher.task');
         Route::get('kirim-hasil-studi', StudyResult::class)->name('teacher.studyResult');
     });
 
-    Route::prefix('admin')->group(function () {
+    Route::prefix('admin')->middleware('role:Admin')->group(function () {
         Route::get('admin', ListAdmin::class)->name('admin.list');
         Route::get('admin/create', CreateAdmin::class)->name('admin.create');
 

@@ -54,10 +54,10 @@ class UsersSeeder extends Seeder
                 'password' => $userData['password']
             ]);
 
-            $user->assignRole($userData['role']);
+            $user->assignRole($userData['role']); // Menetapkan role
 
             if (!empty($userData['permission'])) {
-                $user->givePermissionTo($userData['permission']);
+                $user->givePermissionTo($userData['permission']); // Menetapkan permission
             }
         }
     }

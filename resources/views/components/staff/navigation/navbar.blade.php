@@ -16,20 +16,26 @@
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="javascript:void(0)" id="drop2"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <span style="font-size: 14px;" class="me-2 fw-bold">Drs. Acumalaka</span>
-                        <img src="https://avatars.githubusercontent.com/u/159593076?v=4" alt="" width="35" height="35"
-                            class="rounded-circle">
+                    <a class="nav-link" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <span style="font-size: 14px;" class="me-2 fw-bold">{{ auth()->user()->email }}</span>
+                        <img src="https://avatars.githubusercontent.com/u/159593076?v=4" alt="" width="35"
+                            height="35" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                         <div class="message-body">
-                            <a href="{{ route('staff.profile') }}" class="d-flex align-items-center gap-2 dropdown-item {{ Request::is('staff/profile-saya*') ? 'active' : '' }}">
+                            <a href="{{ route('staff.profile') }}"
+                                class="d-flex align-items-center gap-2 dropdown-item {{ Request::is('staff/profile-saya*') ? 'active' : '' }}">
                                 <i class="ti ti-user fs-6"></i>
                                 <p class="mb-0 fs-3">Profile Saya</p>
                             </a>
-                            <a href="#" onclick="confirmCreate()"
-                                class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                            <div class="d-flex justify-content-center w-full">
+                                <form method="POST" action="{{ route('logout') }}" id="logout">
+                                    @csrf
+                                    <button type="button" onclick="confirmLogout()"
+                                        class="btn btn-danger">Logout</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </li>

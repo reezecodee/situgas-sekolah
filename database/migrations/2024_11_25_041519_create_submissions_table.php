@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('submissions', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('siswa_id')->constrained('students');
-            $table->foreignUuid('penugasan_id')->constrained('assigmnents');
+            $table->foreignUuid('penugasan_id')->constrained('assignments');
             $table->string('file_pengerjaan');
             $table->date('tanggal');
             $table->string('nilai');
