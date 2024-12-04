@@ -68,7 +68,7 @@
             <a href="{{ route('subject.list') }}">
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
-            <button type="submit" class="btn btn-primary">Simpan Pelajaran</button>
+            <button type="submit" class="btn btn-primary">Edit Pelajaran</button>
         </div>
     </form>
 </div>

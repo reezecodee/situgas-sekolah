@@ -1,49 +1,33 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a href="">
-            <button class="btn btn-primary">Tambah Mata Pelajaran</button>
+        <a wire:navigate href="{{ route('subject.create') }}">
+            <button class="btn btn-primary">Buat Mata Pelajaran Baru</button>
         </a>
     </div>
-    <table id="studentsTable" class="table table-bordered table-striped">
+
+    <table id="subjectTable" class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nama</th>
-                <th>Kelas</th>
-                <th>Nilai</th>
+                <th>Nama pelajaran</th>
+                <th>Tingkat kelas</th>
+                <th>Status</th>
                 <th>Aksi</th>
             </tr>
         </thead>
     </table>
+
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#studentsTable').DataTable({
+                $('#subjectTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.students') }}',
-                    columns: [{
-                            data: 'id',
-                            name: 'id'
-                        },
-                        {
-                            data: 'name',
-                            name: 'name'
-                        },
-                        {
-                            data: 'class',
-                            name: 'class'
-                        },
-                        {
-                            data: 'score',
-                            name: 'score'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action',
-                            orderable: false,
-                            searchable: false
-                        }
+                    ajax: '{{ route('dt.subject') }}',
+                    columns: [
+                        { data: 'mapel', name: 'mapel' },
+                        { data: 'tingkat', name: 'tingkat' },
+                        { data: 'status', name: 'status' },
+                        { data: 'action', name: 'action', orderable: false, searchable: false }
                     ]
                 });
             });
