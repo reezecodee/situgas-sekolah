@@ -18,7 +18,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <span style="font-size: 14px;" class="me-2 fw-bold">{{ auth()->user()->email }}</span>
+                        <span style="font-size: 14px;" class="me-2 fw-bold">{{ $userActive->nama }}</span>
                         <img src="https://avatars.githubusercontent.com/u/159593076?v=4" alt="" width="35"
                             height="35" class="rounded-circle">
                     </a>

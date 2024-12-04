@@ -6,7 +6,10 @@ use App\Livewire\Staff\Admin\App\Setting;
 use App\Livewire\Staff\Admin\Calendar\Calendar;
 use App\Livewire\Staff\Admin\Calendar\CreateCalendar;
 use App\Livewire\Staff\Admin\Class\CreateClass;
+use App\Livewire\Staff\Admin\Class\DetailClass;
+use App\Livewire\Staff\Admin\Class\EditClass;
 use App\Livewire\Staff\Admin\Class\ListClass;
+use App\Livewire\Staff\Admin\Class\Subclass;
 use App\Livewire\Staff\Admin\Letter\LetterIndex;
 use App\Livewire\Staff\Admin\Major\CreateMajor;
 use App\Livewire\Staff\Admin\Major\ListMajor;
@@ -32,7 +35,7 @@ use App\Livewire\Staff\Teacher\Result\StudyResult;
 use App\Livewire\Staff\Teacher\Task\ListTask;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru'])->group(function () {
+Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->group(function () {
     Route::get('dashboard', Dashboard::class)->name('staff.dashboard');
     Route::get('kirim-notifikasi', SendNotif::class)->name('staff.notification');
     Route::get('profile-saya', Profile::class)->name('staff.profile');
@@ -64,6 +67,9 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru'])->group(function 
 
         Route::get('kelas', ListClass::class)->name('class.list');
         Route::get('kelas/create', CreateClass::class)->name('class.create');
+        Route::get('kelas/subkelas', Subclass::class)->name('class.subclass');
+        Route::get('kelas/{id}/edit', EditClass::class)->name('class.edit');
+        Route::get('kelas/{id}/detail', DetailClass::class)->name('class.detail');
 
         Route::get('guru', ListTeacher::class)->name('teacher.list');
         Route::get('guru/create', CreateTeacher::class)->name('teacher.create');

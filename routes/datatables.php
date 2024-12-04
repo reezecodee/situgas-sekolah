@@ -3,6 +3,8 @@
 use App\Http\Controllers\Datatables\Staff\RecapitulationDatatableController;
 use App\Http\Controllers\Datatables\Staff\SchoolYearDatatableController;
 use App\Http\Controllers\Datatables\Staff\StudyResultDatatableController;
+use App\Http\Controllers\Datatables\Staff\SubclassDatatablesController;
+use App\Livewire\Staff\Admin\Class\Subclass;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(RecapitulationDatatableController::class)->group(function(){
@@ -16,3 +18,9 @@ Route::controller(StudyResultDatatableController::class)->group(function(){
 Route::controller(SchoolYearDatatableController::class)->group(function(){
     Route::get('/tahun-ajaran', 'getSchoolYear')->name('dt.schoolYear');
 });
+
+Route::controller(SubclassDatatablesController::class)->group(function(){
+    Route::get('/subkelas', 'getSubclass')->name('dt.subclass');
+});
+
+

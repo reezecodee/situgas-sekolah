@@ -28,9 +28,9 @@
                 <x-staff.link.sidebar-item icon="ti-report" page-target="rekapitulasi-nilai" :href="route('homeroom.recapitulation')">
                     Rekapitulasi nilai
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-briefcase" page-target="manajemen-pkl" :href="route('homeroom.internship')">
+                {{-- <x-staff.link.sidebar-item icon="ti-briefcase" page-target="manajemen-pkl" :href="route('homeroom.internship')">
                     Manajemen PKL
-                </x-staff.link.sidebar-item>
+                </x-staff.link.sidebar-item> --}}
                 <x-staff.link.sidebar-item icon="ti-rubber-stamp" page-target="surat" :href="route('homeroom.invitation')">
                     Buat surat
                 </x-staff.link.sidebar-item>
@@ -64,9 +64,9 @@
                 <x-staff.link.sidebar-item icon="ti-notebook" page-target="admin/tahun-ajaran" :href="route('year.list')">
                     Tahun ajaran
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-chart-bubble" page-target="admin/prodi" :href="route('major.list')">
+                {{-- <x-staff.link.sidebar-item icon="ti-chart-bubble" page-target="admin/prodi" :href="route('major.list')">
                     Manajemen prodi
-                </x-staff.link.sidebar-item>
+                </x-staff.link.sidebar-item> --}}
                 <x-staff.link.sidebar-item icon="ti-building-bank" page-target="admin/kelas" :href="route('class.list')">
                     Manajemen kelas
                 </x-staff.link.sidebar-item>
@@ -88,9 +88,9 @@
                 <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender" :href="route('calendar.index')">
                     Kalender akademik
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-paperclip" page-target="admin/surat" :href="route('letter.index')">
+                {{-- <x-staff.link.sidebar-item icon="ti-paperclip" page-target="admin/surat" :href="route('letter.index')">
                     Buat surat
-                </x-staff.link.sidebar-item>
+                </x-staff.link.sidebar-item> --}}
                 <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" :href="route('staff.notification')">
                     Kirim notifikasi
                 </x-staff.link.sidebar-item>

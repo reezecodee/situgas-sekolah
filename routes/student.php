@@ -17,7 +17,7 @@ use App\Livewire\Student\Profile\DataPrivacy;
 use App\Livewire\Student\Profile\Profile;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('student')->middleware(['role:Siswa', 'auth'])->group(function () {
+Route::prefix('student')->middleware(['role:Siswa', 'auth', 'getDataUser'])->group(function () {
     Route::get('dashboard', Dashboard::class)->name('student.dashboard');
 
     Route::prefix('akademik')->group(function () {

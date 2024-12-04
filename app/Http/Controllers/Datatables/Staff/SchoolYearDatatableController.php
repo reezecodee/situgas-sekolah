@@ -15,7 +15,10 @@ class SchoolYearDatatableController extends Controller
 
         return DataTables::of($schoolYears)
             ->addColumn('action', function ($schoolYear) {
-                return '<a wire:navigate href="' . route('year.edit', $schoolYear->id) . '" class="btn btn-sm btn-primary">Edit</a>';
+                return '
+                <a wire:navigate href="' . route('year.edit', $schoolYear->id) . '" class="btn btn-sm btn-primary">Edit</a>
+                 <a wire:navigate href="' . route('year.edit', $schoolYear->id) . '" class="btn btn-sm btn-danger">Hapus</a>
+                ';
             })
             ->addColumn('status', function ($schoolYear) {
                 return $schoolYear->status === 'Aktif'

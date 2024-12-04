@@ -1,4 +1,9 @@
 <div>
+    <div class="mb-4 d-flex justify-content-end">
+        <a wire:navigate href="{{ route('class.subclass') }}">
+            <button class="btn btn-danger">Kembali</button>
+        </a>
+    </div>
     <form action="" method="post">
         @csrf
         <div class="row">
@@ -77,7 +82,7 @@
             <a href="{{ route('class.list') }}">
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
-            <button type="submit" class="btn btn-primary">Simpan Kelas</button>
+            <button type="submit" class="btn btn-primary">Edit Kelas</button>
         </div>
     </form>
 </div>
