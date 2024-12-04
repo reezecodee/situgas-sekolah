@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Datatables\Staff\AdminDatatablesController;
 use App\Http\Controllers\Datatables\Staff\RecapitulationDatatableController;
 use App\Http\Controllers\Datatables\Staff\SchoolYearDatatableController;
 use App\Http\Controllers\Datatables\Staff\StudyResultDatatableController;
@@ -21,6 +22,10 @@ Route::controller(SchoolYearDatatableController::class)->group(function(){
 
 Route::controller(SubclassDatatablesController::class)->group(function(){
     Route::get('/subkelas', 'getSubclass')->name('dt.subclass');
+});
+
+Route::controller(AdminDatatablesController::class)->group(function(){
+    Route::get('/admin', 'getAdmin')->name('dt.admin');
 });
 
 
