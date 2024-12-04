@@ -5,6 +5,7 @@ use App\Http\Controllers\Datatables\Staff\RecapitulationDatatableController;
 use App\Http\Controllers\Datatables\Staff\SchoolYearDatatableController;
 use App\Http\Controllers\Datatables\Staff\StudyResultDatatableController;
 use App\Http\Controllers\Datatables\Staff\SubclassDatatablesController;
+use App\Http\Controllers\Datatables\Staff\TeacherDatatableController;
 use App\Livewire\Staff\Admin\Class\Subclass;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,10 @@ Route::controller(SubclassDatatablesController::class)->group(function(){
 
 Route::controller(AdminDatatablesController::class)->group(function(){
     Route::get('/admin', 'getAdmin')->name('dt.admin');
+});
+
+Route::controller(TeacherDatatableController::class)->group(function(){
+    Route::get('/guru', 'getTeacher')->name('dt.teacher');
 });
 
 

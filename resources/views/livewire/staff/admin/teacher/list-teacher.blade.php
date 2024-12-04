@@ -1,16 +1,16 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a href="">
+        <a wire:navigate href="{{ route('teacher.create') }}">
             <button class="btn btn-primary">Tambah Guru</button>
         </a>
     </div>
-    <table id="studentsTable" class="table table-bordered table-striped">
+    <table id="teacherTable" class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>No</th>
                 <th>Nama</th>
-                <th>Kelas</th>
-                <th>Nilai</th>
+                <th>Telepon</th>
+                <th>Status</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -18,10 +18,10 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#studentsTable').DataTable({
+                $('#teacherTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.students') }}',
+                    ajax: '{{ route('dt.teacher') }}',
                     columns: [{
                             data: 'id',
                             name: 'id'
@@ -31,12 +31,12 @@
                             name: 'name'
                         },
                         {
-                            data: 'class',
-                            name: 'class'
+                            data: 'telepon',
+                            name: 'telepon'
                         },
                         {
-                            data: 'score',
-                            name: 'score'
+                            data: 'status',
+                            name: 'status'
                         },
                         {
                             data: 'action',
