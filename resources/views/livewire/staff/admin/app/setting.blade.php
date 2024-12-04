@@ -54,7 +54,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="" class="form-label">Deskripsi</label>
-                            <textarea id="editor" name="deskripsi" required></textarea>
+                            <textarea id="editor" class="form-control" name="deskripsi" required></textarea>
                             @error('deskripsi')
                                 <span class="text-danger mt-1">{{ $message }}</span>
                             @enderror
