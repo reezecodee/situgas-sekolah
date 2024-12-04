@@ -8,11 +8,12 @@ use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class CreateYear extends Component
+class EditYear extends Component
 {
-    #[Title('Buat Tahun Ajaran Baru')]
+    #[Title('Edit Tahun Ajaran')]
     #[Layout('components.layouts.staff')]
 
+    public $id;
     #[Validate]
     public $periode;
     #[Validate]
@@ -34,20 +35,33 @@ class CreateYear extends Component
         ];
     }
 
+    public function mount($id){
+        $this->id = $id;
+        $schoolYear = SchoolYear::findOrFail($this->id);
+
+        $this->periode = $schoolYear->periode;
+        $this->semester = $schoolYear->semester;
+        $this->tgl_mulai = $schoolYear->tgl_mulai;
+        $this->tgl_selesai = $schoolYear->tgl_selesai;
+        $this->status = $schoolYear->status;
+
+    }
+
     public function submit()
     {
         $data = $this->validate();
 
-        SchoolYear::create($data);
+        $schoolYear = SchoolYear::findOrFail($this->id);
+        $schoolYear->update($data);
 
-        session()->flash("success", "Berhasil menambahkan tahun ajaran baru periode {$this->periode}");
-        return redirect()->to(route('year.list'));
+        session()->flash("success", "Berhasil memperbarui tahun ajaran baru periode {$this->periode}");
+        return redirect()->to(route('year.edit', $this->id));
     }
 
     public function render()
     {
-        $title = 'Buat Tahun Ajaran Baru';
+        $title = 'Edit Tahun Ajaran';
 
-        return view('livewire.staff.admin.school-year.create-year', compact('title'));
+        return view('livewire.staff.admin.school-year.edit-year', compact('title'));
     }
 }

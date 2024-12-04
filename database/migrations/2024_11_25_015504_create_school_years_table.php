@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('school_years', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('periode');
             $table->enum('semester', ['Ganjil', 'Genap']);
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');

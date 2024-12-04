@@ -7,7 +7,8 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                 <a href="">
-                    <img src="https://utfs.io/f/1Vi5BNMUOBYhDOSAZe8RbNw0TePuECxWqiodzAnkc2G5lZKH" height="32" width="102" alt="Tabler" class="navbar-brand-image">
+                    <img src="https://utfs.io/f/1Vi5BNMUOBYhDOSAZe8RbNw0TePuECxWqiodzAnkc2G5lZKH" height="32"
+                        width="102" alt="Tabler" class="navbar-brand-image">
                 </a>
             </h1>
             <div class="navbar-nav flex-row order-md-last">
@@ -96,8 +97,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                         aria-label="Open user menu">
-                        <span class="avatar avatar-sm"
-                            style="background-image: url(./static/avatars/000m.jpg)"></span>
+                        <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
                         <div class="d-none d-xl-block ps-2">
                             <div>Paweł Kuna</div>
                             <div class="mt-1 small text-muted">UI Designer</div>
@@ -105,7 +105,10 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                         <a wire:navigate href="{{ route('student.profile') }}" class="dropdown-item">Profile</a>
-                        <a href="" class="dropdown-item">Logout</a>
+                        <form method="POST" action="{{ route('logout') }}" id="logout">
+                            @csrf
+                            <button type="button" class="dropdown-item" onclick="confirmLogout()">Logout</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -135,9 +138,12 @@
                                     d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
                             </svg>
                             <x-slot name="subitem">
-                                <x-student.link.dropdown-item :href="route('student.calendar')" page-target="akademik/kalender-akademik">Kalender
+                                <x-student.link.dropdown-item :href="route('student.calendar')"
+                                    page-target="akademik/kalender-akademik">Kalender
                                     akademik</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item :href="route('student.schedule')" page-target="akademik/jadwal-pelajaran">Jadwal pelajaran</x-student.link.dropdown-item>
+                                <x-student.link.dropdown-item :href="route('student.schedule')"
+                                    page-target="akademik/jadwal-pelajaran">Jadwal
+                                    pelajaran</x-student.link.dropdown-item>
                                 <x-student.link.dropdown-item :href="route('student.myClass')" page-target="akademik/kelas-saya">Kelas
                                     saya</x-student.link.dropdown-item>
                             </x-slot>
@@ -164,9 +170,11 @@
                                     d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                             </svg>
                             <x-slot name="subitem">
-                                <x-student.link.dropdown-item :href="route('student.premitAbsent')" page-target="surat/izin-tidak-hadir">Surat izin
+                                <x-student.link.dropdown-item :href="route('student.premitAbsent')"
+                                    page-target="surat/izin-tidak-hadir">Surat izin
                                     tidak hadir</x-student.link.dropdown-item>
-                                <x-student.link.dropdown-item :href="route('student.premitPleaInternship')" page-target="surat/permohonan-pkl">Surat
+                                <x-student.link.dropdown-item :href="route('student.premitPleaInternship')"
+                                    page-target="surat/permohonan-pkl">Surat
                                     permohonan PKL</x-student.link.dropdown-item>
                             </x-slot>
                         </x-student.link.nav-dropdown>
@@ -190,4 +198,3 @@
         </div>
     </header>
 </div>
-

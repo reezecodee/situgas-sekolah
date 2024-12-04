@@ -17,6 +17,7 @@
                 <x-staff.link.sidebar-item icon="ti-layout-dashboard" page-target="dashboard" :href="route('staff.dashboard')">
                     Dashboard
                 </x-staff.link.sidebar-item>
+                @can('Wali Kelas')
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu wali kelas</span>
@@ -36,6 +37,8 @@
                 <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" :href="route('staff.notification')">
                     Kirim notifikasi
                 </x-staff.link.sidebar-item>
+                @endcan
+                @role('Guru')
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu guru</span>
@@ -52,6 +55,8 @@
                 <x-staff.link.sidebar-item icon="ti-mailbox" page-target="guru/kirim-hasil-studi" :href="route('teacher.studyResult')">
                     Kirim hasil studi
                 </x-staff.link.sidebar-item>
+                @endrole
+                @role('Admin')
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu admin</span>
@@ -89,6 +94,7 @@
                 <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" :href="route('staff.notification')">
                     Kirim notifikasi
                 </x-staff.link.sidebar-item>
+                @endrole
             </ul>
         </nav>
     </div>

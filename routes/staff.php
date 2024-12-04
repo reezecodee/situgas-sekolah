@@ -11,6 +11,7 @@ use App\Livewire\Staff\Admin\Letter\LetterIndex;
 use App\Livewire\Staff\Admin\Major\CreateMajor;
 use App\Livewire\Staff\Admin\Major\ListMajor;
 use App\Livewire\Staff\Admin\SchoolYear\CreateYear;
+use App\Livewire\Staff\Admin\SchoolYear\EditYear;
 use App\Livewire\Staff\Admin\SchoolYear\ListYear;
 use App\Livewire\Staff\Admin\Student\CreateStudent;
 use App\Livewire\Staff\Admin\Student\ListStudent;
@@ -31,7 +32,7 @@ use App\Livewire\Staff\Teacher\Result\StudyResult;
 use App\Livewire\Staff\Teacher\Task\ListTask;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('staff')->middleware('auth')->group(function () {
+Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru'])->group(function () {
     Route::get('dashboard', Dashboard::class)->name('staff.dashboard');
     Route::get('kirim-notifikasi', SendNotif::class)->name('staff.notification');
     Route::get('profile-saya', Profile::class)->name('staff.profile');
@@ -56,6 +57,7 @@ Route::prefix('staff')->middleware('auth')->group(function () {
 
         Route::get('tahun-ajaran', ListYear::class)->name('year.list');
         Route::get('tahun-ajaran/create', CreateYear::class)->name('year.create');
+        Route::get('tahun-ajaran/{id}/edit', EditYear::class)->name('year.edit');
 
         Route::get('prodi', ListMajor::class)->name('major.list');
         Route::get('prodi/create', CreateMajor::class)->name('major.create');

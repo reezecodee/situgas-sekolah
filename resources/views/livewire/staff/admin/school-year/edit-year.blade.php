@@ -71,7 +71,7 @@
             <a wire:navigate href="{{ route('year.list') }}">
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
-            <button type="submit" class="btn btn-primary">Simpan Tahun Ajaran</button>
+            <button type="submit" class="btn btn-primary">Edit Tahun Ajaran</button>
         </div>
     </form>
 </div>

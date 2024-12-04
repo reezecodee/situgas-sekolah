@@ -27,12 +27,10 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        @if (session('success') || session()->has('success'))
+                            <x-alert.success/>
+                        @elseif(session('failed') || session()->has('failed'))
+                            <x-alert.failed/>
                         @endif
                         <h5 class="card-title fw-semibold mb-4">{{ $title }}</h5>
                         {{ $slot }}
@@ -43,7 +41,7 @@
     </div>
 
     <script src="/staff/libs/jquery/dist/jquery.min.js"></script>
-    <script src="/staff/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script data-navigate-once src="/staff/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/staff/js/sidebarmenu.js"></script>
     <script src="/staff/js/app.min.js"></script>
     <script src="/staff/libs/apexcharts/dist/apexcharts.min.js"></script>
