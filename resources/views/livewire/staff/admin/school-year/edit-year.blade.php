@@ -51,20 +51,6 @@
                         @enderror
                 </div>
             </div>
-
-            <div class="col-md-6 mb-3">
-                <div class="form-group">
-                    <label for="status" class="form-label">Status</label>
-                    <select wire:model.blur="status" id="status" class="form-select @error('status') is-invalid @enderror" required>
-                        <option value="" selected>{{ old('status') ? old('status') : 'Pilih status' }}</option>
-                        <option value="Aktif">Aktif</option>
-                        <option value="Tidak aktif">Tidak aktif</option>
-                    </select>
-                    @error('status')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
         </div>
 
         <div class="d-flex gap-2 justify-content-end mt-3">

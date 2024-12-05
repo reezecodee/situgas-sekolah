@@ -17,7 +17,7 @@ return new class extends Migration
             $table->enum('semester', ['Ganjil', 'Genap']);
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
-            $table->enum('status', ['Aktif', 'Tidak aktif']);
+            $table->enum('status', ['Aktif', 'Tidak aktif'])->default('Tidak aktif');
             $table->timestamps();
         });
     }

@@ -23,16 +23,19 @@
                     <select name="tingkat" class="form-select @error('tingkat') is-invalid @enderror" required>
                         <option selected {{ old('tingkat') ? 'value="' . old('tingkat') . '"' : '' }}>
                             {{ old('tingkat') ? old('tingkat') : 'Pilih tingkat' }}</option>
-                        <option value="X">X</option>
+                        {{-- <option value="X">X</option>
                         <option value="XI">XI</option>
-                        <option value="XII">XII</option>
+                        <option value="XII">XII</option> --}}
+                        <option value="VI">VI</option>
+                        <option value="VII">VII</option>
+                        <option value="IX">IX</option>
                     </select>
                     @error('tingkat')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            {{-- <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Program studi</label>
                     <select name="prodi_id" class="form-select @error('prodi_id') is-invalid @enderror" required>
@@ -46,7 +49,7 @@
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
             {{-- <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Tahun ajaran</label>

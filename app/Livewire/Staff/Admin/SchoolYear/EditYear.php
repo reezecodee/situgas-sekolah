@@ -22,8 +22,6 @@ class EditYear extends Component
     public $tgl_mulai;
     #[Validate]
     public $tgl_selesai;
-    #[Validate]
-    public $status;
 
     public function rules(){
         return [
@@ -31,7 +29,6 @@ class EditYear extends Component
             'semester' => 'required|string|in:Ganjil,Genap',
             'tgl_mulai' => 'required|date',
             'tgl_selesai' => 'required|date',
-            'status' => 'required|in:Aktif,Tidak aktif'
         ];
     }
 
@@ -43,8 +40,6 @@ class EditYear extends Component
         $this->semester = $schoolYear->semester;
         $this->tgl_mulai = $schoolYear->tgl_mulai;
         $this->tgl_selesai = $schoolYear->tgl_selesai;
-        $this->status = $schoolYear->status;
-
     }
 
     public function submit()

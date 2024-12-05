@@ -20,6 +20,14 @@
                 </div>
             </div>
         @endforeach
+        @if($classes->isEmpty())
+            <div class="d-flex justify-content-center">
+                <img src="https://www.svgrepo.com/show/427101/empty-inbox.svg" alt="" srcset="" width="100">
+            </div>
+            <div class="text-center mt-2 fw-bold fs-3">
+                Belum ada kelas yang ditambahkan.
+            </div>
+        @endif
     </div>
 
     <x-slot name="script">
