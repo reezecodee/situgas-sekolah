@@ -20,25 +20,12 @@
                 $('#subclassTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.subclass') }}',
-                    columns: [{
-                            data: 'id',
-                            name: 'id'
-                        },
-                        {
-                            data: 'name',
-                            name: 'name'
-                        },
-                        {
-                            data: 'total_students',
-                            name: 'total_students'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action',
-                            orderable: false,
-                            searchable: false
-                        }
+                    ajax: '{{ route('dt.subclass', $class) }}',
+                    columns: [
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                        { data: 'nama', name: 'nama' },
+                        { data: 'students_count', name: 'students_count' },
+                        { data: 'action', name: 'action', orderable: false, searchable: false }
                     ]
                 });
             });

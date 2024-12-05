@@ -7,7 +7,6 @@ use App\Http\Controllers\Datatables\Staff\StudyResultDatatableController;
 use App\Http\Controllers\Datatables\Staff\SubclassDatatablesController;
 use App\Http\Controllers\Datatables\Staff\SubjectDatatableController;
 use App\Http\Controllers\Datatables\Staff\TeacherDatatableController;
-use App\Livewire\Staff\Admin\Class\Subclass;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(RecapitulationDatatableController::class)->group(function(){
@@ -20,10 +19,11 @@ Route::controller(StudyResultDatatableController::class)->group(function(){
 
 Route::controller(SchoolYearDatatableController::class)->group(function(){
     Route::get('/tahun-ajaran', 'getSchoolYear')->name('dt.schoolYear');
+    Route::post('/tahun-ajaran/{id}/{status}', 'changeStatus')->name('dt.chStatus');
 });
 
 Route::controller(SubclassDatatablesController::class)->group(function(){
-    Route::get('/subkelas', 'getSubclass')->name('dt.subclass');
+    Route::get('/subkelas/{class}', 'getSubclass')->name('dt.subclass');
 });
 
 Route::controller(AdminDatatablesController::class)->group(function(){

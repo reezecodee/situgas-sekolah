@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignUuid('wali_kelas_id')->nullable()->constrained('teachers');
             // $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
             $table->string('nama');
-            $table->enum('tingkat', ['X', 'XI', 'XII']);
+            $table->enum('tingkat', ['X', 'XI', 'XII'])->index();
             $table->enum('status', ['Aktif', 'Tidak aktif']);
             $table->timestamps();
         });

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('majors', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('nama');
-            $table->string('kode');
-            $table->string('deskripsi')->nullable();
-            $table->enum('status', ['Aktif', 'Tidak aktif']);
-            $table->timestamps();
-        });
+        // Schema::create('majors', function (Blueprint $table) {
+        //     $table->uuid('id')->primary();
+        //     $table->string('nama');
+        //     $table->string('kode');
+        //     $table->string('deskripsi')->nullable();
+        //     $table->enum('status', ['Aktif', 'Tidak aktif']);
+        //     $table->timestamps();
+        // });
     }
 
     /**

@@ -34,12 +34,6 @@ class UsersSeeder extends Seeder
                 'permission' => null
             ],
             [
-                'email' => 'ketuakelas@gmail.com',
-                'password' => bcrypt('12345678'),
-                'role' => 'Siswa',
-                'permission' => 'Ketua kelas'
-            ],
-            [
                 'email' => 'walikelas@gmail.com',
                 'password' => bcrypt('12345678'),
                 'role' => 'Guru',

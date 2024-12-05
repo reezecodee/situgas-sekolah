@@ -11,19 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('internships', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('ketua_id')->constrained('students');
-            $table->foreignUuid('subkelas_id')->constrained('subclasses');
-            $table->foreignUuid('tahun_ajar_id')->constrained('school_years');
-            $table->foreignUuid('guru_pembimbing_id')->constrained('teachers');
-            $table->string('tempat_pkl');
-            $table->string('alamat_pkl');
-            $table->date('tgl_mulai');
-            $table->date('tgl_selesai');
-            $table->string('pembimbing_industri');
-            $table->timestamps();
-        });
+        // Schema::create('internships', function (Blueprint $table) {
+        //     $table->uuid('id')->primary();
+        //     $table->foreignUuid('ketua_id')->constrained('students');
+        //     $table->foreignUuid('subkelas_id')->constrained('subclasses');
+        //     $table->foreignUuid('tahun_ajar_id')->constrained('school_years');
+        //     $table->foreignUuid('guru_pembimbing_id')->constrained('teachers');
+        //     $table->string('tempat_pkl');
+        //     $table->string('alamat_pkl');
+        //     $table->date('tgl_mulai');
+        //     $table->date('tgl_selesai');
+        //     $table->string('pembimbing_industri');
+        //     $table->timestamps();
+        // });
     }
 
     /**

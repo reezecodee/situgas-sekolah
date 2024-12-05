@@ -17,7 +17,7 @@
                 <x-staff.link.sidebar-item icon="ti-layout-dashboard" page-target="dashboard" :href="route('staff.dashboard')">
                     Dashboard
                 </x-staff.link.sidebar-item>
-                @can('Wali Kelas')
+                @can('Wali kelas')
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu wali kelas</span>

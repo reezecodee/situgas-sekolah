@@ -41,7 +41,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
     Route::get('kirim-notifikasi', SendNotif::class)->name('staff.notification');
     Route::get('profile-saya', Profile::class)->name('staff.profile');
 
-    Route::prefix('wali-kelas')->middleware(['role:Guru', 'permission:Wali Kelas'])->group(function () {
+    Route::prefix('wali-kelas')->middleware(['role:Guru', 'permission:Wali kelas'])->group(function () {
         Route::get('murid-bimbingan', GuidanceStudent::class)->name('homeroom.guidance');
         Route::get('rekapitulasi-nilai', RecapResult::class)->name('homeroom.recapitulation');
         Route::get('surat', Letter::class)->name('homeroom.invitation');
@@ -68,9 +68,9 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
 
         Route::get('kelas', ListClass::class)->name('class.list');
         Route::get('kelas/create', CreateClass::class)->name('class.create');
-        Route::get('kelas/subkelas', Subclass::class)->name('class.subclass');
-        Route::get('kelas/{id}/edit', EditClass::class)->name('class.edit');
-        Route::get('kelas/{id}/detail', DetailClass::class)->name('class.detail');
+        Route::get('kelas/{class}', Subclass::class)->name('class.subclass');
+        Route::get('kelas/{class}/{id}/edit', EditClass::class)->name('class.edit');
+        Route::get('kelas/{class}/{id}/detail', DetailClass::class)->name('class.detail');
 
         Route::get('guru', ListTeacher::class)->name('teacher.list');
         Route::get('guru/create', CreateTeacher::class)->name('teacher.create');

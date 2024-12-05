@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('internship_activities', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('pkl_id')->constrained('internships');
-            $table->foreignUuid('siswa_id')->constrained('students');
-            $table->date('tanggal');
-            $table->string('kegiatan');
-            $table->enum('status_kehadiran', ['Hadir', 'Tidak hadir']);
-            $table->text('keterangan')->nullable();
-            $table->string('bukti');
-            $table->timestamps();
-        });
+        // Schema::create('internship_activities', function (Blueprint $table) {
+        //     $table->uuid('id')->primary();
+        //     $table->foreignUuid('pkl_id')->constrained('internships');
+        //     $table->foreignUuid('siswa_id')->constrained('students');
+        //     $table->date('tanggal');
+        //     $table->string('kegiatan');
+        //     $table->enum('status_kehadiran', ['Hadir', 'Tidak hadir']);
+        //     $table->text('keterangan')->nullable();
+        //     $table->string('bukti');
+        //     $table->timestamps();
+        // });
     }
 
     /**

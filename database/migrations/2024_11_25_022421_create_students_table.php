@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained('users');
-            $table->foreignUuid('subkelas_id')->constrained('subclasses');
+            // $table->foreignUuid('subkelas_id')->constrained('subclasses');
+            $table->foreignUuid('kelas_id')->constrained('classrooms');
             $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
             $table->string('nama');
             $table->string('nis');

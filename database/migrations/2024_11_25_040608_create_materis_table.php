@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignUuid('mapel_id')->constrained('subjects');
             $table->foreignUuid('guru_id')->constrained('teachers');
             $table->foreignUuid('siswa_id')->constrained('students');
-            $table->foreignUuid('subkelas_id')->constrained('subclasses');
+            // $table->foreignUuid('subkelas_id')->constrained('subclasses');
+            $table->foreignUuid('kelas_id')->constrained('classrooms');
             $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
             $table->string('keterangan');
             $table->string('file_materi');

@@ -27,7 +27,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            {{-- <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Program studi</label>
                     <select name="prodi_id" class="form-select @error('prodi_id') is-invalid @enderror" required>
@@ -41,7 +41,7 @@
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
             {{-- <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Tahun ajaran</label>

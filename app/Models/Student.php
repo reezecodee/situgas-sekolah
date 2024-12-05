@@ -10,4 +10,9 @@ class Student extends Model
     use HasUuids;
 
     protected $guarded = ['id'];
+
+    public function classroom()
+    {
+        return $this->belongsTo(Classrooms::class, 'kelas_id');
+    }
 }

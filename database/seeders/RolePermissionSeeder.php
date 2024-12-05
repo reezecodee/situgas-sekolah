@@ -18,7 +18,6 @@ class RolePermissionSeeder extends Seeder
         Role::firstOrCreate(['name' => 'Guru']);
         Role::firstOrCreate(['name' => 'Siswa']);
 
-        Permission::firstOrCreate(['name' => 'Ketua kelas']);
         Permission::firstOrCreate(['name' => 'Wali kelas']);
     }
 }

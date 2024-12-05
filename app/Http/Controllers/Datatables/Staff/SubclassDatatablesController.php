@@ -9,28 +9,24 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SubclassDatatablesController extends Controller
 {
-    public function getSubclass()
+    public function getSubclass($class)
     {
-        $subclasses = collect([
-            (object) ['id' => 1, 'name' => 'Kelas A', 'total_students' => 25, 'status' => 'Aktif'],
-            (object) ['id' => 2, 'name' => 'Kelas B', 'total_students' => 30, 'status' => 'Tidak Aktif'],
-            (object) ['id' => 3, 'name' => 'Kelas C', 'total_students' => 20, 'status' => 'Aktif'],
-        ]);
+        $data = Classrooms::where('tingkat', $class)
+            ->withCount('students');
 
-        return DataTables::of($subclasses)
-            ->addColumn('action', function ($subkelas) {
+        return DataTables::of($data)
+            ->addIndexColumn()
+            ->addColumn('action', function ($subkelas) use ($class) {
                 return '
-                <a wire:navigate href="' . route('class.edit', $subkelas->id) . '" class="btn btn-sm btn-primary">Edit</a>
+                <a wire:navigate href="' . route('class.edit', ['id' => $subkelas->id, 'class' => $class]) . '" class="btn btn-sm btn-primary">Edit</a>
                 <a wire:navigate href="" class="btn btn-sm btn-danger">Hapus</a>
-                <a wire:navigate href="' . route('class.detail', $subkelas->id) . '" class="btn btn-sm btn-success">Detail</a>
+                <a wire:navigate href="' . route('class.detail', ['id' => $subkelas->id, 'class' => $class]) . '" class="btn btn-sm btn-success">Detail</a>
             ';
             })
-            ->addColumn('status', function ($subkelas) {
-                return $subkelas->status === 'Aktif'
-                    ? '<span class="badge bg-success">' . $subkelas->status . '</span>'
-                    : '<span class="badge bg-danger">' . $subkelas->status . '</span>';
+            ->addColumn('total_students', function ($subkelas) {
+                return $subkelas->students_count; // Mengambil jumlah siswa dari withCount
             })
-            ->rawColumns(['action', 'status'])
+            ->rawColumns(['action'])
             ->make(true);
     }
 }

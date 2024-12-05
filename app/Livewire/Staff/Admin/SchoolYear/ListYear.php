@@ -15,6 +15,8 @@ class ListYear extends Component
     #[Title('Daftar Tahun Ajaran')]
     #[Layout('components.layouts.staff')]
 
+    protected $listeners = ['changeStatus'];
+
     public function render()
     {
         $title = 'Daftar Tahun Ajaran';

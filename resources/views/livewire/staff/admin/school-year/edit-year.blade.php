@@ -7,7 +7,7 @@
                     <label for="periode" class="form-label">Periode tahun ajaran</label>
                     <input type="text" id="periode" wire:model.blur="periode"
                         class="form-control @error('periode') is-invalid @enderror"
-                        value="{{ old('periode') }}" placeholder="Masukkan periode tahun ajaran" autocomplete="off" required>
+                        value="{{ old('periode') }}" placeholder="Contoh: 2024/2025" autocomplete="off" required>
                     @error('periode')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 mb-3">
             <div class="form-group">
-                <label for="nama" class="form-label">Nama admin</label>
+                <label for="nama" class="form-label">Nama guru</label>
                 <input type="text" placeholder="Masukkan nama" id="nama" wire:model.blur="nama"
                     class="form-control @error('nama') is-invalid @enderror"
                     value="{{ old('nama') }}" autocomplete="off" required>

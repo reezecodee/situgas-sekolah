@@ -10,4 +10,9 @@ class Classrooms extends Model
     use HasUuids;
 
     protected $guarded = ['id'];
+
+    public function students()
+    {
+        return $this->hasMany(Student::class, 'kelas_id');
+    }
 }

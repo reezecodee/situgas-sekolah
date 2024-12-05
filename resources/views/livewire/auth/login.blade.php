@@ -4,9 +4,12 @@
             <div class="container-tight">
                 <div class="card card-md">
                     <div class="card-body">
-                        <x-alert.success />
-                        <x-alert.failed />
                         <h2 class="h2 text-center mb-4">Selamat Datang</h2>
+                        @if (session('success') || session()->has('success'))
+                            <x-alert.success/>
+                        @elseif(session('failed') || session()->has('failed'))
+                            <x-alert.failed/>
+                        @endif
                         <form wire:submit.prevent="check">
                             @csrf
                             <div class="mb-3">

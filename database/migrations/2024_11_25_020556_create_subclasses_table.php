@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subclasses', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
-            $table->foreignUuid('kelas_id')->constrained('classrooms');
-            $table->string('nama');
-            $table->timestamps();
-        });
+        // Schema::create('subclasses', function (Blueprint $table) {
+        //     $table->uuid('id')->primary();
+        //     $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
+        //     $table->foreignUuid('kelas_id')->constrained('classrooms');
+        //     $table->string('nama');
+        //     $table->timestamps();
+        // });
     }
 
     /**

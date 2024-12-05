@@ -3,18 +3,23 @@
 namespace App\Livewire\Staff\Admin\Class;
 
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Subclass extends Component
 {
-    #[Title('Daftar Subkelas VI')]
     #[Layout('components.layouts.staff')]
+
+    public $class;
+
+    public function mount($class)
+    {
+        $this->class = $class;
+    }
 
     public function render()
     {
-        $title = 'Daftar Subkelas VI';
+        $title = "Daftar Subkelas {$this->class}";
 
-        return view('livewire.staff.admin.class.subclass', compact('title'));
+        return view('livewire.staff.admin.class.subclass', compact('title'))->title($title);
     }
 }
