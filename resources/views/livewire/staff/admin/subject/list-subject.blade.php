@@ -8,6 +8,7 @@
     <table id="subjectTable" class="table table-bordered table-striped">
         <thead>
             <tr>
+                <th>Kode</th>
                 <th>Nama pelajaran</th>
                 <th>Tingkat kelas</th>
                 <th>Status</th>
@@ -24,8 +25,9 @@
                     serverSide: true,
                     ajax: '{{ route('dt.subject') }}',
                     columns: [
-                        { data: 'mapel', name: 'mapel' },
-                        { data: 'tingkat', name: 'tingkat' },
+                        { data: 'kode', name: 'kode' },
+                        { data: 'nama', name: 'nama' },
+                        { data: 'tingkatan', name: 'tingkatan' },
                         { data: 'status', name: 'status' },
                         { data: 'action', name: 'action', orderable: false, searchable: false }
                     ]

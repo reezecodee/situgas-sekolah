@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="mb-4 d-flex justify-content-end">
-        <a href="">
+        <a href="" wire:navigate>
             <button class="btn btn-primary">Buat Jadwal</button>
         </a>
     </div>
@@ -13,12 +13,12 @@
     <x-slot name="script">
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'dayGridMonth',
-                    events: [{
+                    events: [
+                        {
                             title: 'Meeting',
                             start: '2024-11-20',
                             end: '2024-11-22'
@@ -51,7 +51,6 @@
                 });
 
                 calendar.render();
-            });
         </script>
     </x-slot>
 </div>

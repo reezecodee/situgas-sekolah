@@ -65,7 +65,7 @@
             </div> --}}
         </div>
         <div class="d-flex gap-2 justify-content-end mt-3">
-            <a href="{{ route('subject.list') }}">
+            <a wire:navigate href="{{ route('subject.list') }}">
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
             <button type="submit" class="btn btn-primary">Simpan Pelajaran</button>
