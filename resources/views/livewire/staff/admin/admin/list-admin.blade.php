@@ -9,7 +9,7 @@
             <tr>
                 <th>No</th>
                 <th>Nama</th>
-                <th>Telepon</th>
+                <th>Email</th>
                 <th>Status</th>
                 <th>Aksi</th>
             </tr>
@@ -22,17 +22,15 @@
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route('dt.admin') }}',
-                    columns: [{
-                            data: 'id',
-                            name: 'id'
+                    columns: [
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                        {
+                            data: 'nama',
+                            name: 'nama'
                         },
                         {
-                            data: 'name',
-                            name: 'name'
-                        },
-                        {
-                            data: 'telepon',
-                            name: 'telepon'
+                            data: 'email',
+                            name: 'email'
                         },
                         {
                             data: 'status',
