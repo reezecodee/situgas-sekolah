@@ -16,7 +16,9 @@ class ListClass extends Component
     public function render()
     {
         $title = 'Daftar Kelas';
-        $classes = Classrooms::select('tingkat', DB::raw('count(*) as total'))->groupBy('tingkat')->get();
+        $classes = Classrooms::select('tingkat', DB::raw('count(*) as total'))
+        ->orderByRaw("FIELD(tingkat, 'VII', 'VIII', 'IX')") 
+        ->groupBy('tingkat')->get();
 
         return view('livewire.staff.admin.class.list-class', compact('title', 'classes'));
     }

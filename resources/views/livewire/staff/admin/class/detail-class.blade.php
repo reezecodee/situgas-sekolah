@@ -22,5 +22,13 @@
             </div>
         </div>
         @endforeach
+        @if($students->isEmpty())
+            <div class="d-flex justify-content-center">
+                <img src="https://www.svgrepo.com/show/427101/empty-inbox.svg" alt="" srcset="" width="100">
+            </div>
+            <div class="text-center mt-2 fw-bold fs-3">
+                Belum ada siswa di dalam kelas ini.
+            </div>
+        @endif
     </div>
 </div>

@@ -12,7 +12,7 @@ class SubclassDatatablesController extends Controller
     public function getSubclass($class)
     {
         $data = Classrooms::where('tingkat', $class)
-            ->withCount('students');
+            ->withCount('students')->orderBy('nama', 'asc')->get();
 
         return DataTables::of($data)
             ->addIndexColumn()
