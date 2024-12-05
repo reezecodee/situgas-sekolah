@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="d-flex gap-2 justify-content-end mt-3">
-            <a href="{{ route('siswa.index') }}">
+            <a href="{{ route('student.list') }}" wire:navigate>
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
             <button type="submit" class="btn btn-primary">Simpan Siswa</button>

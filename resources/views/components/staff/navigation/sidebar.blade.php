@@ -76,9 +76,9 @@
                 <x-staff.link.sidebar-item icon="ti-chalkboard" page-target="admin/guru" :href="route('teacher.list')">
                     Manajemen guru
                 </x-staff.link.sidebar-item>
-                {{-- <x-staff.link.sidebar-item icon="ti-users" page-target="admin/siswa" :href="route('student.list')">
+                <x-staff.link.sidebar-item icon="ti-users" page-target="admin/siswa" :href="route('student.list')">
                     Manajemen siswa
-                </x-staff.link.sidebar-item> --}}
+                </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-school" page-target="admin/pelajaran" :href="route('subject.list')">
                     Manajemen pelajaran
                 </x-staff.link.sidebar-item>

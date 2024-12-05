@@ -24,6 +24,11 @@
                             value="{{ $userActive->tgl_lahir }}" readonly>
                     </div>
                     <div class="col-md-6 mb-3">
+                        <label for="tgl-lahir" class="form-label">Jenis kelamin</label>
+                        <input type="text" class="form-control" id="tgl-lahir"
+                            value="{{ $userActive->jk }}" readonly>
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <label for="tgl-lahir" class="form-label">Status akun</label>
                         <input type="text" class="form-control" id="tgl-lahir"
                             value="{{ $userActive->status }}" readonly>

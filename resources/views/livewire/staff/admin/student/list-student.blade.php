@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a href="">
+        <a href="{{ route('student.create') }}" wire:navigate>
             <button class="btn btn-primary">Tambah Siswa Baru</button>
         </a>
     </div>
