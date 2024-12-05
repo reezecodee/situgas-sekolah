@@ -23,11 +23,11 @@ class GlobalVariableMiddleware
         $user = Auth::user();
 
         if ($user->hasRole('Admin')) {
-            $dataUser = Admin::where('user_id', $user->id)->first();
+            $dataUser = Admin::with('user')->where('user_id', $user->id)->first();
         } elseif ($user->hasRole('Guru')) {
-            $dataUser = Teacher::where('user_id', $user->id)->first();
+            $dataUser = Teacher::with('user')->where('user_id', $user->id)->first();
         } elseif ($user->hasRole('Siswa')) {
-            $dataUser = Student::where('user_id', $user->id)->first();
+            $dataUser = Student::with('user')->where('user_id', $user->id)->first();
         } else {
             $dataUser = null;
         }
