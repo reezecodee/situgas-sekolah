@@ -65,7 +65,6 @@ class UsersSeeder extends Seeder
         $admin = [
             'user_id' => $users[0]['id'],
             'nama' => 'Akun Admin',
-            'jk' => 'Laki-laki',
             'tgl_lahir' => '2005-09-02',
             'status' => 'Aktif'
         ];
@@ -75,7 +74,6 @@ class UsersSeeder extends Seeder
             'user_id' => $users[1]['id'],
             'nama' => 'Akun Guru',
             'nuptk' => '918230123',
-            'jk' => 'Laki-laki',
             'tgl_lahir' => '2005-09-02',
             'status' => 'Aktif'
         ];
@@ -85,7 +83,6 @@ class UsersSeeder extends Seeder
             'user_id' => $users[3]['id'],
             'nama' => 'Akun Wali Kelas',
             'nuptk' => '918230122',
-            'jk' => 'Laki-laki',
             'tgl_lahir' => '2005-09-02',
             'status' => 'Aktif'
         ];
