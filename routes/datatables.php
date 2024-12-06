@@ -3,6 +3,7 @@
 use App\Http\Controllers\Datatables\Staff\AdminDatatablesController;
 use App\Http\Controllers\Datatables\Staff\RecapitulationDatatableController;
 use App\Http\Controllers\Datatables\Staff\SchoolYearDatatableController;
+use App\Http\Controllers\Datatables\Staff\StudentDatatableController;
 use App\Http\Controllers\Datatables\Staff\StudyResultDatatableController;
 use App\Http\Controllers\Datatables\Staff\SubclassDatatablesController;
 use App\Http\Controllers\Datatables\Staff\SubjectDatatableController;
@@ -36,6 +37,10 @@ Route::controller(TeacherDatatableController::class)->group(function(){
 
 Route::controller(SubjectDatatableController::class)->group(function(){
     Route::get('/mata-pelajaran', 'getSubject')->name('dt.subject');
+});
+
+Route::controller(StudentDatatableController::class)->group(function (){
+    Route::get('/siswa', 'getStudent')->name('dt.student');
 });
 
 

@@ -1,16 +1,19 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a href="{{ route('student.create') }}" wire:navigate>
-            <button class="btn btn-primary">Tambah Siswa Baru</button>
+        <a wire:navigate href="{{ route('student.create') }}">
+            <button class="btn btn-primary">Tambah Siswa</button>
         </a>
     </div>
-    <table id="studentsTable" class="table table-bordered table-striped">
+    <table id="studentTable" class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>No</th>
                 <th>Nama</th>
+                <th>Email</th>
+                <th>NIS</th>
+                <th>NISN</th>
                 <th>Kelas</th>
-                <th>Nilai</th>
+                <th>Status</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -18,25 +21,35 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#studentsTable').DataTable({
+                $('#studentTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.students') }}',
-                    columns: [{
-                            data: 'id',
-                            name: 'id'
+                    ajax: '{{ route('dt.student') }}',
+                    columns: [
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                        {
+                            data: 'nama',
+                            name: 'nama'
                         },
                         {
-                            data: 'name',
-                            name: 'name'
+                            data: 'email',
+                            name: 'email'
                         },
                         {
-                            data: 'class',
-                            name: 'class'
+                            data: 'nis',
+                            name: 'nis'
                         },
                         {
-                            data: 'score',
-                            name: 'score'
+                            data: 'nisn',
+                            name: 'nisn'
+                        },
+                        {
+                            data: 'kelas',
+                            name: 'kelas'
+                        },
+                        {
+                            data: 'status',
+                            name: 'status'
                         },
                         {
                             data: 'action',

@@ -16,10 +16,11 @@ return new class extends Migration
             $table->foreignUuid('user_id')->constrained('users');
             // $table->foreignUuid('subkelas_id')->constrained('subclasses');
             $table->foreignUuid('kelas_id')->constrained('classrooms');
-            $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
+            // $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
             $table->string('nama');
             $table->string('nis');
             $table->string('nisn');
+            $table->string('tgl_lahir');
             $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->text('alamat');
             $table->enum('status', ['Lulus', 'Belum lulus']);
