@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Datatables\Staff\AdminDatatablesController;
+use App\Http\Controllers\Datatables\Staff\CalendarDatatableController;
 use App\Http\Controllers\Datatables\Staff\RecapitulationDatatableController;
 use App\Http\Controllers\Datatables\Staff\SchoolYearDatatableController;
 use App\Http\Controllers\Datatables\Staff\StudentDatatableController;
@@ -42,6 +43,10 @@ Route::controller(SubjectDatatableController::class)->group(function(){
 
 Route::controller(StudentDatatableController::class)->group(function (){
     Route::get('/siswa', 'getStudent')->name('dt.student');
+});
+
+Route::controller(CalendarDatatableController::class)->group(function (){
+    Route::get('/kalender-kegiatan', 'getCalendar')->name('dt.calendar');
 });
 
 

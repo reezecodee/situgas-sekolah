@@ -1,7 +1,6 @@
 <div>
     <form action="" method="POST" enctype="multipart/form-data" id="form-edit">
         @csrf
-        @method('PUT')
         <div class="row">
             <div class="col-md-3">
                 <p class="fw-bold">Upload favicon</p>
@@ -89,4 +88,105 @@
             </div>
         </div>
     </form>
+
+    <x-slot name="script">
+        <script>
+            const uploadButton = document.getElementById('uploadButton');
+            const fileInput = document.getElementById('fileInput');
+            const previewExample = document.getElementById('previewExample');
+            const fileNameDisplay = document.getElementById('fileName');
+            const errorMessage = document.getElementById('error-message');
+
+            // Saat tombol upload diklik
+            uploadButton.addEventListener('click', function() {
+                fileInput.click();
+            });
+
+            // Saat file dipilih
+            fileInput.addEventListener('change', function(event) {
+                const file = event.target.files[0]; // Ambil file yang dipilih
+
+                if (file) {
+                    const fileExtension = file.name.split('.').pop().toLowerCase(); // Mendapatkan ekstensi file
+
+                    if (fileExtension === 'ico') {
+                        // Jika file adalah .ico, tampilkan gambar pratinjau default
+                        previewExample.src =
+                            'https://www.svgrepo.com/show/532809/file-zipper.svg'; // Ganti dengan path gambar default Anda
+                    } else if (file.type.startsWith('image/')) {
+                        // Jika file adalah gambar, tampilkan pratinjau gambar yang dipilih
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            previewExample.src = e.target.result; // Menampilkan pratinjau gambar
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        // Jika bukan gambar atau .ico, tampilkan error
+                        errorMessage.textContent = 'Format file tidak didukung.';
+                        errorMessage.style.display = 'block';
+                        previewExample.style.display = 'none'; // Sembunyikan pratinjau jika format tidak didukung
+                        return;
+                    }
+
+                    // Tampilkan nama file dan sembunyikan error
+                    errorMessage.style.display = 'none';
+                    fileNameDisplay.textContent = `${file.name}`;
+                    fileNameDisplay.style.display = 'block';
+                    previewExample.style.display = 'block';
+                } else {
+                    fileNameDisplay.style.display = 'none'; // Sembunyikan nama file jika tidak ada file yang dipilih
+                }
+            });
+
+
+            // Ambil elemen
+            const uploadButtonLogo = document.getElementById('uploadButtonLogo');
+            const fileInputLogo = document.getElementById('fileInputLogo');
+            const previewExampleLogo = document.getElementById('previewExampleLogo');
+            const fileNameDisplayLogo = document.getElementById('fileNameLogo');
+            const errorMessageLogo = document.getElementById('error-message-logo');
+
+            // Saat tombol upload diklik
+            uploadButtonLogo.addEventListener('click', function() {
+                fileInputLogo.click(); // Memicu input file untuk terbuka
+            });
+
+            // Saat file dipilih
+            fileInputLogo.addEventListener('change', function(event) {
+                const file = event.target.files[0]; // Ambil file yang dipilih
+
+                if (file) {
+                    const fileExtension = file.name.split('.').pop().toLowerCase(); // Mendapatkan ekstensi file
+
+                    if (fileExtension === 'ico') {
+                        // Jika file adalah .ico, tampilkan gambar pratinjau default
+                        previewExampleLogo.src =
+                            'https://www.svgrepo.com/show/532809/file-zipper.svg'; // Ganti dengan path gambar default Anda
+                    } else if (file.type.startsWith('image/')) {
+                        // Jika file adalah gambar, tampilkan pratinjau gambar yang dipilih
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            previewExampleLogo.src = e.target.result; // Menampilkan pratinjau gambar
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        // Jika bukan gambar atau .ico, tampilkan error
+                        errorMessageLogo.textContent = 'Format file tidak didukung.';
+                        errorMessageLogo.style.display = 'block';
+                        previewExampleLogo.style.display = 'none'; // Sembunyikan pratinjau jika format tidak didukung
+                        return;
+                    }
+
+                    // Tampilkan nama file dan sembunyikan error
+                    errorMessageLogo.style.display = 'none';
+                    fileNameDisplayLogo.textContent = `${file.name}`;
+                    fileNameDisplayLogo.style.display = 'block';
+                    previewExampleLogo.style.display = 'block';
+                } else {
+                    fileNameDisplayLogo.style.display =
+                        'none';
+                }
+            });
+        </script>
+    </x-slot>
 </div>

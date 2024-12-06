@@ -91,9 +91,9 @@
                 {{-- <x-staff.link.sidebar-item icon="ti-paperclip" page-target="admin/surat" :href="route('letter.index')">
                     Buat surat
                 </x-staff.link.sidebar-item> --}}
-                <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" :href="route('staff.notification')">
+                {{-- <x-staff.link.sidebar-item icon="ti-mail-forward" page-target="kirim-notifikasi" :href="route('staff.notification')">
                     Kirim notifikasi
-                </x-staff.link.sidebar-item>
+                </x-staff.link.sidebar-item> --}}
                 @endrole
             </ul>
         </nav>
