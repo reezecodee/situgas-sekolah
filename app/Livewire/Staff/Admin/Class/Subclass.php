@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Staff\Admin\Class;
 
+use App\Models\Classrooms;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 

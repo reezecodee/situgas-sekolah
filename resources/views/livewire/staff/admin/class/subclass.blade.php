@@ -1,5 +1,8 @@
 <div>
-    <div class="mb-4 d-flex justify-content-end">
+    <div class="mb-4 d-flex justify-content-end gap-2">
+        <a wire:navigate href="{{ route('class.create') }}">
+            <button class="btn btn-primary">Buat Kelas Baru</button>
+        </a>
         <a wire:navigate href="{{ route('class.list') }}">
             <button class="btn btn-danger">Kembali</button>
         </a>
@@ -27,6 +30,14 @@
                         { data: 'students_count', name: 'students_count' },
                         { data: 'action', name: 'action', orderable: false, searchable: false }
                     ]
+                });
+            });
+
+            document.addEventListener('livewire:load', function () {
+                const dataTable = $('#subclassTable').DataTable();
+
+                dataTable.on('draw', function () {
+                    Livewire.rescan();
                 });
             });
         </script>

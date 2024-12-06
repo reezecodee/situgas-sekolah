@@ -32,7 +32,7 @@
                 <div class="form-group">
                     <label for="" class="form-label">Nomor Induk Siswa (NIS)</label>
                     <input type="number" wire:model.blur="nis" class="form-control @error('nis') is-invalid @enderror"
-                        value="{{ old('nis') }}" autocomplete="off" placeholder="Masukkan nis siswa" required>
+                        value="{{ old('nis') }}" autocomplete="off" placeholder="Masukkan NIS siswa" required>
                     @error('nis')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
@@ -42,7 +42,7 @@
                 <div class="form-group">
                     <label for="" class="form-label">Nomor Induk Siswa Nasional (NISN)</label>
                     <input type="number" wire:model.blur="nisn" class="form-control @error('nisn') is-invalid @enderror"
-                        value="{{ old('nisn') }}" autocomplete="off" placeholder="Masukkan nisn siswa" required>
+                        value="{{ old('nisn') }}" autocomplete="off" placeholder="Masukkan NISN siswa" required>
                     @error('nisn')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror

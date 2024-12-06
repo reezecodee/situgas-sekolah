@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="mb-4 d-flex justify-content-end">
-        <a href="" wire:navigate>
+        <a href="{{ route('calendar.create') }}" wire:navigate>
             <button class="btn btn-primary">Buat Jadwal</button>
         </a>
     </div>

@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="d-flex gap-2 justify-content-end mt-3">
-            <a href="{{ route('kalender.index') }}">
+            <a href="{{ route('calendar.index') }}">
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
             <button type="submit" class="btn btn-primary">Simpan Jadwal</button>

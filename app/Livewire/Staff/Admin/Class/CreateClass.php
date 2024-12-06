@@ -23,7 +23,18 @@ class CreateClass extends Component
     public function rules()
     {
         return [
-            'nama' => 'required',
+            'nama' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    $exists = Classrooms::where('nama', $value)
+                        ->where('tingkat', $this->tingkat)
+                        ->exists();
+
+                    if ($exists) {
+                        $fail('Kombinasi nama kelas dan tingkat sudah ada.');
+                    }
+                },
+            ],
             'tingkat' => 'required|in:VII,VIII,IX',
             'status' => 'required|in:Aktif,Tidak aktif'
         ];
