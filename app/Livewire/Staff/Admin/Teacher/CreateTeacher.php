@@ -44,6 +44,7 @@ class CreateTeacher extends Component
             'email' => $data['email'],
             'password' => bcrypt($data['tgl_lahir'])
         ]);
+        $user->assignRole('Guru');
 
         Teacher::create([
             'user_id' => $user->id,

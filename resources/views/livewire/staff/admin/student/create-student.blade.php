@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label for="" class="form-label">Kelas</label>
                     <select wire:model.blur="kelas_id" class="form-select @error('kelas_id') is-invalid @enderror" required>
-                        <option value="" disabled {{ !$kelas_id ? 'selected' : '' }}>Pilih kelas</option>
+                        <option value="" {{ !$kelas_id ? 'selected' : '' }}>Pilih kelas</option>
                         @foreach ($classes as $class)
                             <option value="{{ $class->id }}" {{ old('kelas_id', $kelas_id) == $class->id ? 'selected' : '' }}>
                                {{ $class->tingkat }} {{ $class->nama }}
@@ -78,6 +78,21 @@
                         <option value="Perempuan">Perempuan</option>
                     </select>
                     @error('jk')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label for="" class="form-label">Status</label>
+                    <select wire:model.blur="status" class="form-select @error('status') is-invalid @enderror" required>
+                        <option selected {{ old('status') ? 'value="' . old('status') . '"' : '' }}>
+                            {{ old('status') ? old('status') : 'Pilih status siswa' }}</option>
+                        <option value="Belum lulus">Belum lulus</option>
+                        <option value="Lulus">Lulus</option>
+                        <option value="Nonaktif">Nonaktif</option>
+                    </select>
+                    @error('status')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>

@@ -41,6 +41,7 @@ class CreateAdmin extends Component
             'email' => $data['email'],
             'password' => bcrypt($data['tgl_lahir'])
         ]);
+        $user->assignRole('Admin');
 
         Admin::create([
             'user_id' => $user->id,
