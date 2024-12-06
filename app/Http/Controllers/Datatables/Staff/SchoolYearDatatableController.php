@@ -32,7 +32,8 @@ class SchoolYearDatatableController extends Controller
                 $btnClass = $schoolYear->status === "Aktif" ? "success" : "danger";
                 $id = $schoolYear->id;
                 $status = $schoolYear->status;
-                return view('components.staff.dropdown.school-year-status', compact('btnClass', 'id', 'status'))->render();
+                $routeName = 'dt.chStatusYear';
+                return view('components.staff.dropdown.status', compact('btnClass', 'id', 'status', 'routeName'))->render();
             })
             ->rawColumns(['action', 'status'])
             ->make(true);

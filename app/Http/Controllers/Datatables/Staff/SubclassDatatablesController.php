@@ -32,7 +32,7 @@ class SubclassDatatablesController extends Controller
                         </form>
                     ';
                 } else {
-                    $deleteButton = '<span class="text-muted">Tidak bisa dihapus</span>';
+                    $deleteButton = '';
                 }
 
                 return '

@@ -20,7 +20,7 @@ Route::controller(StudyResultDatatableController::class)->group(function(){
 
 Route::controller(SchoolYearDatatableController::class)->group(function(){
     Route::get('/tahun-ajaran', 'getSchoolYear')->name('dt.schoolYear');
-    Route::post('/tahun-ajaran/{id}/{status}', 'changeStatus')->name('dt.chStatus');
+    Route::post('/tahun-ajaran/{id}/{status}', 'changeStatus')->name('dt.chStatusYear');
 });
 
 Route::controller(SubclassDatatablesController::class)->group(function(){
@@ -33,6 +33,7 @@ Route::controller(AdminDatatablesController::class)->group(function(){
 
 Route::controller(TeacherDatatableController::class)->group(function(){
     Route::get('/guru', 'getTeacher')->name('dt.teacher');
+    Route::post('/guru/{id}/{status}', 'changeStatus')->name('dt.chStatusTeacher');
 });
 
 Route::controller(SubjectDatatableController::class)->group(function(){

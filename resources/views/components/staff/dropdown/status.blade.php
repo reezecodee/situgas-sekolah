@@ -5,7 +5,7 @@
     <ul class="dropdown-menu">
         @if ($status != 'Aktif')
             <li>
-                <form method="POST" action="{{ route('dt.chStatus', ['id' => $id, 'status' => 'Aktif']) }}">
+                <form method="POST" action="{{ route($routeName, ['id' => $id, 'status' => 'Aktif']) }}">
                     @csrf
                     <button type="submit" class="dropdown-item">Ubah ke Aktif</button>
                 </form>
@@ -13,7 +13,7 @@
         @endif
         @if ($status != 'Tidak aktif')
         <li>
-            <form method="POST" action="{{ route('dt.chStatus', ['id' => $id, 'status' => 'Tidak aktif']) }}">
+            <form method="POST" action="{{ route($routeName, ['id' => $id, 'status' => 'Tidak aktif']) }}">
                 @csrf
                 <button type="submit" class="dropdown-item">Ubah ke Tidak aktif</button>
             </form>
