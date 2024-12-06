@@ -29,7 +29,7 @@
                     <label for="nuptk" class="form-label">NUPTK (opsional)</label>
                     <input type="text" placeholder="Masukkan NUPTK" id="nuptk" wire:model.blur="nuptk"
                         class="form-control @error('nuptk') is-invalid @enderror"
-                        value="{{ old('nuptk') }}" autocomplete="off" required>
+                        value="{{ old('nuptk') }}" autocomplete="off">
                     @error('nuptk')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror

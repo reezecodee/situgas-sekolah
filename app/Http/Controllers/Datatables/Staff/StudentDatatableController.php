@@ -14,21 +14,22 @@ class StudentDatatableController extends Controller
 
         return DataTables::of($students)
             ->addIndexColumn()
-            ->addColumn('action', function ($student) {
-                return '
-                <a wire:navigate href="" class="btn btn-sm btn-danger">Hapus</a>
-            ';
-            })
             ->addColumn('email', function($student){
                 return $student->user->email;
             })
             ->addColumn('kelas', function($student){
-                return $student->classroom->nama;
+                return "{$student->classroom->tingkat} {$student->classroom->nama}";
             })
             ->addColumn('status', function ($student) {
-                return $student->status === 'Aktif'
+                return $student->status === 'Lulus'
                     ? '<span class="badge bg-success">' . $student->status . '</span>'
                     : '<span class="badge bg-danger">' . $student->status . '</span>';
+            })
+            ->addColumn('action', function ($student) {
+                return '
+                <a wire:navigate href="'. route('student.edit', $student->id) .'" class="btn btn-sm btn-primary">Edit</a>
+                <a wire:navigate href="" class="btn btn-sm btn-danger">Hapus</a>
+            ';
             })
             ->rawColumns(['action', 'status'])
             ->make(true);

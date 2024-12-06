@@ -17,6 +17,7 @@ use App\Livewire\Staff\Admin\SchoolYear\CreateYear;
 use App\Livewire\Staff\Admin\SchoolYear\EditYear;
 use App\Livewire\Staff\Admin\SchoolYear\ListYear;
 use App\Livewire\Staff\Admin\Student\CreateStudent;
+use App\Livewire\Staff\Admin\Student\EditStudent;
 use App\Livewire\Staff\Admin\Student\ListStudent;
 use App\Livewire\Staff\Admin\Subject\CreateSubject;
 use App\Livewire\Staff\Admin\Subject\EditSubject;
@@ -77,6 +78,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
 
         Route::get('siswa', ListStudent::class)->name('student.list');
         Route::get('siswa/create', CreateStudent::class)->name('student.create');
+        Route::get('siswa/{id}/edit', EditStudent::class)->name('student.edit');
 
         Route::get('pelajaran', ListSubject::class)->name('subject.list');
         Route::get('pelajaran/create', CreateSubject::class)->name('subject.create');

@@ -16,7 +16,7 @@ class SubjectDatatableController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function ($subject) {
                 return '
-                <a wire:navigate href="" class="btn btn-sm btn-danger">Hapus</a>
+                <a wire:navigate href="'. route('subject.edit', $subject->id) .'" class="btn btn-sm btn-primary">Edit</a>
             ';
             })
             ->addColumn('status', function ($subject) {
