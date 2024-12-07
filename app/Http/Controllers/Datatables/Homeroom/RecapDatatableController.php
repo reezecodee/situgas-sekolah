@@ -28,7 +28,7 @@ class RecapDatatableController extends Controller
                         wire:click="$dispatch(\'show-modal\', { id: \'' . $student->id . '\' })">
                         Cetak Raport
                     </button>
-                    <a href="" wire:navigate>
+                    <a href="'. route('homeroom.attitude') .'" wire:navigate>
                     <button class="btn btn-sm btn-primary">Beri Nilai Sikap</button>
                     </a>
                 ';
