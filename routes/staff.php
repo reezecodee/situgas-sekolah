@@ -34,8 +34,12 @@ use App\Livewire\Staff\Profile\Profile;
 use App\Livewire\Staff\Teacher\Class\EnterClass;
 use App\Livewire\Staff\Teacher\Class\Presence;
 use App\Livewire\Staff\Teacher\Materi\ListMateri;
+use App\Livewire\Staff\Teacher\Materi\UploadMateri;
 use App\Livewire\Staff\Teacher\Result\StudyResult;
+use App\Livewire\Staff\Teacher\Task\EvaluationTask;
 use App\Livewire\Staff\Teacher\Task\ListTask;
+use App\Livewire\Staff\Teacher\Task\ListTaskCreated;
+use App\Livewire\Staff\Teacher\Task\UploadTask;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->group(function () {
@@ -55,7 +59,13 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('masuk-kelas/presensi', Presence::class)->name('teacher.presence');
 
         Route::get('upload-materi', ListMateri::class)->name('teacher.upload');
+        Route::get('upload-materi/{id}', UploadMateri::class)->name('teacher.uploadModule');
+
         Route::get('penugasan', ListTask::class)->name('teacher.task');
+        Route::get('penugasan/upload', UploadTask::class)->name('teacher.uploadTask');
+        Route::get('penugasan/tugas-dibuat', ListTaskCreated::class)->name('teacher.taskCreated');
+        Route::get('penugasan/evaluasi-tugas', EvaluationTask::class)->name('teacher.evaluationTask');
+
         Route::get('kirim-hasil-studi', StudyResult::class)->name('teacher.studyResult');
     });
 

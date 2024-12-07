@@ -9,8 +9,12 @@
                     <p><strong>Mata Pelajaran:</strong> Matematika</p>
                     <p><strong>Jumlah Tugas Aktif:</strong> 3</p>
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-primary">Lihat</button>
-                        <button class="btn btn-success">Buat Tugas</button>
+                        <a href="{{ route('teacher.taskCreated') }}" wire:navigate>
+                            <button class="btn btn-primary">Lihat</button>
+                        </a>
+                        <a href="{{ route('teacher.uploadTask') }}" wire:navigate>
+                            <button class="btn btn-success">Buat Tugas</button>
+                        </a>
                     </div>
                 </div>
             </div>
