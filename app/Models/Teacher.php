@@ -15,4 +15,9 @@ class Teacher extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function classroom()
+    {
+        return $this->hasOne(Classrooms::class, 'wali_kelas_id');
+    }
 }

@@ -13,14 +13,24 @@ class RecapDatatableController extends Controller
 {
     public function getRecap(){
         $user = User::with('teacher')->find(Auth::user()->id);
-        $students = Classrooms::with('students')->where('wali_kelas_id', $user->teacher->id)->get();
+
+        $classrooms = Classrooms::with('students')
+            ->where('wali_kelas_id', $user->teacher->id)
+            ->get();
+
+        $students = $classrooms->pluck('students')->flatten();
 
         return DataTables::of($students)
             ->addIndexColumn()
             ->addColumn('action', function ($student) {
-                return '';
+                return '
+                    <button class="btn btn-sm btn-success"
+                        wire:click="$dispatch(\'show-modal\', { id: \'' . $student->id . '\' })">
+                        Cetak Raport
+                    </button>
+                ';
             })
-            ->rawColumns(['action', 'status'])
+            ->rawColumns(['action'])
             ->make(true);
     }
 }

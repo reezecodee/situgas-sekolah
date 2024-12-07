@@ -19,8 +19,13 @@ class GuidanceStudent extends Component
     {
         $title = 'Murid Bimbingan';
         $user = User::with('teacher')->find(Auth::user()->id);
-        $guidances = Classrooms::with('students')->where('wali_kelas_id', $user->teacher->id)->get();
 
-        return view('livewire.staff.homeroom.guidance-student', compact('title', 'guidances'));
+        $classrooms = Classrooms::with('students')
+            ->where('wali_kelas_id', $user->teacher->id)
+            ->get();
+
+        $students = $classrooms->pluck('students')->flatten();
+
+        return view('livewire.staff.homeroom.guidance-student', compact('title', 'students'));
     }
 }

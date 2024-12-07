@@ -33,6 +33,7 @@ use App\Livewire\Staff\Notification\SendNotif;
 use App\Livewire\Staff\Profile\Profile;
 use App\Livewire\Staff\Teacher\Class\EnterClass;
 use App\Livewire\Staff\Teacher\Class\Presence;
+use App\Livewire\Staff\Teacher\Class\PresenceHistory;
 use App\Livewire\Staff\Teacher\Materi\ListMateri;
 use App\Livewire\Staff\Teacher\Materi\UploadMateri;
 use App\Livewire\Staff\Teacher\Result\ListStudentClass;
@@ -59,6 +60,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
     Route::prefix('guru')->middleware('role:Guru')->group(function () {
         Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
         Route::get('masuk-kelas/presensi', Presence::class)->name('teacher.presence');
+        Route::get('masuk-kelas/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
 
         Route::get('upload-materi', ListMateri::class)->name('teacher.upload');
         Route::get('upload-materi/{id}', UploadMateri::class)->name('teacher.uploadModule');

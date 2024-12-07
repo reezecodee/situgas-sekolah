@@ -1,4 +1,9 @@
 <div>
+    <div class="mb-4 d-flex justify-content-end">
+        <a wire:navigate href="{{ route('teacher.enterClass') }}">
+            <button class="btn btn-danger">Kembali</button>
+        </a>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
@@ -40,7 +45,10 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-end mb-5">
+    <div class="d-flex justify-content-end gap-2 mb-5">
+        <a href="{{ route('teacher.presenceHistory') }}" wire:navigate>
+            <button class="btn btn-success">Lihat riwayat presensi</button>
+        </a>
         <form wire:submit.prevent>
             <button type="submit" class="btn btn-primary">Mulai pembelajaran</button>
         </form>
