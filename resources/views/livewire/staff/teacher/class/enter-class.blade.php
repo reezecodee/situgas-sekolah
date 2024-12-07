@@ -8,7 +8,9 @@
                     <h6 class="card-title">Kelas 10 IPA</h6>
                     <p class="card-text mb-1"><strong>Jumlah Siswa:</strong> 30</p>
                     <p class="card-text mb-3"><strong>Waktu:</strong> 08:00 - 09:40</p>
-                    <button class="btn btn-primary w-100">Masuk untuk Absensi</button>
+                    <a href="{{ route('teacher.presence') }}" wire:navigate>
+                        <button class="btn btn-primary w-100">Masuk untuk Absensi</button>
+                    </a>
                 </div>
             </div>
         </div>

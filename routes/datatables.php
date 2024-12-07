@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Datatables\Homeroom\RecapDatatableController;
 use App\Http\Controllers\Datatables\Staff\AdminDatatablesController;
 use App\Http\Controllers\Datatables\Staff\CalendarDatatableController;
 use App\Http\Controllers\Datatables\Staff\RecapitulationDatatableController;
@@ -47,6 +48,10 @@ Route::controller(StudentDatatableController::class)->group(function (){
 
 Route::controller(CalendarDatatableController::class)->group(function (){
     Route::get('/kalender-kegiatan', 'getCalendar')->name('dt.calendar');
+});
+
+Route::controller(RecapDatatableController::class)->group(function (){
+    Route::get('/rekap-nilai', 'getRecap')->name('dt.recap');
 });
 
 

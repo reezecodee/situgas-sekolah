@@ -1,11 +1,10 @@
 <div>
-    <table id="studentsTable" class="table table-bordered table-striped">
+    <table id="recapTable" class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>No</th>
+                <th>NIS</th>
                 <th>Nama</th>
-                <th>Kelas</th>
-                <th>Nilai</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -13,25 +12,19 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#studentsTable').DataTable({
+                $('#recapTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.students') }}',
-                    columns: [{
-                            data: 'id',
-                            name: 'id'
+                    ajax: '{{ route('dt.recap') }}',
+                    columns: [
+                        { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                        {
+                            data: 'nis',
+                            name: 'nis'
                         },
                         {
-                            data: 'name',
-                            name: 'name'
-                        },
-                        {
-                            data: 'class',
-                            name: 'class'
-                        },
-                        {
-                            data: 'score',
-                            name: 'score'
+                            data: 'nama',
+                            name: 'nama'
                         },
                         {
                             data: 'action',

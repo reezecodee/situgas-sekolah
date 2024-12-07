@@ -32,6 +32,7 @@ use App\Livewire\Staff\Homeroom\RecapResult;
 use App\Livewire\Staff\Notification\SendNotif;
 use App\Livewire\Staff\Profile\Profile;
 use App\Livewire\Staff\Teacher\Class\EnterClass;
+use App\Livewire\Staff\Teacher\Class\Presence;
 use App\Livewire\Staff\Teacher\Materi\ListMateri;
 use App\Livewire\Staff\Teacher\Result\StudyResult;
 use App\Livewire\Staff\Teacher\Task\ListTask;
@@ -51,6 +52,8 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
 
     Route::prefix('guru')->middleware('role:Guru')->group(function () {
         Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
+        Route::get('masuk-kelas/presensi', Presence::class)->name('teacher.presence');
+
         Route::get('upload-materi', ListMateri::class)->name('teacher.upload');
         Route::get('penugasan', ListTask::class)->name('teacher.task');
         Route::get('kirim-hasil-studi', StudyResult::class)->name('teacher.studyResult');
