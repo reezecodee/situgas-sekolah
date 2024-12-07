@@ -8,12 +8,12 @@ use Livewire\Component;
 
 class StudyResult extends Component
 {
-    #[Title('Hasil Studi')]
+    #[Title('Kirim Hasil Studi')]
     #[Layout('components.layouts.staff')]
 
     public function render()
     {
-        $title = 'Hasil Studi';
+        $title = 'Kirim Hasil Studi';
 
         return view('livewire.staff.teacher.result.study-result', compact('title'));
     }

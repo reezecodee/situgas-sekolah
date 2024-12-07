@@ -1,7 +1,5 @@
 <div>
-    <!-- Daftar Kelas -->
     <div class="row">
-        <!-- Looping Card Kelas -->
         <div class="col-md-4 mb-4">
             <div class="card shadow">
                 <div class="card-body">

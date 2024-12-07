@@ -35,6 +35,8 @@ use App\Livewire\Staff\Teacher\Class\EnterClass;
 use App\Livewire\Staff\Teacher\Class\Presence;
 use App\Livewire\Staff\Teacher\Materi\ListMateri;
 use App\Livewire\Staff\Teacher\Materi\UploadMateri;
+use App\Livewire\Staff\Teacher\Result\ListStudentClass;
+use App\Livewire\Staff\Teacher\Result\SendStudyResult;
 use App\Livewire\Staff\Teacher\Result\StudyResult;
 use App\Livewire\Staff\Teacher\Task\EvaluationTask;
 use App\Livewire\Staff\Teacher\Task\ListTask;
@@ -67,6 +69,8 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('penugasan/evaluasi-tugas', EvaluationTask::class)->name('teacher.evaluationTask');
 
         Route::get('kirim-hasil-studi', StudyResult::class)->name('teacher.studyResult');
+        Route::get('kirim-hasil-studi/daftar-siswa', ListStudentClass::class)->name('teacher.studentList');
+        Route::get('kirim-hasil-studi/kirim', SendStudyResult::class)->name('teacher.sendStudyResult');
     });
 
     Route::prefix('admin')->middleware('role:Admin')->group(function () {
