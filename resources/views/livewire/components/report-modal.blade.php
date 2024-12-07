@@ -17,17 +17,103 @@
                         ></button>
                     </div>
                     <div class="modal-body">
-                        <p>
-                            Apakah Anda yakin ingin mencetak raport untuk
-                            <strong>{{ $student->name }}</strong>?
-                        </p>
-                        <p><strong>NIS:</strong> {{ $student->nis }}</p>
-                        <p><strong>NISN:</strong> {{ $student->nisn }}</p>
+                        <style>
+                            /* Gambar yang diberi efek blur saat hover */
+                            .img-a4 {
+                                width: 100%;
+                                height: 10rem;
+                                transition: filter 0.3s ease; /* Untuk transisi efek blur */
+                            }
+
+                            /* Efek blur ketika gambar di-hover */
+                            .img-a4:hover {
+                                filter: blur(4px); /* Efek blur */
+                            }
+
+                            /* Teks yang muncul di atas gambar saat hover */
+                            .overlay-text {
+                                visibility: hidden; /* Sembunyikan teks secara default */
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                font-size: 18px;
+                                color: white;
+                                font-weight: bold;
+                                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Efek bayangan untuk teks */
+                            }
+
+                            /* Teks muncul saat hover */
+                            .img-container:hover .overlay-text {
+                                visibility: visible; /* Menampilkan teks saat hover */
+                            }
+
+                            /* Container gambar dengan posisi relative untuk overlay */
+                            .img-container {
+                                position: relative;
+                                cursor: pointer;
+                            }
+
+                            /* Styling untuk tombol download dengan btn btn-primary */
+                            .download-btn-container {
+                                text-align: center;
+                                margin-top: 10px;
+                            }
+                        </style>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4 mb-2">
+                                    <div class="img-container">
+                                        <!-- Gambar -->
+                                        <img src="{{ $imageUrl }}" class="img-fluid rounded img-a4" alt="Gambar 1">
+
+                                        <!-- Teks "Periksa" muncul saat hover -->
+                                        <div class="overlay-text">Periksa</div>
+                                    </div>
+                                    <!-- Tombol Download dengan btn btn-primary di bawah gambar -->
+                                    <div class="download-btn-container">
+                                        <a href="{{ $imageUrl }}" download class="btn btn-primary">Download</a>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 mb-2">
+                                    <div class="img-container">
+                                        <img src="{{ $imageUrl }}" class="img-fluid rounded img-a4" alt="Gambar 2">
+                                        <div class="overlay-text">Periksa</div>
+                                    </div>
+                                    <div class="download-btn-container">
+                                        <a href="{{ $imageUrl }}" download class="btn btn-primary">Download</a>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 mb-2">
+                                    <div class="img-container">
+                                        <img src="{{ $imageUrl }}" class="img-fluid rounded img-a4" alt="Gambar 3">
+                                        <div class="overlay-text">Periksa</div>
+                                    </div>
+                                    <div class="download-btn-container">
+                                        <a href="{{ $imageUrl }}" download class="btn btn-primary">Download</a>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 mb-2">
+                                    <div class="img-container">
+                                        <img src="{{ $imageUrl }}" class="img-fluid rounded img-a4" alt="Gambar 3">
+                                        <div class="overlay-text">Periksa</div>
+                                    </div>
+                                    <div class="download-btn-container">
+                                        <a href="{{ $imageUrl }}" download class="btn btn-primary">Download</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button
                             type="button"
-                            class="btn btn-secondary"
+                            class="btn btn-danger"
                             wire:click="closeModal"
                         >
                             Batal
@@ -37,7 +123,7 @@
                             class="btn btn-primary"
                             wire:click="printReport"
                         >
-                            Cetak
+                            Download Semua
                         </button>
                     </div>
                 </div>
