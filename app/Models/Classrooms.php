@@ -20,4 +20,9 @@ class Classrooms extends Model
     {
         return $this->belongsTo(Teacher::class, 'wali_kelas_id');
     }
+
+    public function teachingSchedule()
+    {
+        return $this->hasMany(TeachingSchedule::class, 'kelas_id');
+    }
 }

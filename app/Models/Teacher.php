@@ -20,4 +20,14 @@ class Teacher extends Model
     {
         return $this->hasOne(Classrooms::class, 'wali_kelas_id');
     }
+
+    public function subjectTeacher()
+    {
+        return $this->hasMany(SubjectTeacher::class, 'guru_id');
+    }
+
+    public function teachingSchedule()
+    {
+        return $this->hasMany(TeachingSchedule::class, 'guru_id');
+    }
 }

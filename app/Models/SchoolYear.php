@@ -15,4 +15,9 @@ class SchoolYear extends Model
     {
         return $this->hasMany(AttitudeReport::class, 'tahun_ajaran_id');
     }
+
+    public function teachingSchedule()
+    {
+        return $this->hasMany(TeachingSchedule::class, 'tahun_ajaran_id');
+    }
 }

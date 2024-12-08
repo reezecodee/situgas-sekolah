@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignUuid('kelas_id')->constrained('classrooms');
             // $table->foreignUuid('subkelas_id')->constrained('subclasses');
             $table->date('tanggal');
-            $table->string('pembelajaran_materi');
-            $table->string('deskripsi');
+            $table->string('pembelajaran_materi')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->enum('status_kehadiran', ['Hadir', 'Tidak hadir']);
             $table->text('keterangan')->nullable();
             $table->string('bukti');
