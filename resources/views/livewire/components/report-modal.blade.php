@@ -73,7 +73,7 @@
                                     </div>
                                     <!-- Tombol Download dengan btn btn-primary di bawah gambar -->
                                     <div class="download-btn-container">
-                                        <a href="{{ $imageUrl }}" download class="btn btn-primary">Download</a>
+                                        <button wire:click="downloadCover('{{ $student->id }}')" class="btn btn-primary">Download</button>
                                     </div>
                                 </div>
 
@@ -83,7 +83,7 @@
                                         <div class="overlay-text">Periksa</div>
                                     </div>
                                     <div class="download-btn-container">
-                                        <a href="{{ $imageUrl }}" download class="btn btn-primary">Download</a>
+                                        <button wire:click="downloadDataStudent('{{ $student->id }}')" class="btn btn-primary">Download</button>
                                     </div>
                                 </div>
 
@@ -93,7 +93,7 @@
                                         <div class="overlay-text">Periksa</div>
                                     </div>
                                     <div class="download-btn-container">
-                                        <a href="{{ $imageUrl }}" download class="btn btn-primary">Download</a>
+                                        <button wire:click="downloadAttitude('{{ $student->id }}')" class="btn btn-primary">Download</button>
                                     </div>
                                 </div>
 
@@ -103,7 +103,7 @@
                                         <div class="overlay-text">Periksa</div>
                                     </div>
                                     <div class="download-btn-container">
-                                        <a href="{{ $imageUrl }}" download class="btn btn-primary">Download</a>
+                                        <button wire:click="downloadAcademic('{{ $student->id }}')" class="btn btn-primary">Download</button>
                                     </div>
                                 </div>
                             </div>
