@@ -10,4 +10,9 @@ class Subject extends Model
     use HasUuids;
 
     protected $guarded = ['id'];
+
+    public function subjectTeacher()
+    {
+        return $this->hasMany(SubjectTeacher::class, 'mapel_id');
+    }
 }

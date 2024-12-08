@@ -61,7 +61,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
 
     Route::prefix('guru')->middleware('role:Guru')->group(function () {
         Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
-        Route::get('masuk-kelas/presensi', Presence::class)->name('teacher.presence');
+        Route::get('masuk-kelas/{id}/presensi', Presence::class)->name('teacher.presence');
         Route::get('masuk-kelas/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
 
         Route::get('upload-materi', ListMateri::class)->name('teacher.upload');

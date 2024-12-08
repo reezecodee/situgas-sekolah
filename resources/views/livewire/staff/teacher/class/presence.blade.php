@@ -11,7 +11,7 @@
                     <div class="d-flex align-items-center gap-3">
                         <i class="ti ti-chalkboard display-4"></i>
                         <div style="line-height: 0.5">
-                            <h5>MTK1023</h5>
+                            <h5>{{ $presence->subjectTeacher->subject->kode }}</h5>
                             <p>Kode pelajaran</p>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="d-flex align-items-center gap-3">
                         <i class="ti ti-school display-4"></i>
                         <div style="line-height: 0.5">
-                            <h5>Matematika</h5>
+                            <h5>{{ $presence->subjectTeacher->subject->nama }}</h5>
                             <p>Mata pelajaran</p>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                     <div class="d-flex align-items-center gap-3">
                         <i class="ti ti-building-bank display-4"></i>
                         <div style="line-height: 0.5">
-                            <h5>Kelas VII C</h5>
+                            <h5>Kelas {{ $presence->classroom->tingkat }} {{ $presence->classroom->nama }}</h5>
                             <p>Kelas</p>
                         </div>
                     </div>
@@ -50,6 +50,7 @@
             <button class="btn btn-success">Lihat riwayat presensi</button>
         </a>
         <form wire:submit.prevent>
+            <input type="hidden" wire:model="">
             <button type="submit" class="btn btn-primary">Mulai pembelajaran</button>
         </form>
     </div>
