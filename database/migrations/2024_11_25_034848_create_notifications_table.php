@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notifications', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('pengirim_id')->constrained('users');
-            $table->foreignUuid('penerima_id')->nullable()->constrained('users');
-            $table->string('judul');
-            $table->text('pesan');
-            $table->date('tanggal');
-            $table->enum('status', ['Belum dilihat', 'Sudah dilihat']);
-            $table->timestamps();
-        });
+        // Schema::create('notifications', function (Blueprint $table) {
+        //     $table->uuid('id')->primary();
+        //     $table->foreignUuid('pengirim_id')->constrained('users');
+        //     $table->foreignUuid('penerima_id')->nullable()->constrained('users');
+        //     $table->string('judul');
+        //     $table->text('pesan');
+        //     $table->date('tanggal');
+        //     $table->enum('status', ['Belum dilihat', 'Sudah dilihat']);
+        //     $table->timestamps();
+        // });
     }
 
     /**

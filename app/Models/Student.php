@@ -20,4 +20,9 @@ class Student extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function attitudeReport()
+    {
+        return $this->hasMany(AttitudeReport::class, 'siswa_id');
+    }
 }

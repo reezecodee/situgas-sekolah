@@ -26,8 +26,8 @@
                 <div class="mb-2">
                     <div class="form-group">
                         <label for="" class="form-label">Deskripsi</label>
-                        <textarea class="form-control" placeholder="Masukkan deskripsi" wire:model.blur="deskripsi" required></textarea>
-                        @error('deskripsi')
+                        <textarea class="form-control" placeholder="Masukkan deskripsi" wire:model.blur="deskripsi_spiritual" required></textarea>
+                        @error('deskripsi_spiritual')
                             <span class="text-danger mt-1">{{ $message }}</span>
                         @enderror
                     </div>
@@ -53,13 +53,13 @@
                     <div class="form-group">
                         <label for="" class="form-label">Deskripsi</label>
                         <textarea class="form-control" placeholder="Masukkan deskripsi" wire:model.blur="deskripsi_sosial" required></textarea>
-                        @error('deskripsi')
+                        @error('deskripsi_sosial')
                             <span class="text-danger mt-1">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-end">
-                    <button class="btn btn-primary">Simpan Nilai Sikap</button>
+                    <button type="submit" class="btn btn-primary">Simpan Nilai Sikap</button>
                 </div>
             </form>
         </div>

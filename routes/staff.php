@@ -54,7 +54,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
     Route::prefix('wali-kelas')->middleware(['role:Guru', 'permission:Wali kelas'])->group(function () {
         Route::get('murid-bimbingan', GuidanceStudent::class)->name('homeroom.guidance');
         Route::get('rekapitulasi-nilai', RecapResult::class)->name('homeroom.recapitulation');
-        Route::get('rekapitulasi-nilai/sikap', AttitudeStudent::class)->name('homeroom.attitude');
+        Route::get('rekapitulasi-nilai/{id}/sikap', AttitudeStudent::class)->name('homeroom.attitude');
         Route::get('surat', Letter::class)->name('homeroom.invitation');
         Route::get('manajemen-pkl', ManageIntern::class)->name('homeroom.internship');
     });

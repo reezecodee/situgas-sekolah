@@ -10,4 +10,9 @@ class SchoolYear extends Model
     use HasUuids;
 
     protected $guarded = ['id'];
+
+    public function attitudeReport()
+    {
+        return $this->hasMany(AttitudeReport::class, 'tahun_ajaran_id');
+    }
 }
