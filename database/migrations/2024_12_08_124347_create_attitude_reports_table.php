@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('attitude_reports', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->foreignUuid('siswa_id')->constrained('students');
             $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
             $table->enum('predikat_spiritual', ['SANGAT BAIK', 'BAIK', 'CUKUP', 'BURUK']);

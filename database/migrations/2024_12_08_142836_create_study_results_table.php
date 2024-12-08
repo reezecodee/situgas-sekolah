@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assignments', function (Blueprint $table) {
+        Schema::create('study_results', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
+            $table->foreignUuid('siswa_id')->constrained('students');
+            $table->foreignUuid('mapel_id')->constrained('subjects');
             $table->foreignUuid('guru_id')->constrained('teachers');
-            $table->foreignUuid('pengampu_id')->constrained('subject_teachers');
-            // $table->foreignUuid('subkelas_id')->constrained('subclasses');
-            $table->foreignUuid('kelas_id')->constrained('classrooms');
-            $table->string('judul_tugas');
-            $table->string('deskripsi');
-            $table->date('tgl_mulai');
-            $table->date('tgl_selesai');
+            $table->string('nilai_pengetahuan');
+            $table->string('nilai_keterampilan');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('study_results');
     }
 };

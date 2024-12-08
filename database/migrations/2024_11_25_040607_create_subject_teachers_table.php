@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('assignments', function (Blueprint $table) {
+        Schema::create('subject_teachers', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('guru_id')->constrained('teachers');
-            $table->foreignUuid('pengampu_id')->constrained('subject_teachers');
-            // $table->foreignUuid('subkelas_id')->constrained('subclasses');
-            $table->foreignUuid('kelas_id')->constrained('classrooms');
-            $table->string('judul_tugas');
-            $table->string('deskripsi');
-            $table->date('tgl_mulai');
-            $table->date('tgl_selesai');
+            $table->foreignUuid('mapel_id')->constrained('subjects');
             $table->timestamps();
         });
     }
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('assignments');
+        Schema::dropIfExists('subject_teachers');
     }
 };
