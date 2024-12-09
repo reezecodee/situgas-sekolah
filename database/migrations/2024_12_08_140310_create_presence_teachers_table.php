@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('pembelajaran_materi')->nullable();
             $table->string('deskripsi')->nullable();
             $table->enum('status_kehadiran', ['Hadir', 'Tidak hadir']);
-            $table->text('keterangan')->nullable();
             $table->string('bukti')->nullable();
             $table->timestamps();
         });
