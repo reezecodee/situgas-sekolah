@@ -49,11 +49,17 @@
         <a href="{{ route('teacher.presenceHistory') }}" wire:navigate>
             <button class="btn btn-success">Lihat riwayat presensi</button>
         </a>
-        <form wire:submit.prevent>
-            <input type="hidden" wire:model="">
+        @if($today == $presence->hari && $hour >= $presence->jam_masuk && $hour <= $presence->jam_keluar)
+        <form wire:submit.prevent="submit">
             <button type="submit" class="btn btn-primary">Mulai pembelajaran</button>
         </form>
+        @elseif($isPresence && $today == $presence->hari)
+        <button type="button" class="btn btn-secondary">Sudah absensi</button>
+        @else
+        <button type="button" class="btn btn-danger">Belum di mulai</button>
+        @endif
     </div>
+    @if ($isPresence && $today == $presence->hari)
     <hr>
     <div class="card">
         <div class="card-body">
@@ -92,4 +98,5 @@
             </div>
         </div>
     </div>
+    @endif
 </div>

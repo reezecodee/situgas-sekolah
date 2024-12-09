@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('presence_teachers', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
+            $table->foreignUuid('jadwal_mengajar_id')->constrained('teaching_schedules');
             $table->foreignUuid('guru_id')->constrained('teachers');
-            $table->foreignUuid('mapel_id')->constrained('subjects');
+            // $table->foreignUuid('mapel_id')->constrained('subjects');
             $table->foreignUuid('kelas_id')->constrained('classrooms');
             // $table->foreignUuid('subkelas_id')->constrained('subclasses');
             $table->date('tanggal');
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->string('deskripsi')->nullable();
             $table->enum('status_kehadiran', ['Hadir', 'Tidak hadir']);
             $table->text('keterangan')->nullable();
-            $table->string('bukti');
+            $table->string('bukti')->nullable();
             $table->timestamps();
         });
     }

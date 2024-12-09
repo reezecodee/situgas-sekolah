@@ -266,7 +266,7 @@
             <tr>
                 <!-- QR Code -->
                 <td class="qr-code">
-                    <img src="{{ $qrCode }}" id="qrcode" alt="QR Code">
+                    <img src="" id="qrcode" alt="QR Code">
                 </td>
 
                 <!-- Foto Siswa dengan Stempel -->

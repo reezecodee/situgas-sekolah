@@ -59,13 +59,8 @@ class ReportModal extends Component
     {
         $student = Student::findOrFail($id);
 
-        $dataQr = 'Rapor Digital Madrasah MTsS BPI BATUROMPE\nNama: AMELIA\nNISN: 091230121';
-
-        $qrCodeWithLogo = $this->generateQrCodeWithLogo($dataQr);
-
         $pdf = PDF::loadView('raport.data-siswa', [
             'student' => $student,
-            'qrCode' => $qrCodeWithLogo
         ])
             ->setPaper('a4', 'portrait');
 
@@ -94,17 +89,6 @@ class ReportModal extends Component
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->stream();
         }, "nilai-akademik_{$student->nis}_{$student->nama}.pdf");
-    }
-
-    private function generateQrCodeWithLogo($dataQr)
-    {
-        $qrCode = QrCode::format('png')
-            ->size(300)
-            ->errorCorrection('H')
-            ->generate($dataQr);
-
-        $base64QrWithLogo = 'data:image/png;base64,' . base64_encode($qrCode);
-        return $base64QrWithLogo;
     }
 
     public function render()

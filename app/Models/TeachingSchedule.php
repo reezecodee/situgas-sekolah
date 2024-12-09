@@ -30,4 +30,9 @@ class TeachingSchedule extends Model
     {
         return $this->belongsTo(Teacher::class, 'guru_id');
     }
+
+    public function presenceTeacher()
+    {
+        return $this->hasMany(PresenceTeacher::class, 'jadwal_mengajar_id');
+    }
 }

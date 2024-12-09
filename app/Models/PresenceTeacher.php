@@ -10,4 +10,9 @@ class PresenceTeacher extends Model
     use HasUuids;
 
     protected $guarded = ['id'];
+
+    public function teachingSchedule()
+    {
+        return $this->belongsTo(TeachingSchedule::class, 'jadwal_mengajar_id');
+    }
 }
