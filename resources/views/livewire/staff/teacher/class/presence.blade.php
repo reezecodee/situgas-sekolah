@@ -67,7 +67,7 @@
             <div class="card-body">
                 <h6><b>Bukti pembelajaran</b></h6>
                 <hr>
-                <form wire:submit.prevent="uploadMateri">
+                <form wire:submit.prevent="teachingTestimony">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row">
@@ -96,10 +96,16 @@
                             <div class="col-md-12 mb-4">
                                 <div class="form-group">
                                     <label for="" class="form-label">Bukti mengajar</label>
-                                    <input type="file" class="form-control @error('bukti') is-invalid @enderror" wire:model.blur="bukti" placeholder="Masukkan pembelajaran materi hari ini">
+                                    <input type="file" class="form-control @error('bukti') is-invalid @enderror" wire:model="bukti" placeholder="Masukkan pembelajaran materi hari ini">
                                     @error('bukti')
                                         <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
+                                    @if($bukti)
+                                    <small class="form-text text-muted">
+                                        File sebelumnya:
+                                        <a href="{{ Storage::url($bukti) }}" target="_blank">Lihat File</a>
+                                    </small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-12 mb-2">
@@ -136,15 +142,29 @@
                         <div class="text-center">
                             <h6 class="my-3">{{ $item->nama }}</h6>
                             <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Kehadiran
+                                @if ($item->presenceStudent->last()?->status_kehadiran == 'Hadir')
+                                    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @elseif($item->presenceStudent->last()?->status_kehadiran == 'Alpha')
+                                    <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @else
+                                    <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @endif
+                                {{ $item->presenceStudent->last()?->status_kehadiran ?? 'Belum presensi' }}
                                 </button>
-                                <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Hadir</a></li>
-                                <li><a class="dropdown-item" href="#">Tidak hadir</a></li>
-                                <li><a class="dropdown-item" href="#">Izin</a></li>
-                                <li><a class="dropdown-item" href="#">Sakit</a></li>
-                                </ul>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <button wire:click="presenceStudent('{{ $item->id }}', 'Hadir')" class="dropdown-item" type="button">Hadir</button>
+                                        </li>
+                                        <li>
+                                            <button wire:click="presenceStudent('{{ $item->id }}', 'Alpha')" class="dropdown-item" type="button">Alpha</button>
+                                        </li>
+                                        <li>
+                                            <button wire:click="presenceStudent('{{ $item->id }}', 'Izin')" class="dropdown-item" type="button">Izin</button>
+                                        </li>
+                                        <li>
+                                            <button wire:click="presenceStudent('{{ $item->id }}', 'Sakit')" class="dropdown-item" type="button">Sakit</button>
+                                        </li>
+                                    </ul>
                             </div>
                         </div>
                     </div>

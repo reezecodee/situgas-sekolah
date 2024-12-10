@@ -11,11 +11,14 @@ use App\Models\TeachingSchedule;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class Presence extends Component
 {
+    use WithFileUploads;
+
     #[Layout('components.layouts.staff')]
 
     public $id;
@@ -25,6 +28,23 @@ class Presence extends Component
     public $teacher;
     public $presenceTeacher;
     public $isPresence = false;
+
+    #[Validate]
+    public $pembelajaran_materi;
+    #[Validate]
+    public $deskripsi;
+    #[Validate]
+    public $bukti;
+    public $presenceStatus;
+
+    public function rules()
+    {
+        return [
+            'pembelajaran_materi' => 'required|max:255',
+            'deskripsi' => 'required',
+            'bukti' => 'required|file|mimes:pdf|max:5120'
+        ];
+    }
 
     public function mount($id)
     {
@@ -54,6 +74,10 @@ class Presence extends Component
         } else {
             $this->isPresence = false;
         }
+
+        $this->pembelajaran_materi = $presence->pembelajaran_materi ?? '';
+        $this->deskripsi = $presence->deskripsi ?? '';
+        $this->bukti = $presence->bukti ?? '';
     }
 
     public function submit()
@@ -63,7 +87,7 @@ class Presence extends Component
             ->first();
 
         if ($existingPresence) {
-            session()->flash('error', 'Presensi hari ini sudah dilakukan.');
+            session()->flash('failed', 'Presensi hari ini sudah dilakukan.');
             return redirect()->to(route('teacher.presence', $this->id));
         }
 
@@ -80,6 +104,55 @@ class Presence extends Component
 
         session()->flash('success', 'Berhasil melakukan absensi hari ini.');
         return redirect()->to(route('teacher.presence', $this->id));
+    }
+
+    public function teachingTestimony()
+    {
+        $existingPresence = PresenceTeacher::where('jadwal_mengajar_id', $this->id)
+            ->whereDate('tanggal', Carbon::today())
+            ->first();
+
+        if (!$existingPresence) {
+            session()->flash('failed', 'Harap lakukan presensi terlebih dahulu.');
+            return redirect()->to(route('teacher.presence', $this->id));
+        }
+
+        $data = $this->validate();
+
+        $originalExtension = $this->bukti->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $originalExtension;
+        $filePath = $this->bukti->storeAs('bukti_ajar', $uniqueFileName, 'public');
+
+        $testimony = PresenceTeacher::findOrFail($existingPresence->id);
+        $testimony->update([
+            ...$data,
+            'bukti' => $filePath,
+        ]);
+
+        session()->flash('success', 'Berhasil menyimpan bukti kehadiran');
+        return redirect()->to(route('teacher.presence', $this->id));
+    }
+
+    public function presenceStudent($id, $status)
+    {
+        $existingPresence = PresenceTeacher::where('jadwal_mengajar_id', $this->id)
+            ->whereDate('tanggal', Carbon::today())
+            ->first();
+        $student = PresenceStudent::where('siswa_id', $id)->where('absen_guru_id', $existingPresence->id)->first();
+
+        if (!$student) {
+            PresenceStudent::create([
+                'siswa_id' => $id,
+                'absen_guru_id' => $existingPresence->id,
+                'mapel_id' => $this->presence->subjectTeacher->subject->id,
+                'status_kehadiran' => $status,
+                'tanggal' => date('Y-m-d')
+            ]);
+        } else {
+            $student->update([
+                'status_kehadiran' => $status,
+            ]);
+        }
     }
 
     public function render()
@@ -111,7 +184,7 @@ class Presence extends Component
                 ->count();
         }
 
-        $students = Student::where('kelas_id', $this->presence->kelas_id)->get();
+        $students = Student::with('presenceStudent')->where('kelas_id', $this->presence->kelas_id)->get();
 
         return view('livewire.staff.teacher.class.presence', compact('title', 'attend', 'sick', 'permit', 'alpha', 'countStudent', 'students'))->title($title);
     }
