@@ -11,5 +11,7 @@ Route::delete('/admin/delete/{id}', [AdminController::class, 'delete'])->name('a
 
 Route::delete('/calendar/delete/{id}', [CalendarController::class, 'delete'])->name('calendar.delete');
 
+Route::delete('/assignment/delete/{id}', [CalendarController::class, 'delete'])->name('assignment.delete');
+
 Route::get('/kalender-akademik', [CalendarController::class, 'getSchedule']);
 

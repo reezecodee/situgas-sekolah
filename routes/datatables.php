@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Datatables\Homeroom\RecapDatatableController;
 use App\Http\Controllers\Datatables\Staff\AdminDatatablesController;
+use App\Http\Controllers\Datatables\Staff\AssignmentDatatableController;
 use App\Http\Controllers\Datatables\Staff\CalendarDatatableController;
 use App\Http\Controllers\Datatables\Staff\RecapitulationDatatableController;
 use App\Http\Controllers\Datatables\Staff\SchoolYearDatatableController;
@@ -12,47 +13,49 @@ use App\Http\Controllers\Datatables\Staff\SubjectDatatableController;
 use App\Http\Controllers\Datatables\Staff\TeacherDatatableController;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(RecapitulationDatatableController::class)->group(function(){
+Route::controller(RecapitulationDatatableController::class)->group(function () {
     Route::get('/data-siswa-rekap', 'getStudents')->name('dt.students');
 });
 
-Route::controller(StudyResultDatatableController::class)->group(function(){
+Route::controller(StudyResultDatatableController::class)->group(function () {
     Route::get('/hasil-studi-siswa', 'getStudents')->name('dt.studyResults');
 });
 
-Route::controller(SchoolYearDatatableController::class)->group(function(){
+Route::controller(SchoolYearDatatableController::class)->group(function () {
     Route::get('/tahun-ajaran', 'getSchoolYear')->name('dt.schoolYear');
     Route::post('/tahun-ajaran/{id}/{status}', 'changeStatus')->name('dt.chStatusYear');
 });
 
-Route::controller(SubclassDatatablesController::class)->group(function(){
+Route::controller(SubclassDatatablesController::class)->group(function () {
     Route::get('/subkelas/{class}', 'getSubclass')->name('dt.subclass');
 });
 
-Route::controller(AdminDatatablesController::class)->group(function(){
+Route::controller(AdminDatatablesController::class)->group(function () {
     Route::get('/admin', 'getAdmin')->name('dt.admin');
 });
 
-Route::controller(TeacherDatatableController::class)->group(function(){
+Route::controller(TeacherDatatableController::class)->group(function () {
     Route::get('/guru', 'getTeacher')->name('dt.teacher');
     Route::post('/guru/{id}/{status}', 'changeStatus')->name('dt.chStatusTeacher');
     Route::get('/riwayat-absensi/{id}', 'getPresenceHistory')->name('dt.presenceHistory');
 });
 
-Route::controller(SubjectDatatableController::class)->group(function(){
+Route::controller(SubjectDatatableController::class)->group(function () {
     Route::get('/mata-pelajaran', 'getSubject')->name('dt.subject');
 });
 
-Route::controller(StudentDatatableController::class)->group(function (){
+Route::controller(StudentDatatableController::class)->group(function () {
     Route::get('/siswa', 'getStudent')->name('dt.student');
 });
 
-Route::controller(CalendarDatatableController::class)->group(function (){
+Route::controller(CalendarDatatableController::class)->group(function () {
     Route::get('/kalender-kegiatan', 'getCalendar')->name('dt.calendar');
 });
 
-Route::controller(RecapDatatableController::class)->group(function (){
+Route::controller(RecapDatatableController::class)->group(function () {
     Route::get('/rekap-nilai', 'getRecap')->name('dt.recap');
 });
 
-
+Route::controller(AssignmentDatatableController::class)->group(function () {
+    Route::get('/tugas/{id}', 'getTask')->name('dt.task');
+});

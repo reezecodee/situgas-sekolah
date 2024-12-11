@@ -8,7 +8,7 @@
                     <p><strong>Mata Pelajaran:</strong> {{ $item->subjectTeacher->subject->nama }}</p>
                     <p><strong>Jumlah Tugas Aktif:</strong> {{ $item->assignment_count }}</p>
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('teacher.taskCreated') }}" wire:navigate>
+                        <a href="{{ route('teacher.taskCreated', $item->id) }}" wire:navigate>
                             <button class="btn btn-primary">Lihat</button>
                         </a>
                         <a href="{{ route('teacher.uploadTask', $item->id) }}" wire:navigate>

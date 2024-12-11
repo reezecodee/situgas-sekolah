@@ -30,4 +30,9 @@ class Student extends Model
     {
         return $this->hasMany(PresenceStudent::class, 'siswa_id');
     }
+
+    public function submission()
+    {
+        return $this->hasMany(Submission::class, 'siswa_id');
+    }
 }

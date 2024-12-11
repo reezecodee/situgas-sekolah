@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignUuid('penugasan_id')->constrained('assignments');
             $table->string('file_pengerjaan');
             $table->date('tanggal');
-            $table->string('nilai');
-            $table->string('komentar_guru');
+            $table->string('nilai')->nullable();
+            $table->string('komentar_guru')->nullable();
             $table->enum('status', ['Dikerjakan', 'Belum dikerjakan', 'Telat mengumpulkan', 'Tidak dikerjakan']);
             $table->timestamps();
         });

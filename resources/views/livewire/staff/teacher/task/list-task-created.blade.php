@@ -5,13 +5,14 @@
                 <button class="btn btn-danger">Kembali</button>
             </a>
         </div>
-        <table id="adminTable" class="table table-bordered table-striped">
+        <table id="taskTable" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                    <th>Judul tugas</th>
+                    <th>Deskripsi</th>
+                    <th>Tanggal mulai</th>
+                    <th>Tanggal selesai</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -19,23 +20,27 @@
         <x-slot name="script">
             <script>
                 $(document).ready(function() {
-                    $('#adminTable').DataTable({
+                    $('#taskTable').DataTable({
                         processing: true,
                         serverSide: true,
-                        ajax: '{{ route('dt.admin') }}',
+                        ajax: '{{ route('dt.task', $id) }}',
                         columns: [
                             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                             {
-                                data: 'nama',
-                                name: 'nama'
+                                data: 'judul_tugas',
+                                name: 'judul_tugas'
                             },
                             {
-                                data: 'email',
-                                name: 'email'
+                                data: 'deskripsi',
+                                name: 'deskripsi'
                             },
                             {
-                                data: 'status',
-                                name: 'status'
+                                data: 'tgl_mulai',
+                                name: 'tgl_mulai'
+                            },
+                            {
+                                data: 'tgl_selesai',
+                                name: 'tgl_selesai'
                             },
                             {
                                 data: 'action',

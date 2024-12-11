@@ -10,4 +10,9 @@ class Submission extends Model
     use HasUuids;
 
     protected $guarded = ['id'];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'siswa_id');
+    }
 }
