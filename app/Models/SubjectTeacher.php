@@ -30,4 +30,14 @@ class SubjectTeacher extends Model
     {
         return $this->belongsTo(Subject::class, 'mapel_id');
     }
+
+    public function materi()
+    {
+        return $this->hasMany(Materi::class, 'pengampu_id');
+    }
+
+    public function materiCount()
+    {
+        return $this->materi()->count();
+    }
 }

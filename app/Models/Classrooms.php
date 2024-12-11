@@ -25,4 +25,4 @@ class Classrooms extends Model
     {
         return $this->hasMany(TeachingSchedule::class, 'kelas_id');
     }
-}
+}   

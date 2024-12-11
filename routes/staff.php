@@ -67,7 +67,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('masuk-kelas/{id}/{date}/edit', EditPresence::class)->name('teacher.editPresence');
 
         Route::get('upload-materi', ListMateri::class)->name('teacher.upload');
-        Route::get('upload-materi/{id}', UploadMateri::class)->name('teacher.uploadModule');
+        Route::get('upload-materi/{id}/upload', UploadMateri::class)->name('teacher.uploadModule');
 
         Route::get('penugasan', ListTask::class)->name('teacher.task');
         Route::get('penugasan/upload', UploadTask::class)->name('teacher.uploadTask');

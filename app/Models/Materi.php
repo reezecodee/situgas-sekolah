@@ -10,4 +10,9 @@ class Materi extends Model
     use HasUuids;
 
     protected $guarded = ['id'];
+
+    public function subjectTeacher()
+    {
+        return $this->belongsTo(SubjectTeacher::class, 'pengampu_id');
+    }
 }
