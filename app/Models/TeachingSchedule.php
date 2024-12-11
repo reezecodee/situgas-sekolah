@@ -35,4 +35,9 @@ class TeachingSchedule extends Model
     {
         return $this->hasMany(PresenceTeacher::class, 'jadwal_mengajar_id');
     }
+
+    public function assignment()
+    {
+        return $this->hasMany(Assignment::class, 'jadwal_mengajar_id');
+    }
 }

@@ -25,4 +25,9 @@ class Classrooms extends Model
     {
         return $this->hasMany(TeachingSchedule::class, 'kelas_id');
     }
-}   
+
+    public function assignment()
+    {
+        return $this->hasMany(Assignment::class, 'kelas_id');
+    }
+}

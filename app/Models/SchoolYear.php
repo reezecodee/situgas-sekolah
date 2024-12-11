@@ -20,4 +20,9 @@ class SchoolYear extends Model
     {
         return $this->hasMany(TeachingSchedule::class, 'tahun_ajaran_id');
     }
+
+    public function assignment()
+    {
+        return $this->hasMany(Assignment::class, 'tahun_ajaran_id');
+    }
 }
