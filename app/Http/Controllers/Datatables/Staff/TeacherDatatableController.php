@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Datatables\Staff;
 
 use App\Http\Controllers\Controller;
+use App\Livewire\Staff\Teacher\Class\PresenceHistory;
+use App\Models\PresenceTeacher;
+use App\Models\SchoolYear;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -20,10 +23,10 @@ class TeacherDatatableController extends Controller
                 <a wire:navigate href="" class="btn btn-sm btn-danger">Hapus</a>
             ';
             })
-            ->addColumn('nuptk', function($teacher){
+            ->addColumn('nuptk', function ($teacher) {
                 return $teacher->nuptk ? $teacher->nuptk : '-';
             })
-            ->addColumn('email', function($teacher){
+            ->addColumn('email', function ($teacher) {
                 return $teacher->user->email;
             })
             ->addColumn('status', function ($teacher) {
@@ -49,5 +52,24 @@ class TeacherDatatableController extends Controller
         $teacher->save();
 
         return redirect()->to(route('teacher.list'))->with("success", "Berhasil memperbarui status akun {$teacher->nama} ke {$status}.");
+    }
+
+    public function getPresenceHistory($id)
+    {
+        $schoolYear = SchoolYear::where('status', 'Aktif')->first();
+        $histories = PresenceTeacher::where('jadwal_mengajar_id', $id)->where('tahun_ajaran_id', $schoolYear->id)->get();
+
+        return DataTables::of($histories)
+            ->addIndexColumn()
+            ->addColumn('bukti', function($history){
+                return '<a download href="/storage/'. $history->bukti .'">Download bukti</a>';
+            })
+            ->addColumn('action', function ($history) {
+                return '
+                <a wire:navigate href="'. route('teacher.editPresence', ['id' => $history->jadwal_mengajar_id, 'date' => $history->tanggal]) .'" class="btn btn-sm btn-primary">Edit</a>
+            ';
+            })
+            ->rawColumns(['action', 'bukti'])
+            ->make(true);
     }
 }

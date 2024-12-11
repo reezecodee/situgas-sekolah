@@ -36,6 +36,7 @@ Route::controller(AdminDatatablesController::class)->group(function(){
 Route::controller(TeacherDatatableController::class)->group(function(){
     Route::get('/guru', 'getTeacher')->name('dt.teacher');
     Route::post('/guru/{id}/{status}', 'changeStatus')->name('dt.chStatusTeacher');
+    Route::get('/riwayat-absensi/{id}', 'getPresenceHistory')->name('dt.presenceHistory');
 });
 
 Route::controller(SubjectDatatableController::class)->group(function(){

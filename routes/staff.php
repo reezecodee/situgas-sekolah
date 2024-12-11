@@ -32,6 +32,7 @@ use App\Livewire\Staff\Homeroom\ManageIntern;
 use App\Livewire\Staff\Homeroom\RecapResult;
 use App\Livewire\Staff\Notification\SendNotif;
 use App\Livewire\Staff\Profile\Profile;
+use App\Livewire\Staff\Teacher\Class\EditPresence;
 use App\Livewire\Staff\Teacher\Class\EnterClass;
 use App\Livewire\Staff\Teacher\Class\Presence;
 use App\Livewire\Staff\Teacher\Class\PresenceHistory;
@@ -62,7 +63,8 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
     Route::prefix('guru')->middleware('role:Guru')->group(function () {
         Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
         Route::get('masuk-kelas/{id}/presensi', Presence::class)->name('teacher.presence');
-        Route::get('masuk-kelas/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
+        Route::get('masuk-kelas/{id}/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
+        Route::get('masuk-kelas/{id}/{date}/edit', EditPresence::class)->name('teacher.editPresence');
 
         Route::get('upload-materi', ListMateri::class)->name('teacher.upload');
         Route::get('upload-materi/{id}', UploadMateri::class)->name('teacher.uploadModule');

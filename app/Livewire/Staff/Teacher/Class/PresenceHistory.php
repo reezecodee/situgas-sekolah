@@ -11,6 +11,12 @@ class PresenceHistory extends Component
     #[Title('Riwayat Presensi')]
     #[Layout('components.layouts.staff')]
 
+    public $id;
+
+    public function mount($id){
+        $this->id = $id;
+    }
+
     public function render()
     {
         $title = 'Riwayat Presensi';

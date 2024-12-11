@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a wire:navigate href="{{ route('teacher.presence') }}">
+        <a wire:navigate href="{{ route('teacher.presence', $id) }}">
             <button class="btn btn-danger">Kembali</button>
         </a>
     </div>
@@ -8,9 +8,9 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Status</th>
+                <th>Tanggal</th>
+                <th>Pembelajaran materi</th>
+                <th>Bukti</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -21,20 +21,20 @@
                 $('#adminTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.admin') }}',
+                    ajax: '{{ route('dt.presenceHistory', $id) }}',
                     columns: [
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         {
-                            data: 'nama',
-                            name: 'nama'
+                            data: 'tanggal',
+                            name: 'tanggal'
                         },
                         {
-                            data: 'email',
-                            name: 'email'
+                            data: 'pembelajaran_materi',
+                            name: 'pembelajaran_materi'
                         },
                         {
-                            data: 'status',
-                            name: 'status'
+                            data: 'bukti',
+                            name: 'bukti'
                         },
                         {
                             data: 'action',

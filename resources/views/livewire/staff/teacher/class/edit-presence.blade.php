@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a wire:navigate href="{{ route('teacher.enterClass') }}">
+        <a wire:navigate href="{{ route('teacher.presenceHistory', $id) }}">
             <button class="btn btn-danger">Kembali</button>
         </a>
     </div>
@@ -46,22 +46,13 @@
         </div>
     </div>
     <div class="d-flex justify-content-end gap-2 mb-5">
-        <a href="{{ route('teacher.presenceHistory', $id) }}" wire:navigate>
-            <button class="btn btn-success">Lihat riwayat presensi</button>
-        </a>
-        @if($isPresence && $today == $presence->hari)
+        @if($isPresence)
         <button type="button" class="btn btn-warning" disabled>Sudah absensi</button>
-        @elseif($hour > $presence->jam_keluar && $today == $presence->hari)
-        <button type="button" class="btn btn-danger" disabled>Pembelajaran telah selesai</button>
-        @elseif($today == $presence->hari && $hour >= $presence->jam_masuk && $hour <= $presence->jam_keluar)
-        <form wire:submit.prevent="submit">
-            <button type="submit" class="btn btn-primary">Mulai pembelajaran</button>
-        </form>
         @else
         <button type="button" class="btn btn-danger" disabled>Belum di mulai</button>
         @endif
     </div>
-    @if ($isPresence && $today == $presence->hari)
+    @if ($isPresence)
         <hr>
         <div class="card">
             <div class="card-body">
@@ -110,7 +101,7 @@
                             </div>
                             <div class="col-md-12 mb-2">
                                 <div class="d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary">Simpan kagiatan hari ini</button>
+                                    <button type="submit" class="btn btn-primary">Edit kegiatan</button>
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class RecapDatatableController extends Controller
 {
-    public function getRecap(){
+    public function getRecap()
+    {
         $user = User::with('teacher')->find(Auth::user()->id);
 
         $classrooms = Classrooms::with('students')
@@ -28,7 +29,7 @@ class RecapDatatableController extends Controller
                         wire:click="$dispatch(\'show-modal\', { id: \'' . $student->id . '\' })">
                         Cetak Raport
                     </button>
-                    <a href="'. route('homeroom.attitude', $student->id) .'" wire:navigate>
+                    <a href="' . route('homeroom.attitude', $student->id) . '" wire:navigate>
                     <button class="btn btn-sm btn-primary">Beri Nilai Sikap</button>
                     </a>
                 ';
