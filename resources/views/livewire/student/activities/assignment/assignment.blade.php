@@ -9,21 +9,22 @@
 
     <!-- Daftar Tugas -->
     <div class="row">
-        <!-- Tugas 1 -->
-        <div class="col-md-6 mb-4">
-            <div class="card h-100 shadow">
+        @foreach($teachingSchedules as $schedule)
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <strong>Mata Pelajaran: {{ $schedule->subjectTeacher->subject->nama }}</strong>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Tugas Fisika</h5>
-                    <p class="card-text">
-                        <strong>Tugas baru:</strong> Buat laporan praktikum tentang Hukum Newton.<br>
-                        <strong>Tenggat Waktu:</strong> 22 November 2024
-                    </p>
+                    <div><strong>Total Tugas:</strong> {{ $schedule->totalAssignments }}</div>
+                    <div class="mb-2"><strong>Total yang Sudah Dikerjakan:</strong> {{ $schedule->totalCompletedAssignments }}</div>
                     <div class="d-flex justify-content-start">
                         <a href="#" class="btn btn-primary">Lihat Daftar Tugas</a>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
     <x-slot name="script">
 

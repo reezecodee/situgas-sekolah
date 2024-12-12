@@ -30,4 +30,9 @@ class Assignment extends Model
     {
         return $this->belongsTo(SchoolYear::class, 'tahun_ajaran_id');
     }
+
+    public function submission()
+    {
+        return $this->hasMany(Submission::class, 'penugasan_id');
+    }
 }

@@ -26,10 +26,9 @@
                         <!-- Detail Wali Kelas -->
                         <div class="col-md-9">
                             <p class="card-text">
-                                <strong>Kelas:</strong> XII RPL 1 <br>
-                                <strong>Wali Kelas:</strong> Ibu Kartini <br>
-                                <strong>Email:</strong> kartini@example.com <br>
-                                <strong>No. Telepon:</strong> 0812-3456-7890
+                                <strong>Kelas:</strong> {{ $class->nama }} <br>
+                                <strong>Wali Kelas:</strong> {{ $class->teacher->nama }} <br>
+                                <strong>Email:</strong> {{ $class->teacher->user->email }} <br>
                             </p>
                         </div>
                     </div>
@@ -49,25 +48,18 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>NIS</th>
+                                <th>NISN</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Ahmad Fauzi</td>
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Siti Nurhaliza</td>
-                                <td>123457</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Bagas Saputra</td>
-                                <td>123458</td>
-                            </tr>
-                            <!-- Tambahkan data siswa lainnya -->
+                            @foreach ($students as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->nis }}</td>
+                                    <td>{{ $item->nisn }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
