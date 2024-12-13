@@ -52,9 +52,9 @@
                 <x-staff.link.sidebar-item icon="ti-pencil-plus" page-target="guru/penugasan" :href="route('teacher.task')">
                     Penugasan
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-mailbox" page-target="guru/kirim-hasil-studi" :href="route('teacher.studyResult')">
+                {{-- <x-staff.link.sidebar-item icon="ti-mailbox" page-target="guru/kirim-hasil-studi" :href="route('teacher.studyResult')">
                     Kirim hasil studi
-                </x-staff.link.sidebar-item>
+                </x-staff.link.sidebar-item> --}}
                 @endrole
                 @role('Admin')
                 <li class="nav-small-cap">

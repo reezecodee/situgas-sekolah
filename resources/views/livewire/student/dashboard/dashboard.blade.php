@@ -1,7 +1,6 @@
 <div>
     <x-slot name="header">
         <x-student.navigation.page-header page-pretitle="overview" :page-title="$title">
-            <button class="btn btn-primary">Hello World</button>
         </x-student.navigation.page-header>
     </x-slot>
 
@@ -16,11 +15,26 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <div id="chart"></div>
+                    <div class="text-center">
+                        <img src="https://via.placeholder.com/150" alt="Foto Wali Kelas" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;">
+                        <h5>Nama Wali Kelas</h5>
+                        <p class="text-muted">{{ $class->teacher->nama }}</p>
+                        <h5>Kelas</h5>
+                        <p class="text-muted">{{ $class->tingkat }} {{ $class->nama }}</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    @php
+    $chartData = collect($totalAssignments)->map(function ($item) {
+        return [
+            'value' => $item['total_tugas'],
+            'name' => $item['mapel'],
+        ];
+    })->values();
+    @endphp
 
     <x-slot name="script">
         <script>
@@ -28,8 +42,8 @@
 
             var option = {
                 title: {
-                    text: 'Distribusi Penjualan',
-                    subtext: 'Data Tahun 2024',
+                    text: 'Total Tugas Siswa',
+                    subtext: 'Tahun Ajaran Saat Ini',
                     left: 'center'
                 },
                 tooltip: {
@@ -40,26 +54,10 @@
                     left: 'left'
                 },
                 series: [{
-                    name: 'Penjualan',
+                    name: 'Mata pelajaran',
                     type: 'pie',
                     radius: '50%',
-                    data: [{
-                            value: 1048,
-                            name: 'Produk A'
-                        },
-                        {
-                            value: 735,
-                            name: 'Produk B'
-                        },
-                        {
-                            value: 580,
-                            name: 'Produk C'
-                        },
-                        {
-                            value: 484,
-                            name: 'Produk D'
-                        }
-                    ],
+                    data: @json($chartData),
                     emphasis: {
                         itemStyle: {
                             shadowBlur: 10,

@@ -104,7 +104,7 @@
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <a wire:navigate href="{{ route('student.profile') }}" class="dropdown-item">Profile</a>
+                        {{-- <a wire:navigate href="{{ route('student.profile') }}" class="dropdown-item">Profile</a> --}}
                         <form method="POST" action="{{ route('logout') }}" id="logout">
                             @csrf
                             <button type="button" class="dropdown-item" onclick="confirmLogout()">Logout</button>
