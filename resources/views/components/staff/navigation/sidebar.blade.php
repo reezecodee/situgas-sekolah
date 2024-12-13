@@ -2,7 +2,7 @@
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
             <a href="" class="text-nowrap logo-img">
-                <img src="https://utfs.io/f/1Vi5BNMUOBYhDOSAZe8RbNw0TePuECxWqiodzAnkc2G5lZKH" width="150" alt="" />
+                <img src="{{ asset('images/logo/situgas.png') }}" width="150" alt="" />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-8"></i>
@@ -82,9 +82,9 @@
                 <x-staff.link.sidebar-item icon="ti-school" page-target="admin/pelajaran" :href="route('subject.list')">
                     Manajemen pelajaran
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-settings" page-target="admin/aplikasi" :href="route('app.setting')">
+                {{-- <x-staff.link.sidebar-item icon="ti-settings" page-target="admin/aplikasi" :href="route('app.setting')">
                     Manajemen aplikasi
-                </x-staff.link.sidebar-item>
+                </x-staff.link.sidebar-item> --}}
                 <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender" :href="route('calendar.index')">
                     Kalender akademik
                 </x-staff.link.sidebar-item>

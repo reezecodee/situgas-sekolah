@@ -7,7 +7,7 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                 <a href="">
-                    <img src="https://utfs.io/f/1Vi5BNMUOBYhDOSAZe8RbNw0TePuECxWqiodzAnkc2G5lZKH" height="32"
+                    <img src="{{ asset('images/logo/situgas.png') }}" height="32"
                         width="102" alt="Tabler" class="navbar-brand-image">
                 </a>
             </h1>
