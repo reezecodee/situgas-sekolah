@@ -11,6 +11,7 @@ use App\Http\Controllers\Datatables\Staff\StudyResultDatatableController;
 use App\Http\Controllers\Datatables\Staff\SubclassDatatablesController;
 use App\Http\Controllers\Datatables\Staff\SubjectDatatableController;
 use App\Http\Controllers\Datatables\Staff\TeacherDatatableController;
+use App\Http\Controllers\Datatables\Student\AssignmentDatatableController as StudentAssignmentDatatableController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(RecapitulationDatatableController::class)->group(function () {
@@ -58,4 +59,8 @@ Route::controller(RecapDatatableController::class)->group(function () {
 
 Route::controller(AssignmentDatatableController::class)->group(function () {
     Route::get('/tugas/{id}', 'getTask')->name('dt.task');
+});
+
+Route::controller(StudentAssignmentDatatableController::class)->group(function(){
+    Route::get('/tugas-siswa/{id}', 'getAssignment')->name('dt.taskStudent');
 });

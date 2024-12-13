@@ -31,6 +31,7 @@
     {{ $style ?? '' }}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
     @livewireStyles
 </head>
 
@@ -50,6 +51,8 @@
     </div>
     <script data-navigate-once src="/student/js/tabler.min.js?1684106062" defer></script>
     <script src="/student/js/demo.min.js?1684106062" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     {{ $script ?? '' }}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/swal.js"></script>
