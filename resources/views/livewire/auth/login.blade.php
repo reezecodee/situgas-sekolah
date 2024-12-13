@@ -46,7 +46,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-12"><a href="#" class="btn btn-danger w-100">
+                            <div class="col-12"><a href="{{ route('landing') }}" class="btn btn-danger w-100">
                                     Kembali
                                 </a></div>
                         </div>

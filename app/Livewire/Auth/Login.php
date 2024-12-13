@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    #[Title('Login Ke Aplikasi SIAKAD')]
+    #[Title('Login Ke Aplikasi Monitoring Tugas Siswa')]
     #[Layout('components.layouts.auth')]
 
     public $email;
