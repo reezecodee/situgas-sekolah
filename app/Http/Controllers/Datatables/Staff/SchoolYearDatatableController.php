@@ -19,8 +19,8 @@ class SchoolYearDatatableController extends Controller
             ->addColumn('action', function ($schoolYear) {
                 return '
                 <a wire:navigate href="' . route('year.edit', $schoolYear->id) . '" class="btn btn-sm btn-primary">Edit</a>
-                 <a wire:navigate href="' . route('year.edit', $schoolYear->id) . '" class="btn btn-sm btn-danger">Hapus</a>
                 ';
+                // <a wire:navigate href="' . route('year.edit', $schoolYear->id) . '" class="btn btn-sm btn-danger">Hapus</a>
             })
             ->addColumn('tgl_mulai', function ($schoolYear) {
                 return Carbon::parse($schoolYear->tgl_mulai)->translatedFormat('d F Y');

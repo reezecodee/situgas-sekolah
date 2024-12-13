@@ -28,8 +28,8 @@ class StudentDatatableController extends Controller
             ->addColumn('action', function ($student) {
                 return '
                 <a wire:navigate href="'. route('student.edit', $student->id) .'" class="btn btn-sm btn-primary">Edit</a>
-                <a wire:navigate href="" class="btn btn-sm btn-danger">Hapus</a>
-            ';
+                ';
+                // <a wire:navigate href="" class="btn btn-sm btn-danger">Hapus</a>
             })
             ->rawColumns(['action', 'status'])
             ->make(true);

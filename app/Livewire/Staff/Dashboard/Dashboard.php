@@ -30,20 +30,24 @@ class Dashboard extends Component
     public function mount()
     {
         $teacher = Teacher::where('user_id', Auth::user()->id)->first();
-        $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-        $teachingSchedule = TeachingSchedule::where('tahun_ajaran_id', $schoolYear->id)->where('guru_id', $teacher->id)->count();
-        $task = Assignment::where('tahun_ajaran_id', $schoolYear->id)->where('guru_id', $teacher->id)->count();
+        if ($teacher) {
+            $schoolYear = SchoolYear::where('status', 'Aktif')->first();
+            $teachingSchedule = TeachingSchedule::where('tahun_ajaran_id', $schoolYear->id)->where('guru_id', $teacher->id)->count();
+            $task = Assignment::where('tahun_ajaran_id', $schoolYear->id)->where('guru_id', $teacher->id)->count();
+        }
 
         $this->countOfAdmin = Admin::count();
         $this->countOfTeacher = Teacher::count();
         $this->countOfStudent = Student::count();
 
-        $this->countOfMateri = $teacher->subjectTeacher()
-        ->withCount('materi')
-        ->get()
-        ->sum('materi_count');
-        $this->countOfSchedule = $teachingSchedule;
-        $this->countOfTask = $task;
+        if ($teacher) {
+            $this->countOfMateri = $teacher->subjectTeacher()
+                ->withCount('materi')
+                ->get()
+                ->sum('materi_count');
+            $this->countOfSchedule = $teachingSchedule;
+            $this->countOfTask = $task;
+        }
     }
 
     public function render()
