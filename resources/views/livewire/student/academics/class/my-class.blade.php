@@ -26,7 +26,7 @@
                         <!-- Detail Wali Kelas -->
                         <div class="col-md-9">
                             <p class="card-text">
-                                <strong>Kelas:</strong> {{ $class->nama }} <br>
+                                <strong>Kelas:</strong> {{ $class->tingkat }} {{ $class->nama }} <br>
                                 <strong>Wali Kelas:</strong> {{ $class->teacher->nama }} <br>
                                 <strong>Email:</strong> {{ $class->teacher->user->email }} <br>
                             </p>

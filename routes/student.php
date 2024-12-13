@@ -5,6 +5,7 @@ use App\Livewire\Student\Academics\Class\MyClass;
 use App\Livewire\Student\Academics\Schedule\Schedule;
 use App\Livewire\Student\Activities\Assignment\Assignment;
 use App\Livewire\Student\Activities\Assignment\ListAssignment;
+use App\Livewire\Student\Activities\Assignment\UploadAssignment;
 use App\Livewire\Student\Activities\Internship\Internship;
 use App\Livewire\Student\Activities\Presence\PresenceStudent;
 use App\Livewire\Student\Dashboard\Dashboard;
@@ -31,6 +32,7 @@ Route::prefix('student')->middleware(['role:Siswa', 'auth', 'getDataUser'])->gro
         Route::get('presensi', PresenceStudent::class)->name('student.presence');
         Route::get('penugasan', Assignment::class)->name('student.assignment');
         Route::get('penugasan/{id}/daftar', ListAssignment::class)->name('student.listAssign');
+        Route::get('penugasan/{id}/upload', UploadAssignment::class)->name('student.uploadAssignment');
         Route::get('pkl', Internship::class)->name('student.pkl');
     });
 

@@ -99,8 +99,8 @@
                         aria-label="Open user menu">
                         <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
                         <div class="d-none d-xl-block ps-2">
-                            <div>Paweł Kuna</div>
-                            <div class="mt-1 small text-muted">UI Designer</div>
+                            <div>{{ $userActive->nama }}</div>
+                            <div class="mt-1 small text-muted">{{ $userActive->nis }}</div>
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -155,8 +155,8 @@
                                     d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                             </svg>
                             <x-slot name="subitem">
-                                <x-student.link.dropdown-item :href="route('student.presence')"
-                                    page-target="kegiatan/presensi">Presensi</x-student.link.dropdown-item>
+                                {{-- <x-student.link.dropdown-item :href="route('student.presence')"
+                                    page-target="kegiatan/presensi">Presensi</x-student.link.dropdown-item> --}}
                                 <x-student.link.dropdown-item :href="route('student.assignment')" page-target="kegiatan/penugasan">Ruang
                                     penugasan</x-student.link.dropdown-item>
                                 {{-- <x-student.link.dropdown-item :href="route('student.pkl')" page-target="kegiatan/pkl">Kegiatan

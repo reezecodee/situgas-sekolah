@@ -38,10 +38,12 @@ class AssignmentDatatableController extends Controller
                 $submission = $assignment->submission->firstWhere('siswa_id', $studentId);
 
                 if ($submission) {
-                    $button = '<a wire:navigate href="" class="btn btn-primary">Upload ulang</a>
-                <a target="blank" href="' . asset('jawaban_tugas/' . $assignment->file_pengerjaan) . '" class="btn btn-success">Lihat jawaban</a>';
+                    $button = '<a href="'. route('student.uploadAssignment', $assignment->id) .'" class="btn btn-primary">Upload ulang</a>
+                <a target="blank" href="' . asset('storage/' . $submission->file_pengerjaan) . '" class="btn btn-success">Lihat</a>
+                <a target="blank" href="'. asset('storage/'.$assignment->file_soal) .'" class="btn btn-warning">Soal</a>';
                 } else {
-                    $button = '<a wire:navigate href="" class="btn btn-primary">Kerjakan</a>
+                    $button = '<a href="'. route('student.uploadAssignment', $assignment->id) .'" class="btn btn-primary">Kerjakan</a>
+                    <a target="blank" href="'. asset('storage/'.$assignment->file_soal) .'" class="btn btn-warning">Soal</a>
                 ';
                 }
 
