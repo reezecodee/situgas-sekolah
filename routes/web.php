@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('landing-page');
+    return view('landing');
 })->name('landing');
 
 require __DIR__.'/auth.php';
