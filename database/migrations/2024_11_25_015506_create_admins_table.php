@@ -15,9 +15,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained('users');
             $table->string('nama');
-            // $table->enum('jk', ['Laki-laki', 'Perempuan']);
-            // $table->string('telepon');
-            // $table->text('alamat');
             $table->string('tgl_lahir');
             $table->enum('status', ['Aktif', 'Tidak aktif']);
             $table->timestamps();

@@ -23,29 +23,19 @@ class UsersSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('12345678'),
                 'role' => 'Admin',
-                'permission' => null
             ],
             [
                 'id' => Str::uuid(),
                 'email' => 'guru@gmail.com',
                 'password' => bcrypt('12345678'),
                 'role' => 'Guru',
-                'permission' => null
             ],
             [
                 'id' => Str::uuid(),
                 'email' => 'siswa@gmail.com',
                 'password' => bcrypt('12345678'),
                 'role' => 'Siswa',
-                'permission' => null
             ],
-            [
-                'id' => Str::uuid(),
-                'email' => 'walikelas@gmail.com',
-                'password' => bcrypt('12345678'),
-                'role' => 'Guru',
-                'permission' => 'Wali kelas'
-            ]
         ];
 
         foreach ($users as $userData) {
@@ -56,10 +46,6 @@ class UsersSeeder extends Seeder
             ]);
 
             $user->assignRole($userData['role']);
-
-            if (!empty($userData['permission'])) {
-                $user->givePermissionTo($userData['permission']);
-            }
         }
 
         $admin = [
@@ -78,14 +64,5 @@ class UsersSeeder extends Seeder
             'status' => 'Aktif'
         ];
         Teacher::create($guru);
-
-        $walikelas = [
-            'user_id' => $users[3]['id'],
-            'nama' => 'Akun Wali Kelas',
-            'nuptk' => '918230122',
-            'tgl_lahir' => '2005-09-02',
-            'status' => 'Aktif'
-        ];
-        Teacher::create($walikelas);
     }
 }

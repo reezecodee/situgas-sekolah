@@ -22,14 +22,6 @@
 
   <!-- Main CSS File -->
   <link href="/assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Presento
-  * Template URL: https://bootstrapmade.com/presento-bootstrap-corporate-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -38,7 +30,6 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Situgas</h1>
       </a>
@@ -65,7 +56,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section">
 
-      <img src="/landing/images/mtsbpi2.jpg" alt="" data-aos="fade-in">
+      <img src="{{ asset('images/landing/mtsbpibaturompe.jpg') }}" alt="" data-aos="fade-in">
 
       <div class="container">
         <div class="row">

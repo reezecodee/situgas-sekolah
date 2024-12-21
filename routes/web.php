@@ -23,11 +23,11 @@ Route::controller(RaportController::class)->prefix('raport')->group(function(){
 });
 
 Route::get('/create-symlink', function () {
-    $target = storage_path('app/public');  // File atau direktori tujuan
-    $link = public_path('storage');  // Lokasi symlink
+    $target = '/home/situgasm/laravel/storage/app/public'; 
+    $link = '/home/situgasm/public_html/storage'; 
 
     if (!File::exists($link)) {
-        File::link($target, $link);
+        symlink($target, $link); 
         return 'Symlink created successfully!';
     }
 
