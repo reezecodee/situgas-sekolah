@@ -44,7 +44,6 @@
     <script data-navigate-once src="/staff/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/staff/js/sidebarmenu.js"></script>
     <script src="/staff/js/app.min.js"></script>
-    <script src="/staff/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="/staff/libs/simplebar/dist/simplebar.js"></script>
     <script src="/staff/js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
