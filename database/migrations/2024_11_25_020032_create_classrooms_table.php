@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('classrooms', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('wali_kelas_id')->nullable()->constrained('teachers');
             $table->string('nama');
             $table->enum('tingkat', ['VII', 'VIII', 'IX'])->index();
             $table->enum('status', ['Aktif', 'Tidak aktif']);

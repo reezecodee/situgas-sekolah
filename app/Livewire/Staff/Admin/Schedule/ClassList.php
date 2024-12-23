@@ -2,14 +2,24 @@
 
 namespace App\Livewire\Staff\Admin\Schedule;
 
+use App\Models\Classrooms;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class TeachingSchedule extends Component
+class ClassList extends Component
 {
     #[Title('Jadwal Mengajar Guru')]
     #[Layout('components.layouts.staff')]
+
+    public $classes;
+
+    public function mount(){
+        $this->classes = Classrooms::select('tingkat')
+        ->distinct()
+        ->orderByRaw("FIELD(tingkat, 'VII', 'VIII', 'IX')")
+        ->get();
+    }
     
     public function render()
     {
