@@ -14,6 +14,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="/staff/css/styles.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
 
     {{ $style ?? '' }}
 </head>
@@ -50,6 +51,7 @@
     <script src="/js/swal.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
     {{ $script ?? '' }}
 </body>
 

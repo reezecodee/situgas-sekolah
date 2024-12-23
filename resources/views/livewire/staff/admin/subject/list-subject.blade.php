@@ -1,5 +1,8 @@
 <div>
-    <div class="mb-4 d-flex justify-content-end">
+    <div class="mb-4 d-flex gap-2 justify-content-end">
+        <a wire:navigate href="{{ route('subject.teacher') }}">
+            <button class="btn btn-success">Lihat Guru Pengampu</button>
+        </a>
         <a wire:navigate href="{{ route('subject.create') }}">
             <button class="btn btn-primary">Buat Mata Pelajaran Baru</button>
         </a>

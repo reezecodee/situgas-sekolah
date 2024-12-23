@@ -1,6 +1,6 @@
 <div>
     <x-slot name="style">
-        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
+        
     </x-slot>
 
     <div class="mb-4 d-flex justify-content-end gap-2">
@@ -28,7 +28,6 @@
     </table>
 
     <x-slot name="script">
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
         <script>
             var calendarEl = document.getElementById('calendar');
 

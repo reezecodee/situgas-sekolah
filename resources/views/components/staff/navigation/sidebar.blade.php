@@ -55,6 +55,9 @@
                 <x-staff.link.sidebar-item icon="ti-school" page-target="admin/pelajaran" :href="route('subject.list')">
                     Manajemen pelajaran
                 </x-staff.link.sidebar-item>
+                <x-staff.link.sidebar-item icon="ti-calendar-event" page-target="admin/jadwal-mengajar" :href="route('schedule.teaching')">
+                    Atur jadwal mengajar
+                </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender" :href="route('calendar.index')">
                     Kalender akademik
                 </x-staff.link.sidebar-item>

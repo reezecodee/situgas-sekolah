@@ -32,6 +32,7 @@ Route::controller(TeacherDatatableController::class)->group(function () {
 
 Route::controller(SubjectDatatableController::class)->group(function () {
     Route::get('/mata-pelajaran', 'getSubject')->name('dt.subject');
+    Route::get('/guru-pengampu', 'getSubjectTeacher')->name('dt.subjectTeacher');
 });
 
 Route::controller(StudentDatatableController::class)->group(function () {
