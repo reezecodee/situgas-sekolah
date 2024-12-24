@@ -1,6 +1,8 @@
 <div>
     <div class="card">
         <div class="card-body">
+            <p class="fw-bold">Jadwal Mengajar</p>
+            <hr>
             <form wire:submit.prevent="checkSchedule">
             <div class="row">
                 <div class="col-md-6 mb-3">
@@ -72,8 +74,41 @@
                         @enderror
                     </div>
                 </div>  
-                <hr>
-                <p>Apakah setelah mata pelajaran ini akan ada istirahat? jika iya isi kolom dibawah ini.</p> 
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+                <button type="submit" class="btn btn-primary">Cek Ketersediaan Guru</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    @if(!$this->checkSchedule()->isEmpty())
+    <form wire:submit.prevent="submit">
+    <div class="card">
+        <div class="card-body">
+            <p class="fw-bold">Pilih Guru Pengampu</p>
+            <hr>
+            <div class="row">
+                @foreach ($this->checkSchedule() as $item)
+                <div class="col-md-3">
+                    <div class="form-check">
+                        @if ($item->teachingSchedule->isNotEmpty())
+                            <input type="checkbox" class="form-check-input single-checkbox" id="{{ $item->id }}" disabled>
+                            <label class="form-check-label text-danger" for="{{ $item->id }}"><del>{{ $item->teacher->nama }}</del></label>
+                        @else
+                            <input type="checkbox" class="form-check-input single-checkbox"  wire:model.blur="pengampu_id" style="cursor: pointer" id="{{ $item->id }}">
+                            <label class="form-check-label" style="cursor: pointer" for="{{ $item->id }}">{{ $item->teacher->nama }}</label>
+                        @endif
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <hr>
+            <p>Apakah setelah mata pelajaran ini akan ada istirahat? jika iya isi kolom dibawah ini.</p> 
+            <div class="row">
                 <div class="col-md-6 mb-3">
                     <div class="form-group">
                         <label for="" class="form-label">Jam mulai istirahat</label>
@@ -95,32 +130,12 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-end mt-3">
-                <button type="submit" class="btn btn-primary">Cek Ketersediaan Guru</button>
-            </div>
-            </form>
         </div>
     </div>
-    @if(!$this->checkSchedule()->isEmpty())
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                @foreach ($this->checkSchedule() as $item)
-                <div class="col-md-3">
-                    <div class="form-check">
-                        @if ($item->teachingSchedule->isNotEmpty())
-                            <input type="checkbox" class="form-check-input single-checkbox" id="{{ $item->id }}" disabled>
-                            <label class="form-check-label text-danger" for="{{ $item->id }}"><del>{{ $item->teacher->nama }}</del></label>
-                        @else
-                            <input type="checkbox" class="form-check-input single-checkbox" id="{{ $item->id }}">
-                            <label class="form-check-label" for="{{ $item->id }}">{{ $item->teacher->nama }}</label>
-                        @endif
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Buat Jadwal</button>
     </div>
+    </form>
     <script>
         document.querySelectorAll('.single-checkbox').forEach(function(checkbox) {
             checkbox.addEventListener('change', function() {
@@ -134,8 +149,18 @@
             });
         });
     </script>
-    <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary">Buat Jadwal</button>
+    @else
+    <div class="card">
+        <div class="card-body">
+            <p class="fw-bold">Pilih Guru Pengampu</p>
+            <hr>
+            <div class="d-flex justify-content-center">
+                <img src="https://www.svgrepo.com/show/427101/empty-inbox.svg" alt="" srcset="" width="100">
+            </div>
+            <div class="text-center mt-2 fw-bold fs-3">
+                Guru pengampu tidak ditemukan.
+            </div>
+        </div>
     </div>
     @endif
 </div>

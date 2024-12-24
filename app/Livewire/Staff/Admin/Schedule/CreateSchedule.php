@@ -6,6 +6,7 @@ use App\Models\Classrooms;
 use App\Models\SchoolYear;
 use App\Models\Subject;
 use App\Models\SubjectTeacher;
+use App\Models\TeachingSchedule;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -17,17 +18,31 @@ class CreateSchedule extends Component
 
     public $subclasses;
     public $subjects;
+    public $schoolYear;
 
     public $hari;
     public $mapel_id;
     public $jam_masuk;
     public $jam_keluar;
     public $kelas_id;
+    public $jam_istirahat_masuk = null;
+    public $jam_istirahat_keluar = null;
 
-    public function mount($level) 
+    public $pengampu_id;
+
+    public function rules()
+    {
+        return [
+            'pengampu_id' => 'required|exists:subject_teachers,id'
+        ];
+    }
+
+
+    public function mount($level)
     {
         $this->subclasses = Classrooms::where('tingkat', $level)->get();
         $this->subjects = Subject::where('tingkatan', $level)->get();
+        $this->schoolYear = SchoolYear::where('status', 'Aktif')->first();
     }
 
     public function checkSchedule()
@@ -38,13 +53,13 @@ class CreateSchedule extends Component
         $jam_keluar = $this->jam_keluar;
         $kelas_id = $this->kelas_id;
 
-        $schoolYear = SchoolYear::where('status', 'Aktif')->first();
+        $schoolYear = $this->schoolYear;
         $subject = Subject::find($mapel_id);
 
-        if(!$subject){
+        if (!$subject) {
             return collect();
         }
-    
+
         $subjectTeachers = SubjectTeacher::with(['teachingSchedule' => function ($query) use ($hari, $jam_masuk, $jam_keluar, $kelas_id, $schoolYear) {
             $query->where('tahun_ajaran_id', $schoolYear->id)
                 ->where('hari', $hari)
@@ -61,6 +76,26 @@ class CreateSchedule extends Component
             ->get();
 
         return $subjectTeachers;
+    }
+
+    public function submit() 
+    {
+        $data = $this->validate();
+        $subjectTeacher = SubjectTeacher::find($data['pengampu_id']);
+
+        TeachingSchedule::create([
+            'tahun_ajaran_id' => $this->schoolYear,
+            'pengampu_id' => $data['pengampu_id'],
+            'guru_id' => $subjectTeacher->guru_id,
+            'kelas_id' => $this->kelas_id,
+            'hari' => $this->hari,
+            'jam_masuk' => $this->jam_masuk,
+            'jam_keluar' => $this->jam_keluar,
+            'jam_istirahat_masuk' => $this->jam_istirahat_masuk,
+            'jam_istirahat_keluar' => $this->jam_istirahat_keluar,
+        ]);
+
+        
     }
 
     public function render()
