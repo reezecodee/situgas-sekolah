@@ -21,6 +21,7 @@ class SubclassDatatablesController extends Controller
             ->addColumn('action', function ($subkelas) use ($class) {
                 $editRoute = route('class.edit', ['id' => $subkelas->id, 'class' => $class]);
                 $detailRoute = route('class.detail', ['id' => $subkelas->id, 'class' => $class]);
+                $scheduleRoute = route('class.schedule', ['id' => $subkelas->id, 'class' => $class]);
 
                 $deleteButton = '';
                 if ($subkelas->students_count === 0) {
@@ -40,6 +41,7 @@ class SubclassDatatablesController extends Controller
                 <a wire:navigate href="' . $editRoute . '" class="btn btn-sm btn-primary">Edit</a>
                 ' . $deleteButton . '
                 <a wire:navigate href="' . $detailRoute . '" class="btn btn-sm btn-success">Detail</a>
+                <a wire:navigate href="' . $scheduleRoute . '" class="btn btn-sm btn-warning">Cek Jadwal Pelajaran</a>
                 </div>
             ';
             })

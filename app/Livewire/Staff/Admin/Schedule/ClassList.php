@@ -42,7 +42,7 @@ class ClassList extends Component
         ];
 
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-        $this->schedules = TeachingSchedule::where('tahun_ajaran_id', $schoolYear->id)->where('guru_id', $data['guru_id'])->get()
+        $this->schedules = TeachingSchedule::with(['subjectTeacher.subject', 'classroom'])->where('tahun_ajaran_id', $schoolYear->id)->where('guru_id', $data['guru_id'])->get()
         ->sortBy(function($schedules) use ($dayList) {
             return $dayList[$schedules->hari];
         });

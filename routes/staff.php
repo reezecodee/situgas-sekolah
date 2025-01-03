@@ -10,6 +10,7 @@ use App\Livewire\Staff\Admin\Class\DetailClass;
 use App\Livewire\Staff\Admin\Class\EditClass;
 use App\Livewire\Staff\Admin\Class\ListClass;
 use App\Livewire\Staff\Admin\Class\Subclass;
+use App\Livewire\Staff\Admin\Class\SubjectSchedule;
 use App\Livewire\Staff\Admin\Schedule\ClassList;
 use App\Livewire\Staff\Admin\Schedule\CreateSchedule;
 use App\Livewire\Staff\Admin\SchoolYear\CreateYear;
@@ -78,6 +79,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('kelas/{class}', Subclass::class)->name('class.subclass');
         Route::get('kelas/{class}/{id}/edit', EditClass::class)->name('class.edit');
         Route::get('kelas/{class}/{id}/detail', DetailClass::class)->name('class.detail');
+        Route::get('kelas/{class}/{id}/jadwal-pelajaran', SubjectSchedule::class)->name('class.schedule');
 
         Route::get('guru', ListTeacher::class)->name('teacher.list');
         Route::get('guru/create', CreateTeacher::class)->name('teacher.create');
