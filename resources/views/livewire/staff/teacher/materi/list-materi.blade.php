@@ -9,7 +9,7 @@
                     <div><strong>Jumlah Materi:</strong> {{ $item->materiCount() }}</div>
                     <div><strong>Kelas:</strong>
                         @foreach ($item->teachingSchedule as $key => $schedule)
-                            {{ $schedule->classroom->nama }}@if (!$loop->last), @endif
+                        {{ $schedule->classroom->nama }}@if (!$loop->last), @endif
                         @endforeach
                     </div>
                     <div class="d-flex justify-content-start mt-3">

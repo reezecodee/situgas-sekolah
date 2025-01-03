@@ -14,13 +14,16 @@
     <div class="card shadow-sm border-0">
         <div class="card-body text-center">
             <div class="mb-4">
-                <img wire:ignore id="fileIcon" src="{{ $fileUploaded ? 'https://www.svgrepo.com/show/255818/pdf.svg' : 'https://www.svgrepo.com/show/529274/upload.svg' }}" width="80" alt="Upload Icon">
+                <img wire:ignore id="fileIcon"
+                    src="{{ $fileUploaded ? 'https://www.svgrepo.com/show/255818/pdf.svg' : 'https://www.svgrepo.com/show/529274/upload.svg' }}"
+                    width="80" alt="Upload Icon">
             </div>
             <h5 id="fileName" class="card-title fw-bold" wire:ignore>
                 {{ $fileUploaded ? $fileUploaded : 'Upload file PDF' }}
             </h5>
             @if($fileUploaded)
-                <a href="{{ asset('storage/'.$file_pengerjaan) }}" target="blank" class="mb-4"><u>Lihat file yang diupload sebelumnya.</u></a>
+            <a href="{{ asset('storage/'.$file_pengerjaan) }}" target="blank" class="mb-4"><u>Lihat file yang diupload
+                    sebelumnya.</u></a>
             @endif
             <p class="text-muted mb-4">Pilih file PDF dari perangkat Anda untuk diunggah.</p>
             <form wire:submit.prevent="submit">
@@ -36,7 +39,8 @@
                 <div id="errorMessage" class="text-danger small" style="display: none;"></div>
 
                 <!-- Tombol Submit -->
-                <button id="submitButton" type="submit" class="btn btn-primary w-100">{{ $fileUploaded ? 'Upload ulang' : 'Upload' }}</button>
+                <button id="submitButton" type="submit" class="btn btn-primary w-100">{{ $fileUploaded ? 'Upload ulang'
+                    : 'Upload' }}</button>
             </form>
         </div>
     </div>

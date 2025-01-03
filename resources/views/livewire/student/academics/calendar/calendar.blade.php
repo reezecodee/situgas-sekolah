@@ -1,6 +1,6 @@
 <div>
     <x-slot name="style">
-       
+
     </x-slot>
 
     <x-slot name="header">

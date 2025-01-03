@@ -16,7 +16,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="text-center">
-                        <img src="https://via.placeholder.com/150" alt="Foto Wali Kelas" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;">
+                        <img src="https://via.placeholder.com/150" alt="Foto Wali Kelas" class="rounded-circle mb-3"
+                            style="width: 100px; height: 100px; object-fit: cover;">
                         <h5>Nama Wali Kelas</h5>
                         <p class="text-muted">{{ $class->teacher->nama }}</p>
                         <h5>Kelas</h5>
@@ -29,10 +30,10 @@
 
     @php
     $chartData = collect($totalAssignments)->map(function ($item) {
-        return [
-            'value' => $item['total_tugas'],
-            'name' => $item['mapel'],
-        ];
+    return [
+    'value' => $item['total_tugas'],
+    'name' => $item['mapel'],
+    ];
     })->values();
     @endphp
 

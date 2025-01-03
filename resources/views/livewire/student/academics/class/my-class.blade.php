@@ -8,35 +8,7 @@
     </x-slot>
 
     <div class="row">
-        <div class="col-md-4">
-            <!-- Informasi Wali Kelas -->
-            <div class="card mb-4">
-                <div class="card-header bg-primary text-white">
-                    Informasi Wali Kelas
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-center mb-3">
-                        <!-- Foto Wali Kelas -->
-                        <div class="col-md-5 text-center">
-                            <img src="https://via.placeholder.com/150" alt="Foto Wali Kelas"
-                                class="img-fluid rounded-circle border">
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <!-- Detail Wali Kelas -->
-                        <div class="col-md-9">
-                            <p class="card-text">
-                                <strong>Kelas:</strong> {{ $class->tingkat }} {{ $class->nama }} <br>
-                                <strong>Wali Kelas:</strong> {{ $class->teacher->nama }} <br>
-                                <strong>Email:</strong> {{ $class->teacher->user->email }} <br>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-8">
-            <!-- Daftar Siswa -->
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-success text-white">
                     Daftar Siswa
@@ -53,12 +25,12 @@
                         </thead>
                         <tbody>
                             @foreach ($students as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->nis }}</td>
-                                    <td>{{ $item->nisn }}</td>
-                                </tr>
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->nis }}</td>
+                                <td>{{ $item->nisn }}</td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

@@ -1,6 +1,6 @@
 <div>
     <x-slot name="style">
-        
+
     </x-slot>
 
     <div class="mb-4 d-flex justify-content-end gap-2">

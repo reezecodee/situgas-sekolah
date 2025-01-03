@@ -3,7 +3,6 @@
 namespace App\Livewire\Staff\Teacher\Task;
 
 use App\Models\Assignment;
-use App\Models\SchoolYear;
 use App\Models\TeachingSchedule;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;

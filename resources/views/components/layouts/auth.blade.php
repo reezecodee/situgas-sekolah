@@ -32,7 +32,7 @@
             {{ $slot }}
         </div>
     </div>
-    <!-- Libs JS -->
+
     <!-- Tabler Core -->
     <script src="/student/js/tabler.min.js?1684106062" defer></script>
     <script src="/student/js/demo.min.js?1684106062" defer></script>

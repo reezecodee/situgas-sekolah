@@ -31,16 +31,14 @@ class Login extends Component
         $this->validate();
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
-            // Jika login berhasil, regenerasi session untuk keamanan
             session()->regenerate();
 
-            // Redirect berdasarkan role setelah login
             $user = Auth::user();
 
             if ($user->hasRole('Admin') || $user->hasRole('Guru')) {
-                return redirect()->route('staff.dashboard'); // Pengalihan langsung
+                return redirect()->route('staff.dashboard'); 
             } else {
-                return redirect()->route('student.dashboard'); // Pengalihan langsung
+                return redirect()->route('student.dashboard'); 
             }
         } else {
             session()->flash('failed', 'Email atau password yang Anda masukkan tidak valid.');

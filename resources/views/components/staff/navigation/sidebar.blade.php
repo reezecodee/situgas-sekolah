@@ -14,7 +14,8 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Home</span>
                 </li>
-                <x-staff.link.sidebar-item icon="ti-layout-dashboard" page-target="dashboard" :href="route('staff.dashboard')">
+                <x-staff.link.sidebar-item icon="ti-layout-dashboard" page-target="dashboard"
+                    :href="route('staff.dashboard')">
                     Dashboard
                 </x-staff.link.sidebar-item>
                 @role('Guru')
@@ -22,13 +23,16 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu guru</span>
                 </li>
-                <x-staff.link.sidebar-item icon="ti-door-enter" page-target="guru/masuk-kelas" :href="route('teacher.enterClass')">
+                <x-staff.link.sidebar-item icon="ti-door-enter" page-target="guru/masuk-kelas"
+                    :href="route('teacher.enterClass')">
                     Masuk kelas
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-upload" page-target="guru/upload-materi" :href="route('teacher.upload')">
+                <x-staff.link.sidebar-item icon="ti-upload" page-target="guru/upload-materi"
+                    :href="route('teacher.upload')">
                     Upload materi
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-pencil-plus" page-target="guru/penugasan" :href="route('teacher.task')">
+                <x-staff.link.sidebar-item icon="ti-pencil-plus" page-target="guru/penugasan"
+                    :href="route('teacher.task')">
                     Penugasan
                 </x-staff.link.sidebar-item>
                 @endrole
@@ -37,10 +41,12 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Menu admin</span>
                 </li>
-                <x-staff.link.sidebar-item icon="ti-notebook" page-target="admin/tahun-ajaran" :href="route('year.list')">
+                <x-staff.link.sidebar-item icon="ti-notebook" page-target="admin/tahun-ajaran"
+                    :href="route('year.list')">
                     Tahun ajaran
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-building-bank" page-target="admin/kelas" :href="route('class.list')">
+                <x-staff.link.sidebar-item icon="ti-building-bank" page-target="admin/kelas"
+                    :href="route('class.list')">
                     Manajemen kelas
                 </x-staff.link.sidebar-item>
                 <x-staff.link.sidebar-item icon="ti-ruler-2" page-target="admin/admin" :href="route('admin.list')">
@@ -55,10 +61,12 @@
                 <x-staff.link.sidebar-item icon="ti-school" page-target="admin/pelajaran" :href="route('subject.list')">
                     Manajemen pelajaran
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-calendar-event" page-target="admin/jadwal-mengajar" :href="route('schedule.teaching')">
+                <x-staff.link.sidebar-item icon="ti-calendar-event" page-target="admin/jadwal-mengajar"
+                    :href="route('schedule.teaching')">
                     Atur jadwal mengajar
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender" :href="route('calendar.index')">
+                <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender"
+                    :href="route('calendar.index')">
                     Kalender akademik
                 </x-staff.link.sidebar-item>
                 @endrole

@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Student\Activities\Assignment;
 
-use App\Models\Assignment as ModelAssignment;
 use App\Models\SchoolYear;
 use App\Models\Student;
 use App\Models\TeachingSchedule;

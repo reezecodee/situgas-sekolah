@@ -3,7 +3,6 @@
 namespace App\Livewire\Staff\Teacher\Class;
 
 use App\Models\SchoolYear;
-use App\Models\SubjectTeacher;
 use App\Models\Teacher;
 use App\Models\TeachingSchedule;
 use Illuminate\Support\Facades\Auth;

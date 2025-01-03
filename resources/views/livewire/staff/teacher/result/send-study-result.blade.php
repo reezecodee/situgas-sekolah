@@ -9,8 +9,8 @@
             <form action="" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Judul Materi</label>
-                    <input type="text" id="title" name="title" class="form-control"
-                        placeholder="Masukkan judul materi" required>
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Masukkan judul materi"
+                        required>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Deskripsi</label>

@@ -30,9 +30,9 @@
                     <div class="card-body">
                         <h5 class="card-title fw-semibold mb-4">{{ $title }}</h5>
                         @if (session('success') || session()->has('success'))
-                            <x-alert.success/>
+                        <x-alert.success />
                         @elseif(session('failed') || session()->has('failed'))
-                            <x-alert.failed/>
+                        <x-alert.failed />
                         @endif
                         {{ $slot }}
                     </div>

@@ -8,23 +8,24 @@
                     <input type="text" wire:model.blur="nama" class="form-control @error('nama') is-invalid @enderror"
                         value="{{ old('nama') }}" autocomplete="off" placeholder="Masukkan nama kelas" required>
                     @error('nama')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Kelas</label>
-                    <select wire:model.blur="kelas_id" class="form-select @error('kelas_id') is-invalid @enderror" required>
+                    <select wire:model.blur="kelas_id" class="form-select @error('kelas_id') is-invalid @enderror"
+                        required>
                         <option value="" {{ !$kelas_id ? 'selected' : '' }}>Pilih kelas</option>
                         @foreach ($classes as $class)
-                            <option value="{{ $class->id }}" {{ old('kelas_id', $kelas_id) == $class->id ? 'selected' : '' }}>
-                               {{ $class->tingkat }} {{ $class->nama }}
-                            </option>
+                        <option value="{{ $class->id }}" {{ old('kelas_id', $kelas_id)==$class->id ? 'selected' : '' }}>
+                            {{ $class->tingkat }} {{ $class->nama }}
+                        </option>
                         @endforeach
                     </select>
                     @error('kelas_id')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -34,7 +35,7 @@
                     <input type="number" wire:model.blur="nis" class="form-control @error('nis') is-invalid @enderror"
                         value="{{ old('nis') }}" autocomplete="off" placeholder="Masukkan NIS siswa" required>
                     @error('nis')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -44,27 +45,29 @@
                     <input type="number" wire:model.blur="nisn" class="form-control @error('nisn') is-invalid @enderror"
                         value="{{ old('nisn') }}" autocomplete="off" placeholder="Masukkan NISN siswa" required>
                     @error('nisn')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Tanggal lahir</label>
-                    <input type="date" wire:model.blur="tgl_lahir" class="form-control @error('tgl_lahir') is-invalid @enderror"
-                        value="{{ old('tgl_lahir') }}" autocomplete="off" placeholder="Masukkan tanggal lahir siswa" required>
+                    <input type="date" wire:model.blur="tgl_lahir"
+                        class="form-control @error('tgl_lahir') is-invalid @enderror" value="{{ old('tgl_lahir') }}"
+                        autocomplete="off" placeholder="Masukkan tanggal lahir siswa" required>
                     @error('tgl_lahir')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Email</label>
-                    <input type="email" wire:model.blur="email" class="form-control @error('email') is-invalid @enderror"
-                        value="{{ old('email') }}" autocomplete="off" placeholder="Masukkan email siswa" required>
+                    <input type="email" wire:model.blur="email"
+                        class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
+                        autocomplete="off" placeholder="Masukkan email siswa" required>
                     @error('email')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -78,7 +81,7 @@
                         <option value="Perempuan">Perempuan</option>
                     </select>
                     @error('jk')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -93,16 +96,17 @@
                         <option value="Nonaktif">Nonaktif</option>
                     </select>
                     @error('status')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="col-md-12 mb-3">
                 <div class="form-group">
                     <label for="" class="form-label">Alamat</label>
-                    <textarea class="form-control @error('alamat') is-invalid @enderror" wire:model.blur="alamat" id="" cols="10" rows="5" placeholder="Masukkan alamat siswa" required>{{ old('alamat') }}</textarea>
+                    <textarea class="form-control @error('alamat') is-invalid @enderror" wire:model.blur="alamat" id=""
+                        cols="10" rows="5" placeholder="Masukkan alamat siswa" required>{{ old('alamat') }}</textarea>
                     @error('alamat')
-                        <span class="invalid-feedback">{{ $message }}</span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>

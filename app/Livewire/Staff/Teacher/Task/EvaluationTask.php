@@ -23,10 +23,7 @@ class EvaluationTask extends Component
 
     public function mount($id1, $id2)
     {
-        // ID dari jadwal mengajar
         $this->id1 = $id1;
-
-        // ID dari tugas
         $this->id2 = $id2;
     }
 

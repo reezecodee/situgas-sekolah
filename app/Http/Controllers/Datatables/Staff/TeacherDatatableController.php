@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Datatables\Staff;
 
 use App\Http\Controllers\Controller;
-use App\Livewire\Staff\Teacher\Class\PresenceHistory;
 use App\Models\PresenceTeacher;
 use App\Models\SchoolYear;
 use App\Models\Teacher;

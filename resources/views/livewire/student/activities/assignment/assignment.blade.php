@@ -16,9 +16,11 @@
                 </div>
                 <div class="card-body">
                     <div><strong>Total Tugas:</strong> {{ $item->totalAssignments }}</div>
-                    <div class="mb-2"><strong>Total yang Sudah Dikerjakan:</strong> {{ $item->totalCompletedAssignments }}</div>
+                    <div class="mb-2"><strong>Total yang Sudah Dikerjakan:</strong> {{ $item->totalCompletedAssignments
+                        }}</div>
                     <div class="d-flex justify-content-start">
-                        <a href="{{ route('student.listAssign', $item->id) }}" wire:navigate class="btn btn-primary">Lihat Daftar Tugas</a>
+                        <a href="{{ route('student.listAssign', $item->id) }}" wire:navigate
+                            class="btn btn-primary">Lihat Daftar Tugas</a>
                     </div>
                 </div>
             </div>

@@ -6,18 +6,18 @@
                     <div class="card-body">
                         <h2 class="h2 text-center mb-4">Selamat Datang</h2>
                         @if (session('success') || session()->has('success'))
-                            <x-alert.success/>
+                        <x-alert.success />
                         @elseif(session('failed') || session()->has('failed'))
-                            <x-alert.failed/>
+                        <x-alert.failed />
                         @endif
                         <form wire:submit.prevent="check">
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Email</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="example@email.com"
-                                    autocomplete="off" wire:model.lazy="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                    placeholder="example@email.com" autocomplete="off" wire:model.lazy="email">
                                 @error('email')
-                                    <span class="invalid-feedback">{{ $message }}</span>
+                                <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-2">
@@ -27,11 +27,11 @@
                                         <a href="" wire:navigate>Lupa password</a>
                                     </span>
                                 </label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password"
-                                        autocomplete="off" wire:model.lazy="password">
-                                    @error('password')
-                                        <span class="invalid-feedback">{{ $message }}</span>
-                                    @enderror
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                    placeholder="Password" autocomplete="off" wire:model.lazy="password">
+                                @error('password')
+                                <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-2">
                                 <label class="form-check">
@@ -55,8 +55,7 @@
             </div>
         </div>
         <div class="col-lg d-none d-lg-block">
-            <img src="/images/auth/login.png" height="300" class="d-block mx-auto"
-                alt="">
+            <img src="/images/auth/login.png" height="300" class="d-block mx-auto" alt="">
         </div>
     </div>
 </div>

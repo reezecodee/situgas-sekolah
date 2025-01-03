@@ -45,9 +45,9 @@
             <div class="page-body">
                 <div class="container-xl">
                     @if (session('success') || session()->has('success'))
-                        <x-alert.success/>
+                    <x-alert.success />
                     @elseif(session('failed') || session()->has('failed'))
-                        <x-alert.failed/>
+                    <x-alert.failed />
                     @endif
                     {{ $slot }}
                 </div>
