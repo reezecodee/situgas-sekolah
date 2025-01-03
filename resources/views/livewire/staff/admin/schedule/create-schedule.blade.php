@@ -99,17 +99,20 @@
                     <div class="col-md-3">
                         <div class="form-check">
                             @if ($item->teachingSchedule->isNotEmpty())
-                            <input type="checkbox" class="form-check-input single-checkbox" id="{{ $item->id }}"
-                                disabled>
+                            <input type="radio" value="{{ $item->id }}" class="form-check-input single-checkbox"
+                                id="{{ $item->id }}" wire:model="pengampu_id" disabled>
                             <label class="form-check-label text-danger" for="{{ $item->id }}"><del>{{
                                     $item->teacher->nama }}</del></label>
                             @else
-                            <input type="checkbox" class="form-check-input single-checkbox"
-                                wire:model.blur="pengampu_id" style="cursor: pointer" id="{{ $item->id }}">
+                            <input type="radio" value="{{ $item->id }}" class="form-check-input single-checkbox"
+                                wire:model="pengampu_id" style="cursor: pointer" id="{{ $item->id }}">
                             <label class="form-check-label" style="cursor: pointer" for="{{ $item->id }}">{{
                                 $item->teacher->nama }}</label>
                             @endif
                         </div>
+                        @error('pengampu_id')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
                     </div>
                     @endforeach
                 </div>
@@ -148,7 +151,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">Buat Jadwal</button>
+            <button type="submit" class="btn btn-primary" >Buat Jadwal</button>
         </div>
     </form>
     <script>
