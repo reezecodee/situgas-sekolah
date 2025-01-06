@@ -35,4 +35,9 @@ class Teacher extends Model
     {
         return $this->hasMany(Assignment::class, 'guru_id');
     }
+
+    public function presenceTeacher()
+    {
+        return $this->hasMany(PresenceTeacher::class, 'guru_id');
+    }
 }

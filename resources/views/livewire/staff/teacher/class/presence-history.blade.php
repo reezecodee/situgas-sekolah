@@ -4,17 +4,19 @@
             <button class="btn btn-danger">Kembali</button>
         </a>
     </div>
-    <table id="adminTable" class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Pembelajaran materi</th>
-                <th>Bukti</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
+    <div wire:ignore>
+        <table id="adminTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Pembelajaran materi</th>
+                    <th>Bukti</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
     <x-slot name="script">
         <script>
             $(document).ready(function() {

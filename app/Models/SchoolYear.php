@@ -25,4 +25,9 @@ class SchoolYear extends Model
     {
         return $this->hasMany(Assignment::class, 'tahun_ajaran_id');
     }
+
+    public function presenceTeacher()
+    {
+        return $this->hasMany(PresenceTeacher::class, 'tahun_ajaran_id');
+    }
 }

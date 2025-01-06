@@ -65,15 +65,15 @@
                     :href="route('schedule.teaching')">
                     Atur jadwal mengajar
                 </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender"
-                    :href="route('calendar.index')">
-                    Kalender akademik
-                </x-staff.link.sidebar-item>
-                <x-staff.link.sidebar-item icon="ti-settings" page-target="admin/pengaturan"
+                {{-- <x-staff.link.sidebar-item icon="ti-settings" page-target="admin/pengaturan"
                     :href="route('app.setting')">
                     Pengaturan
-                </x-staff.link.sidebar-item>
+                </x-staff.link.sidebar-item> --}}
                 @endrole
+                <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender"
+                :href="route('calendar.index')">
+                Kalender akademik
+            </x-staff.link.sidebar-item>
             </ul>
         </nav>
     </div>

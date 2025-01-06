@@ -3,17 +3,17 @@
 
     </x-slot>
 
-    <div class="mb-4 d-flex justify-content-end gap-2">
-        <a href="{{ route('calendar.index') }}">
-            <button class="btn btn-success">Tampilkan kalender</button>
-        </a>
+    @role('Admin')
+    <div class="mb-4 d-flex justify-content-end">
         <a href="{{ route('calendar.create') }}" wire:navigate>
             <button class="btn btn-primary">Buat Jadwal</button>
         </a>
     </div>
+    @endrole
 
     <div id="calendar" class="mb-5"></div>
 
+    @role('Admin')
     <table id="calendarTable" class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -26,6 +26,7 @@
             </tr>
         </thead>
     </table>
+    @endrole
 
     <x-slot name="script">
         <script>
@@ -55,6 +56,7 @@
 
             calendar.render();
         </script>
+        @role('Admin')
         <script>
             $(document).ready(function() {
                 $('#calendarTable').DataTable({
@@ -72,5 +74,6 @@
                 });
             });
         </script>
+        @endrole
     </x-slot>
 </div>

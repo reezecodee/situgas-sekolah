@@ -46,6 +46,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->group(function () {
     Route::get('dashboard', Dashboard::class)->name('staff.dashboard');
     Route::get('profile-saya', Profile::class)->name('staff.profile');
+    Route::get('kalender', Calendar::class)->name('calendar.index');
 
     Route::prefix('guru')->middleware('role:Guru')->group(function () {
         Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
@@ -99,7 +100,6 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
 
         Route::get('pengaturan', Setting::class)->name('app.setting');
 
-        Route::get('kalender', Calendar::class)->name('calendar.index');
         Route::get('kalender/create', CreateCalendar::class)->name('calendar.create');
     });
 });

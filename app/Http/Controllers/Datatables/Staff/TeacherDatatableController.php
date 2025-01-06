@@ -66,6 +66,7 @@ class TeacherDatatableController extends Controller
             ->addColumn('action', function ($history) {
                 return '
                 <a wire:navigate href="'. route('teacher.editPresence', ['id' => $history->jadwal_mengajar_id, 'date' => $history->tanggal]) .'" class="btn btn-sm btn-primary">Edit</a>
+                <a wire:click="downloadExcel(\''.$history->id.'\')"  class="btn btn-sm btn-success">Rekap</a>
             ';
             })
             ->rawColumns(['action', 'bukti'])
