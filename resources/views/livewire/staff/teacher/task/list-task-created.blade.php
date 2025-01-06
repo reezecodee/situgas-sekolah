@@ -1,10 +1,11 @@
 <div>
-    <div>
-        <div class="mb-4 d-flex justify-content-end">
-            <a wire:navigate href="{{ route('teacher.task') }}">
-                <button class="btn btn-danger">Kembali</button>
-            </a>
-        </div>
+    <div class="mb-4 d-flex gap-2 justify-content-end">
+        <button class="btn btn-success" wire:click="downloadExcel('{{ $id }}')">Rekap Tugas</button>
+        <a wire:navigate href="{{ route('teacher.task') }}">
+            <button class="btn btn-danger">Kembali</button>
+        </a>
+    </div>
+    <div wire:ignore>
         <table id="taskTable" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -17,9 +18,10 @@
                 </tr>
             </thead>
         </table>
-        <x-slot name="script">
-            <script>
-                $(document).ready(function() {
+    </div>
+    <x-slot name="script">
+        <script>
+            $(document).ready(function() {
                     $('#taskTable').DataTable({
                         processing: true,
                         serverSide: true,
@@ -51,7 +53,6 @@
                         ]
                     });
                 });
-            </script>
-        </x-slot>
-    </div>
+        </script>
+    </x-slot>
 </div>

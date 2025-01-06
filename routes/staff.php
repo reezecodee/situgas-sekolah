@@ -97,7 +97,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('jadwal-mengajar', ClassList::class)->name('schedule.teaching');
         Route::get('jadwal-mengajar/{level}', CreateSchedule::class)->name('schedule.create');
 
-        Route::get('aplikasi', Setting::class)->name('app.setting');
+        Route::get('pengaturan', Setting::class)->name('app.setting');
 
         Route::get('kalender', Calendar::class)->name('calendar.index');
         Route::get('kalender/create', CreateCalendar::class)->name('calendar.create');

@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Staff\Teacher\Task;
 
+use App\Exports\SubmissionExport;
 use App\Models\TeachingSchedule;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ListTaskCreated extends Component
 {
@@ -15,6 +17,11 @@ class ListTaskCreated extends Component
     public function mount($id)
     {
         $this->id = $id;
+    }
+
+    public function downloadExcel($id)
+    {
+        return Excel::download(new SubmissionExport($id), 'submissions.xlsx');
     }
 
     public function render()

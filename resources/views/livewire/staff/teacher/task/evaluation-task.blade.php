@@ -37,8 +37,9 @@
                 </td>
                 <td>
                     <input type="number" min="0" max="100" class="form-control" placeholder="0 - 100"
-                        wire:model.blur="nilai.{{ $item->id }}" @if
-                        (!optional($item->submission->first())->file_pengerjaan) disabled @endif
+                        wire:model.blur="nilai.{{ $item->id }}" @if (!optional($item->submission->first())->file_pengerjaan)
+                        disabled
+                    @endif
                     >
                     @error("nilai.$item->id")
                     <small class="text-danger">{{ $message }}</small>

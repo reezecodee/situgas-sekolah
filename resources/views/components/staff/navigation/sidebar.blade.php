@@ -69,6 +69,10 @@
                     :href="route('calendar.index')">
                     Kalender akademik
                 </x-staff.link.sidebar-item>
+                <x-staff.link.sidebar-item icon="ti-settings" page-target="admin/pengaturan"
+                    :href="route('app.setting')">
+                    Pengaturan
+                </x-staff.link.sidebar-item>
                 @endrole
             </ul>
         </nav>
