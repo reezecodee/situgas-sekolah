@@ -28,7 +28,7 @@ class CreateAdmin extends Component
         return [
             'nama' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users,email',
-            'tgl_lahir' => 'required|date|date_format:Y-m-d',
+            'tgl_lahir' => 'required|date|date_format:Y-m-d|before:today',
             'status' => 'required|in:Aktif,Tidak aktif'
         ];
     }

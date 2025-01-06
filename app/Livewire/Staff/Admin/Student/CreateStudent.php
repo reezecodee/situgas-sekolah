@@ -54,7 +54,7 @@ class CreateStudent extends Component
             'email' => 'required|max:255|unique:users,email',
             'jk' => 'required|in:Laki-laki,Perempuan',
             'alamat' => 'required',
-            'tgl_lahir' => 'required|date',
+            'tgl_lahir' => 'required|date|date_format:Y-m-d|before:today',
             'status' => 'required|in:Belum lulus,Lulus,Nonaktif'
         ];
     }

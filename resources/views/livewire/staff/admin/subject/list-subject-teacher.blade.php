@@ -13,7 +13,7 @@
             <tr>
                 <th>Nama guru</th>
                 <th>Mata pelajaran</th>
-                <th>Aksi</th>
+                {{-- <th>Aksi</th> --}}
             </tr>
         </thead>
     </table>
@@ -28,7 +28,7 @@
                     columns: [
                         { data: 'nama', name: 'nama' },
                         { data: 'pelajaran', name: 'pelajaran' },
-                        { data: 'action', name: 'action', orderable: false, searchable: false }
+                        // { data: 'action', name: 'action', orderable: false, searchable: false }
                     ]
                 });
             });

@@ -42,12 +42,12 @@ class SubjectDatatableController extends Controller
             ->addColumn('pelajaran', function($st){
                 return $st->subject->nama;
             })
-            ->addColumn('action', function ($st) {
-                return '
-                <a wire:navigate href="' . route('subject.edit', $st->id) . '" class="btn btn-sm btn-primary">Edit</a>
-            ';
-            })
-            ->rawColumns(['action'])
+            // ->addColumn('action', function ($st) {
+            //     return '
+            //     <a wire:navigate href="' . route('subject.edit', $st->id) . '" class="btn btn-sm btn-primary">Edit</a>
+            // ';
+            // })
+            // ->rawColumns(['action'])
             ->make(true);
     }
 }
