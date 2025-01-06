@@ -30,10 +30,7 @@ class Dashboard extends Component
             })
             ->values();
 
-        $student = Student::where('user_id', Auth::user()->id)->first();
-        $class = Classrooms::with('teacher')->where('id', $student->kelas_id)->first();
-
         $title = 'Dashboard Siswa';
-        return view('livewire.student.dashboard.dashboard', compact('title', 'totalAssignments', 'class'));
+        return view('livewire.student.dashboard.dashboard', compact('title', 'totalAssignments'));
     }
 }
