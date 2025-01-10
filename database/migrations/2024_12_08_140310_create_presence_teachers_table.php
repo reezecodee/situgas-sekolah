@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('presence_teachers', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
+            $table->foreignUuid('pengampu_id')->constrained('subject_teachers');
             $table->foreignUuid('jadwal_mengajar_id')->constrained('teaching_schedules');
             $table->foreignUuid('guru_id')->constrained('teachers');
             $table->foreignUuid('kelas_id')->constrained('classrooms');

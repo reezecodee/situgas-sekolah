@@ -22,6 +22,8 @@ class Presence extends Component
     #[Layout('components.layouts.staff')]
 
     public $id;
+    public $teachingScheduleId;
+    public $classId;
     public $presence;
     public $today;
     public $hour;
@@ -46,21 +48,23 @@ class Presence extends Component
         ];
     }
 
-    public function mount($id)
+    public function mount($id, $classId)
     {
         $this->id = $id;
-        $this->presence = TeachingSchedule::with(['subjectTeacher', 'classroom'])->findOrFail($id);
+        $this->classId = $classId;
+        
         $this->today = Carbon::now()->translatedFormat('l');
+        $this->presence = TeachingSchedule::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $id)->where('kelas_id', $classId)->where('hari', $this->today)->first();
         $this->hour = Carbon::now()->format('H:i');
         $this->teacher = Teacher::where('user_id', Auth::user()->id)->first();
 
-        $presence = PresenceTeacher::where('jadwal_mengajar_id', $id)->latest()->first();
+        $presence = PresenceTeacher::where('jadwal_mengajar_id', $this->presence->id ?? 0)->latest()->first();
         $this->presenceTeacher = $presence;
 
         if ($presence) {
             $presenceHour = Carbon::parse($presence->created_at);
-            $jamMasuk = Carbon::parse($this->presence->jam_masuk);
-            $jamKeluar = Carbon::parse($this->presence->jam_keluar);
+            $jamMasuk = Carbon::parse($this->presence->jam_masuk ?? 0);
+            $jamKeluar = Carbon::parse($this->presence->jam_keluar ?? 0);
 
             if ($presenceHour->greaterThanOrEqualTo($jamMasuk) && $presenceHour->lessThanOrEqualTo($jamKeluar) && $this->today == $this->presence->hari) {
                 $this->isPresence = true;
@@ -80,24 +84,27 @@ class Presence extends Component
         $this->bukti = $presence->bukti ?? '';
     }
 
-    public function submit()
+    public function submit($classId, $today)
     {
-        $existingPresence = PresenceTeacher::where('jadwal_mengajar_id', $this->id)
+        $schoolYear = SchoolYear::where('status', 'Aktif')->first();
+        $existingPresence = PresenceTeacher::where('pengampu_id', $this->id)
+            ->where('tahun_ajaran_id', $schoolYear->id)
+            ->where('kelas_id', $classId)
             ->whereDate('tanggal', Carbon::today())
             ->first();
+        $teachingSchedule = TeachingSchedule::where('tahun_ajaran_id', $schoolYear->id)->where('pengampu_id', $this->id)->where('kelas_id', $classId)->where('hari', $today)->first();
 
         if ($existingPresence) {
             session()->flash('failed', 'Presensi hari ini sudah dilakukan.');
             return redirect()->to(route('teacher.presence', $this->id));
         }
 
-        $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-
         PresenceTeacher::create([
             'tahun_ajaran_id' => $schoolYear->id,
+            'pengampu_id' => $teachingSchedule->id,
             'jadwal_mengajar_id' => $this->id,
             'guru_id' => $this->teacher->id,
-            'kelas_id' => $this->presence->kelas_id,
+            'kelas_id' => $classId,
             'tanggal' => Carbon::today()->toDateString(),
             'status_kehadiran' => 'Hadir'
         ]);
@@ -109,6 +116,7 @@ class Presence extends Component
     public function teachingTestimony()
     {
         $existingPresence = PresenceTeacher::where('jadwal_mengajar_id', $this->id)
+            ->where('kelas_id', $this->classId)
             ->whereDate('tanggal', Carbon::today())
             ->first();
 
@@ -135,7 +143,7 @@ class Presence extends Component
 
     public function presenceStudent($id, $status)
     {
-        $existingPresence = PresenceTeacher::where('jadwal_mengajar_id', $this->id)
+        $existingPresence = PresenceTeacher::where('jadwal_mengajar_id', $this->presence->id)
             ->whereDate('tanggal', Carbon::today())
             ->first();
         $student = PresenceStudent::where('siswa_id', $id)->where('absen_guru_id', $existingPresence->id)->first();

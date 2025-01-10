@@ -54,7 +54,7 @@
         @elseif($hour > $presence->jam_keluar && $today == $presence->hari)
         <button type="button" class="btn btn-danger" disabled>Pembelajaran telah selesai</button>
         @elseif($today == $presence->hari && $hour >= $presence->jam_masuk && $hour <= $presence->jam_keluar)
-            <form wire:submit.prevent="submit">
+            <form wire:submit.prevent="submit('{{ $presence->classroom->id }}','{{ $today }}')">
                 <button type="submit" class="btn btn-primary">Mulai pembelajaran</button>
             </form>
             @else

@@ -22,10 +22,16 @@ class EnterClass extends Component
 
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
 
-        $teachingSchedules = TeachingSchedule::with(['schoolYear', 'teacher', 'classroom', 'subjectTeacher', 'classroom.students'])
+        $teachingSchedules = TeachingSchedule::with(['schoolYear', 'teacher', 'classroom', 'subjectTeacher'])
             ->where('tahun_ajaran_id', $schoolYear->id)
             ->where('guru_id', $teacher->id)
-            ->get();
+            ->get()
+            ->groupBy(function ($schedule) {
+                return $schedule->kelas_id . '-' . $schedule->subjectTeacher->mapel_id; 
+            })
+            ->map(function ($group) {
+                return $group->first();
+            });
 
         return view('livewire.staff.teacher.class.enter-class', compact('title', 'teachingSchedules'));
     }
