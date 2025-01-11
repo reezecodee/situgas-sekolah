@@ -12,14 +12,14 @@
         <div class="col-md-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    <strong>Mata Pelajaran: {{ $item->subjectTeacher->subject->nama }}</strong>
+                    <strong>Mata Pelajaran: {{ $item['mapel'] }}</strong>
                 </div>
                 <div class="card-body">
-                    <div><strong>Total Tugas:</strong> {{ $item->totalAssignments }}</div>
-                    <div class="mb-2"><strong>Total yang Sudah Dikerjakan:</strong> {{ $item->totalCompletedAssignments
+                    <div><strong>Total Tugas:</strong> {{ $item['total_tugas'] }}</div>
+                    <div class="mb-2"><strong>Total yang Sudah Dikerjakan:</strong> {{ $item['tugas_selesai']
                         }}</div>
                     <div class="d-flex justify-content-start">
-                        <a href="{{ route('student.listAssign', $item->id) }}" wire:navigate
+                        <a href="{{ route('student.listAssign', $item['pengampu_id']) }}" wire:navigate
                             class="btn btn-primary">Lihat Daftar Tugas</a>
                     </div>
                 </div>

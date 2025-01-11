@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Datatables\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Assignment;
+use App\Models\SchoolYear;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,8 +14,9 @@ class AssignmentDatatableController extends Controller
 {
     public function getAssignment($id)
     {
-        $assignments = Assignment::where('jadwal_mengajar_id', $id)
-            ->with('submission')->get();
+        $schoolYear = SchoolYear::where('status', 'Aktif')->first();
+        $assignments = Assignment::with('submission')->where('tahun_ajaran_id', $schoolYear->id)->where('pengampu_id', $id)
+            ->get();
 
         return DataTables::of($assignments)
             ->addIndexColumn()

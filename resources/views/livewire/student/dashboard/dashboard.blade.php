@@ -4,15 +4,13 @@
         </x-student.navigation.page-header>
     </x-slot>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div id="main" style="width: 600px; height: 400px;"></div>
-                </div>
-            </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div id="main" style="height: 400px;"></div>
         </div>
     </div>
+
 
     @php
     $chartData = collect($totalAssignments)->map(function ($item) {

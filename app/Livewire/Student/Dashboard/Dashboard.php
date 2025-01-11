@@ -19,16 +19,21 @@ class Dashboard extends Component
     {
         $student = Student::where('user_id', Auth::user()->id)->first();
         $totalAssignments = TeachingSchedule::with(['subjectTeacher.subject', 'assignment'])
-            ->get()
-            ->groupBy('subjectTeacher.subject.id')
-            ->map(function ($grouped) {
-                $subject = $grouped->first()->subjectTeacher->subject;
-                return [
-                    'mapel' => $subject->nama,
-                    'total_tugas' => $grouped->pluck('assignment')->flatten()->count(),
-                ];
-            })
-            ->values();
+        ->where('kelas_id', $student->kelas_id) 
+        ->get()
+        ->groupBy(function ($schedule) {
+            return $schedule->kelas_id . '-' . $schedule->subjectTeacher->subject->id;
+        })
+        ->map(function ($grouped) {
+            $firstSchedule = $grouped->first();
+            $subject = $firstSchedule->subjectTeacher->subject;
+
+            return [
+                'mapel' => $subject->nama,
+                'total_tugas' => $grouped->pluck('assignment')->flatten()->count(),
+            ];
+        })
+        ->values();
 
         $title = 'Dashboard Siswa';
         return view('livewire.student.dashboard.dashboard', compact('title', 'totalAssignments'));
