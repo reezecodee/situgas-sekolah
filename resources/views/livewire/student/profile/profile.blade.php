@@ -16,14 +16,6 @@
                 <div class="col d-flex flex-column">
                     <div class="card-body">
                         <h2 class="mb-4">{{ $title }}</h2>
-                        <div class="row align-items-center">
-                            <div class="col-auto"><span class="avatar avatar-xl"
-                                    style="background-image: url(./static/avatars/000m.jpg)"></span>
-                            </div>
-                            <div class="col-auto"><a href="#" class="btn">
-                                    Change avatar
-                                </a></div>
-                        </div>
                         <h3 class="card-title mt-4">Business Profile</h3>
                         <p class="card-subtitle">This contact will be shown to others publicly, so choose it carefully.
                         </p>
@@ -40,26 +32,6 @@
                                 <div class="form-label">Location</div>
                                 <input type="text" class="form-control" value="Peimei, China">
                             </div>
-                        </div>
-                        <h3 class="card-title mt-4">Public profile</h3>
-                        <p class="card-subtitle">Making your profile public means that anyone on the Dashkit network
-                            will be
-                            able to find
-                            you.</p>
-                        <div>
-                            <label class="form-check form-switch form-switch-lg">
-                                <input class="form-check-input" type="checkbox">
-                                <span class="form-check-label form-check-label-on">You're currently visible</span>
-                                <span class="form-check-label form-check-label-off">You're
-                                    currently invisible</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-transparent mt-auto">
-                        <div class="btn-list justify-content-end">
-                            <a href="#" class="btn btn-primary">
-                                Perbarui
-                            </a>
                         </div>
                     </div>
                 </div>

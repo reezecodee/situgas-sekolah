@@ -58,8 +58,8 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('upload-materi/{id}/upload', UploadMateri::class)->name('teacher.uploadModule');
 
         Route::get('penugasan', ListTask::class)->name('teacher.task');
-        Route::get('penugasan/{id}/upload', UploadTask::class)->name('teacher.uploadTask');
-        Route::get('penugasan/{id}/tugas-dibuat', ListTaskCreated::class)->name('teacher.taskCreated');
+        Route::get('penugasan/{id}/{classId}/upload', UploadTask::class)->name('teacher.uploadTask');
+        Route::get('penugasan/{id}/{classId}/tugas-dibuat', ListTaskCreated::class)->name('teacher.taskCreated');
         Route::get('penugasan/{id1}/{id2}/evaluasi-tugas', EvaluationTask::class)->name('teacher.evaluationTask');
 
         Route::get('kirim-hasil-studi', StudyResult::class)->name('teacher.studyResult');

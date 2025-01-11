@@ -18,9 +18,11 @@
                     <div><strong>Total Tugas:</strong> {{ $item['total_tugas'] }}</div>
                     <div class="mb-2"><strong>Total yang Sudah Dikerjakan:</strong> {{ $item['tugas_selesai']
                         }}</div>
-                    <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-start gap-2">
                         <a href="{{ route('student.listAssign', $item['pengampu_id']) }}" wire:navigate
                             class="btn btn-primary">Lihat Daftar Tugas</a>
+                        <a href="{{ route('student.downloadMateri', $item['pengampu_id']) }}" wire:navigate
+                            class="btn btn-success">Lihat Daftar Materi</a>
                     </div>
                 </div>
             </div>

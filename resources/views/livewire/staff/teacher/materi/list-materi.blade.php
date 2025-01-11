@@ -8,8 +8,14 @@
                     <div><strong>Kode mapel:</strong> {{ $item->subject->kode }}</div>
                     <div><strong>Jumlah Materi:</strong> {{ $item->materiCount() }}</div>
                     <div><strong>Kelas:</strong>
-                        @foreach ($item->teachingSchedule as $key => $schedule)
-                        {{ $schedule->classroom->nama }}@if (!$loop->last), @endif
+                        @php
+                        $groupedSchedules = $item->teachingSchedule->groupBy(function ($schedule) {
+                        return $schedule->classroom->nama;
+                        });
+                        @endphp
+
+                        @foreach ($groupedSchedules as $className => $schedules)
+                        {{ $className }}@if (!$loop->last), @endif
                         @endforeach
                     </div>
                     <div class="d-flex justify-content-start mt-3">

@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a wire:navigate href="">
+        <a wire:navigate href="{{ route('teacher.taskCreated', ['id' => $pengampu_id, 'classId' => $id2]) }}">
             <button class="btn btn-danger">Kembali</button>
         </a>
     </div>
@@ -22,7 +22,7 @@
                 <td>{{ $item->nama }}</td>
                 <td>
                     @if ($item->submission->isNotEmpty() && $item->submission->first()->file_pengerjaan)
-                    <a href="{{ asset('storage/' . $item->submission->first()->file_pengerjaan) }}" target="_blank">Cek
+                    <a href="{{ asset('storage/' . $item->submission->first()->file_pengerjaan) }}" download>Cek
                         pengerjaan</a>
                     @else
                     <span>-</span>
@@ -36,7 +36,7 @@
                     @endif
                 </td>
                 <td>
-                    <input type="number" min="0" max="100" class="form-control" placeholder="0 - 100"
+                    <input type="number" min="0" max="100" class="form-control" placeholder="0"
                         wire:model.blur="nilai.{{ $item->id }}" @if (!optional($item->submission->first())->file_pengerjaan)
                         disabled
                     @endif

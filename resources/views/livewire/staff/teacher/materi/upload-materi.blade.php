@@ -61,7 +61,7 @@
                 <td>{{ $item->keterangan }}</td>
                 <td>{{ $item->created_at }}</td>
                 <td>
-                    <a target="blank" href="{{ asset('storage/'. $item->file_materi) }}">
+                    <a download href="{{ asset('storage/'. $item->file_materi) }}">
                         <button class="btn btn-primary">Lihat</button>
                     </a>
                     <form class="d-inline-block" wire:submit.prevent="deleteMateri('{{ $item->id }}')">
@@ -73,6 +73,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $materis->links() }}
     @else
     <div class="d-flex justify-content-center">
         <img src="https://www.svgrepo.com/show/427101/empty-inbox.svg" alt="" srcset="" width="100">

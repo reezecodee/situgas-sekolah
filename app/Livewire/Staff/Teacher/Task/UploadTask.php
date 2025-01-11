@@ -3,6 +3,7 @@
 namespace App\Livewire\Staff\Teacher\Task;
 
 use App\Models\Assignment;
+use App\Models\SchoolYear;
 use App\Models\TeachingSchedule;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
@@ -17,6 +18,7 @@ class UploadTask extends Component
 
     public $id;
     public $teachingSchedule;
+    public $classId;
 
     #[Validate]
     public $judul_tugas;
@@ -29,10 +31,12 @@ class UploadTask extends Component
     #[Validate]
     public $file_soal;
 
-    public function mount($id)
+    public function mount($id, $classId)
     {
         $this->id = $id;
-        $this->teachingSchedule = TeachingSchedule::with('classroom')->where('id', $id)->first();
+        $this->classId = $classId;
+        $schoolYear = SchoolYear::where('status', 'Aktif')->first();
+        $this->teachingSchedule = TeachingSchedule::with('classroom')->where('pengampu_id', $id)->where('kelas_id', $classId)->where('tahun_ajaran_id', $schoolYear->id)->first();
     }
 
     public function rules()
@@ -50,6 +54,7 @@ class UploadTask extends Component
     {
         $data = $this->validate();
 
+        $data['pengampu_id'] = $this->teachingSchedule->pengampu_id;
         $data['tahun_ajaran_id'] = $this->teachingSchedule->tahun_ajaran_id;
         $data['guru_id'] = $this->teachingSchedule->guru_id;
         $data['jadwal_mengajar_id'] = $this->teachingSchedule->id;
@@ -65,7 +70,7 @@ class UploadTask extends Component
         ]);
 
         session()->flash('success', 'Berhasil membuat tugas baru.');
-        return redirect()->to(route('teacher.taskCreated', $this->id));
+        return redirect()->to(route('teacher.taskCreated', ['id' => $this->id, 'classId' => $this->kelas_id]));
     }
 
     public function render()

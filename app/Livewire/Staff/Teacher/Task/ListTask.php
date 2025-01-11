@@ -26,13 +26,23 @@ class ListTask extends Component
     {
         $title = 'Daftar Tugas';
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-            $tasks = TeachingSchedule::withCount(['assignment' => function ($query) use ($schoolYear) {
-                $query->where('tahun_ajaran_id', $schoolYear->id);
-            }])
-            ->where('tahun_ajaran_id', $schoolYear->id)
-            ->where('guru_id', $this->teacher->id)
-            ->get();
-
+        $tasks = TeachingSchedule::with([
+            'classroom', 
+            'subjectTeacher.subject',
+        ])
+        ->withCount(['assignment' => function ($query) use ($schoolYear) {
+            $query->where('tahun_ajaran_id', $schoolYear->id);
+        }])
+        ->where('tahun_ajaran_id', $schoolYear->id)
+        ->where('guru_id', $this->teacher->id)
+        ->get()
+        ->groupBy(function ($task) {
+            return $task->pengampu_id . '-' . $task->kelas_id;
+        })
+        ->map(function ($group) {
+            return $group->first(); 
+        })
+        ->values();
 
         return view('livewire.staff.teacher.task.list-task', compact('title', 'tasks'));
     }

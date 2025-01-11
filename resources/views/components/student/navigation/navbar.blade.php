@@ -28,8 +28,7 @@
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        {{-- <a wire:navigate href="{{ route('student.profile') }}" class="dropdown-item">Profile</a>
-                        --}}
+                        <a wire:navigate href="{{ route('student.profile') }}" class="dropdown-item">Profile</a>
                         <form method="POST" action="{{ route('logout') }}" id="logout">
                             @csrf
                             <button type="button" class="dropdown-item" onclick="confirmLogout()">Logout</button>
@@ -75,24 +74,17 @@
                                     saya</x-student.link.dropdown-item>
                             </x-slot>
                         </x-student.link.nav-dropdown>
-                        <x-student.link.nav-dropdown title="Kegiatan belajar" page-target="kegiatan">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" fill="none"
-                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                            </svg>
-                            <x-slot name="subitem">
-                                <x-student.link.dropdown-item :href="route('student.assignment')"
-                                    page-target="kegiatan/penugasan">Ruang
-                                    penugasan</x-student.link.dropdown-item>
-                            </x-slot>
-                        </x-student.link.nav-dropdown>
+                        <x-student.link.navitem title="Kegiatan belajar" page-target="kegiatan"
+                            :href="route('student.assignment')">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                                </svg>
+                            </span>
+                        </x-student.link.navitem>
                     </ul>
-                    <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                        <form action="./" method="get" autocomplete="off" novalidate>
-                            <x-student.input.search />
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

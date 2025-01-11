@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Staff\Teacher\Task;
 
+use App\Models\Assignment;
 use App\Models\Student;
 use App\Models\Submission;
 use App\Models\TeachingSchedule;
@@ -15,6 +16,7 @@ class EvaluationTask extends Component
 
     public $id1;
     public $id2;
+    public $pengampu_id;
 
     #[Validate]
     public $nilai = [];
@@ -25,6 +27,8 @@ class EvaluationTask extends Component
     {
         $this->id1 = $id1;
         $this->id2 = $id2;
+        $assignment = Assignment::findOrFail($id1);
+        $this->pengampu_id = $assignment->pengampu_id;
     }
 
     protected $rules = [
@@ -37,7 +41,7 @@ class EvaluationTask extends Component
         $this->validateOnly("nilai.$key");
 
         $submission = Submission::where('siswa_id', $key)
-            ->where('penugasan_id', $this->id2)
+            ->where('penugasan_id', $this->id1)
             ->first();
 
         if ($submission) {
@@ -50,7 +54,7 @@ class EvaluationTask extends Component
         $this->validateOnly("komentar_guru.$key");
 
         $submission = Submission::where('siswa_id', $key)
-            ->where('penugasan_id', $this->id2)
+            ->where('penugasan_id', $this->id1)
             ->first();
 
         if ($submission) {
@@ -62,12 +66,10 @@ class EvaluationTask extends Component
     {
         $title = 'Evaluasi Pengerjaan Tugas';
 
-        $teachingSchedule = TeachingSchedule::findOrFail($this->id1);
-
         $students = Student::with(['submission' => function ($query) {
-            $query->where('penugasan_id', $this->id2);
+            $query->where('penugasan_id', $this->id1);
         }])
-            ->where('kelas_id', $teachingSchedule->kelas_id)
+            ->where('kelas_id', $this->id2)
             ->orderBy('nama', 'asc')
             ->get();
 

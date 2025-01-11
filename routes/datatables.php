@@ -9,6 +9,7 @@ use App\Http\Controllers\Datatables\Staff\SubclassDatatablesController;
 use App\Http\Controllers\Datatables\Staff\SubjectDatatableController;
 use App\Http\Controllers\Datatables\Staff\TeacherDatatableController;
 use App\Http\Controllers\Datatables\Student\AssignmentDatatableController as StudentAssignmentDatatableController;
+use App\Http\Controllers\Datatables\Student\MateriDatatableController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(SchoolYearDatatableController::class)->group(function () {
@@ -44,9 +45,13 @@ Route::controller(CalendarDatatableController::class)->group(function () {
 });
 
 Route::controller(AssignmentDatatableController::class)->group(function () {
-    Route::get('/tugas/{id}', 'getTask')->name('dt.task');
+    Route::get('/tugas/{id}/{classId}', 'getTask')->name('dt.task');
 });
 
 Route::controller(StudentAssignmentDatatableController::class)->group(function(){
     Route::get('/tugas-siswa/{id}', 'getAssignment')->name('dt.taskStudent');
+});
+
+Route::controller(MateriDatatableController::class)->group(function(){
+    Route::get('/materi/{id}', 'getMateris')->name('dt.downloadMateri');
 });

@@ -3,6 +3,7 @@
 namespace App\Livewire\Staff\Teacher\Task;
 
 use App\Exports\SubmissionExport;
+use App\Models\Classrooms;
 use App\Models\TeachingSchedule;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -13,10 +14,12 @@ class ListTaskCreated extends Component
     #[Layout('components.layouts.staff')]
 
     public $id;
+    public $classId;
 
-    public function mount($id)
+    public function mount($id, $classId)
     {
         $this->id = $id;
+        $this->classId = $classId;
     }
 
     public function downloadExcel($id)
@@ -26,8 +29,8 @@ class ListTaskCreated extends Component
 
     public function render()
     {
-        $teachingSchedule = TeachingSchedule::with('classroom')->findOrFail($this->id);
-        $title = "Daftar Tugas Yang Sudah Dibuat Untuk Kelas {$teachingSchedule->classroom->tingkat} {$teachingSchedule->classroom->nama}";
+        $class = Classrooms::findOrFail($this->classId);
+        $title = "Daftar Tugas Yang Sudah Dibuat Untuk Kelas {$class->tingkat} {$class->nama}";
 
         return view('livewire.staff.teacher.task.list-task-created', compact('title'))->title($title);
     }

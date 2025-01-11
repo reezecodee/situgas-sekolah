@@ -86,7 +86,7 @@ class UploadMateri extends Component
     public function render()
     {
         $title = 'Upload Materi Tambahan';
-        $materis = Materi::where('tahun_ajaran_id', $this->schoolYear->id)->where('pengampu_id', $this->id)->get();
+        $materis = Materi::where('tahun_ajaran_id', $this->schoolYear->id)->where('pengampu_id', $this->id)->paginate(10);
 
         return view('livewire.staff.teacher.materi.upload-materi', compact('title', 'materis'))->title($title);
     }

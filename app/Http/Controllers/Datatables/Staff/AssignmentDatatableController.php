@@ -11,10 +11,10 @@ use Yajra\DataTables\Facades\DataTables;
 
 class AssignmentDatatableController extends Controller
 {
-    public function getTask($id)
+    public function getTask($id, $classId)
     {
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-        $tasks = Assignment::where('jadwal_mengajar_id', $id)->where('tahun_ajaran_id', $schoolYear->id)->get();
+        $tasks = Assignment::where('pengampu_id', $id)->where('kelas_id', $classId)->where('tahun_ajaran_id', $schoolYear->id)->get();
 
         return DataTables::of($tasks)
             ->addIndexColumn()
@@ -26,21 +26,39 @@ class AssignmentDatatableController extends Controller
             })
             ->addColumn('action', function ($task) {
                 $deleteForm = '
-                    <form action="' . route('assignment.delete', $task->id) . '" method="POST" style="display:inline;" id="form-' . $task->id . '">
-                        ' . csrf_field() . '
-                        ' . method_field('DELETE') . '
-                        <button type="button" class="btn btn-sm btn-danger" onclick="submitForm(\'form-' . $task->id . '\')">Hapus</button>
-                    </form>
-                    <a href="'. asset('storage/'. $task->file_soal) .'">
-                        <button type="button" class="btn btn-sm btn-primary">Lihat soal</button>
-                    </a>
-                    <br>
-                    <a href="'. route('teacher.evaluationTask', [
-                        'id1' => $task->jadwal_mengajar_id,
-                        'id2' => $task->id
-                    ]) .'">
-                        <button type="button" class="btn btn-sm btn-success">Cek pengerjaan</button>
-                    </a>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Aksi
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="dropdown-item" onclick="submitForm(\'form-' . $task->id . '\')">
+                                <form action="' . route('assignment.delete', $task->id) . '" method="POST" style="display: inline;" id="form-' . $task->id . '">
+                                    ' . csrf_field() . '
+                                    ' . method_field('DELETE') . '
+                                    <span class="text-danger">Hapus</span>
+                                </form>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-item">
+                                <a href="' . asset('storage/' . $task->file_soal) . '" download>
+                                   <span class="text-black">Lihat soal</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-item">
+                                <a href="' . route('teacher.evaluationTask', [
+                                    'id1' => $task->id,
+                                    'id2' => $task->kelas_id
+                                ]) . '">
+                                <span class="text-black">Cek pengerjaan</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 ';
 
                 return $deleteForm;

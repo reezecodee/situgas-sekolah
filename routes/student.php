@@ -6,6 +6,7 @@ use App\Livewire\Student\Academics\Schedule\Schedule;
 use App\Livewire\Student\Activities\Assignment\Assignment;
 use App\Livewire\Student\Activities\Assignment\ListAssignment;
 use App\Livewire\Student\Activities\Assignment\UploadAssignment;
+use App\Livewire\Student\Activities\Materi\DownloadMateri;
 use App\Livewire\Student\Dashboard\Dashboard;
 use App\Livewire\Student\Profile\ChangePassword;
 use App\Livewire\Student\Profile\DataPrivacy;
@@ -25,10 +26,11 @@ Route::prefix('student')->middleware(['role:Siswa', 'auth', 'getDataUser'])->gro
         Route::get('penugasan', Assignment::class)->name('student.assignment');
         Route::get('penugasan/{id}/daftar', ListAssignment::class)->name('student.listAssign');
         Route::get('penugasan/{id}/upload', UploadAssignment::class)->name('student.uploadAssignment');
+
+        Route::get('materi-belajar/{id}', DownloadMateri::class)->name('student.downloadMateri');
     });
 
     Route::get('profile', Profile::class)->name('student.profile');
-    Route::get('data-pribadi', DataPrivacy::class)->name('student.dataPrivacy');
     Route::get('ganti-password', ChangePassword::class)->name('student.changePassword');
 });
 
