@@ -6,6 +6,7 @@ use App\Models\PresenceStudent;
 use App\Models\PresenceTeacher;
 use App\Models\SchoolYear;
 use App\Models\Student;
+use App\Models\SubjectTeacher;
 use App\Models\Teacher;
 use App\Models\TeachingSchedule;
 use Carbon\Carbon;
@@ -54,7 +55,8 @@ class Presence extends Component
         $this->classId = $classId;
         
         $this->today = Carbon::now()->translatedFormat('l');
-        $this->presence = TeachingSchedule::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $id)->where('kelas_id', $classId)->where('hari', $this->today)->first();
+        $this->presence = TeachingSchedule::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $id)->where('kelas_id', $classId)->where('hari', $this->today)->first() ?? TeachingSchedule::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $id)->where('kelas_id', $classId)->first();
+
         $this->hour = Carbon::now()->format('H:i');
         $this->teacher = Teacher::where('user_id', Auth::user()->id)->first();
 

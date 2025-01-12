@@ -23,21 +23,12 @@
                             <div class="mb-2">
                                 <label class="form-label">
                                     Password
-                                    <span class="form-label-description">
-                                        <a href="" wire:navigate>Lupa password</a>
-                                    </span>
                                 </label>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
                                     placeholder="Password" autocomplete="off" wire:model.lazy="password">
                                 @error('password')
                                 <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
-                            </div>
-                            <div class="mb-2">
-                                <label class="form-check">
-                                    <input type="checkbox" class="form-check-input" />
-                                    <span class="form-check-label">Ingat saya</span>
-                                </label>
                             </div>
                             <div class="form-footer">
                                 <button type="submit" class="btn btn-primary w-100">Masuk</button>

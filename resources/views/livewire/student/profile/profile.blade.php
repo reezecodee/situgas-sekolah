@@ -16,21 +16,42 @@
                 <div class="col d-flex flex-column">
                     <div class="card-body">
                         <h2 class="mb-4">{{ $title }}</h2>
-                        <h3 class="card-title mt-4">Business Profile</h3>
-                        <p class="card-subtitle">This contact will be shown to others publicly, so choose it carefully.
-                        </p>
-                        <div class="row g-3">
-                            <div class="col-md">
-                                <div class="form-label">Business Name</div>
-                                <input type="text" class="form-control" value="Tabler">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">Nama</div>
+                                <input type="text" class="form-control" value="{{ $userActive->nama }}" readonly>
                             </div>
-                            <div class="col-md">
-                                <div class="form-label">Business ID</div>
-                                <input type="text" class="form-control" value="560afc32">
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">Email</div>
+                                <input type="text" class="form-control" value="{{ $userActive->user->email }}" readonly>
                             </div>
-                            <div class="col-md">
-                                <div class="form-label">Location</div>
-                                <input type="text" class="form-control" value="Peimei, China">
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">Kelas</div>
+                                <input type="text" class="form-control" value="{{ $userActive->classroom->tingkat }} {{ $userActive->classroom->nama }}" readonly>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">NIS</div>
+                                <input type="text" class="form-control" value="{{ $userActive->nis }}" readonly>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">NISN</div>
+                                <input type="text" class="form-control" value="{{ $userActive->nisn }}" readonly>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">Tanggal lahir</div>
+                                <input type="text" class="form-control" value="{{ $userActive->tgl_lahir }}" readonly>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">Jenis kelamin</div>
+                                <input type="text" class="form-control" value="{{ $userActive->jk }}" readonly>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">Alamat</div>
+                                <input type="text" class="form-control" value="{{ $userActive->alamat }}" readonly>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <div class="form-label">Status</div>
+                                <input type="text" class="form-control" value="{{ $userActive->status }}" readonly>
                             </div>
                         </div>
                     </div>

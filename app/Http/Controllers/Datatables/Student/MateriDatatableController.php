@@ -13,13 +13,13 @@ class MateriDatatableController extends Controller
     public function getMateris($id)
     {
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-        $materis = Materi::where('tahun_ajaran_id', $schoolYear->id)->where('pengampu_id', $id)->get();
+        $materis = Materi::where('tahun_ajaran_id', $schoolYear->id)->where('pengampu_id', $id)->orderBy('created_at', 'asc')->get();
 
         return DataTables::of($materis)
             ->addIndexColumn()
             ->addColumn('action', function($materi){
                 return '
-                <a target="blank" href="'. asset('storage/'.$materi->file_materi) .'" class="btn btn-primary">Download</a>
+                <a download href="'. asset('storage/'.$materi->file_materi) .'" class="btn btn-primary">Download</a>
                 ';
             })
             ->rawColumns(['action'])

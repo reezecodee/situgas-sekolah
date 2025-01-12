@@ -14,7 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
             'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
-            'getDataUser' => \App\Http\Middleware\GlobalVariableMiddleware::class
+            'getDataUser' => \App\Http\Middleware\GlobalVariableMiddleware::class,
+            'studentSchoolYearCheck' => \App\Http\Middleware\SchoolYearStudentMiddleware::class,
+            'staffSchoolYearCheck' => \App\Http\Middleware\SchoolYearStaffMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

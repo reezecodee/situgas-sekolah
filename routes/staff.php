@@ -48,7 +48,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
     Route::get('profile-saya', Profile::class)->name('staff.profile');
     Route::get('kalender', Calendar::class)->name('calendar.index');
 
-    Route::prefix('guru')->middleware('role:Guru')->group(function () {
+    Route::prefix('guru')->middleware(['role:Guru', 'staffSchoolYearCheck'])->group(function () {
         Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
         Route::get('masuk-kelas/{id}/{classId}/presensi', Presence::class)->name('teacher.presence');
         Route::get('masuk-kelas/{id}/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
@@ -95,10 +95,10 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('pelajaran/guru-pengampu', ListSubjectTeacher::class)->name('subject.teacher');
         Route::get('pelajaran/guru-pengampu/create', CreateSubjectTeacher::class)->name('subject.createTeacher');
 
-        Route::get('jadwal-mengajar', ClassList::class)->name('schedule.teaching');
-        Route::get('jadwal-mengajar/{level}', CreateSchedule::class)->name('schedule.create');
-
-        Route::get('pengaturan', Setting::class)->name('app.setting');
+        Route::middleware('staffSchoolYearCheck')->group(function(){
+            Route::get('jadwal-mengajar', ClassList::class)->name('schedule.teaching');
+            Route::get('jadwal-mengajar/{level}', CreateSchedule::class)->name('schedule.create');
+        });
 
         Route::get('kalender/create', CreateCalendar::class)->name('calendar.create');
     });
