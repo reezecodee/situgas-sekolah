@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Selamat Datang</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>SITUGAS MTs BPI Baturompe</title>
+  <meta name="description" content="Situgas adalah platform milik MTs BPI Baturompe yang didedikasikan untuk mendukung para guru dalam menjalankan tugas mulia mereka.">
+  <meta name="keywords" content="situgas">
+  <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon"
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -32,8 +33,7 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Situgas</h1>
+        <img src="/images/logo/logo-situgas.png" alt="" class="sitename">
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -42,7 +42,6 @@
           <li><a href="#about">Tentang kami</a></li>
           <li><a href="#about-web">Tentang aplikasi</a></li>
           <li><a href="#feature">Fitur</a></li>
-          <li><a href="#FAQ">FAQ</a></li>
           <li><a href="#contact">Kontak</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -127,54 +126,6 @@
 
     </section>
 
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-emoji-smile"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Siswa Aktif</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-journal-richtext"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Modul belajar terbaru</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-headset"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Staff Tata Usaha</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-people"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Guru</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
     <section id="about-web" class="tabs section">
 
       <div class="container">
@@ -205,7 +156,7 @@
                 </ul>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="/landing/images/guru.jpg" alt="" class="img-fluid">
+                <img src="/images/landing/guru.jpg" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -392,90 +343,6 @@
 
     </section>
 
-    <section id="FAQ" class="faq section">
-
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Pertanyaan yang sering ditanyakan</h2>
-        <p>Berikut merupakan pertanyaan yang sering ditanyakan oleh siswa.</p>
-      </div>
-
-      <div class="container">
-
-        <div class="row justify-content-center">
-
-          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="faq-container">
-
-              <div class="faq-item">
-                <h3>Bagaimana saya bisa mendaftar di MTs BPI Baturompe?</h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur
-                    gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>Bagaimana saya bisa mendapatkan akun siswa saya?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet
-                    id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque
-                    elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>Apakah guru dapat memantau aktivitas saya?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar
-                    elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque
-                    eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis
-                    sed odio morbi quis</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>Bagaimana cara mengerjakan tugas yang diberikan guru?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet
-                    id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque
-                    elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>Bagaimana cara mendownload materi tambahan yang diberikan guru?</h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in.
-                    Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est.
-                    Purus gravida quis blandit turpis cursus in</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-              <div class="faq-item">
-                <h3>Bagaimana cara melihat kalender akademik?</h3>
-                <div class="faq-content">
-                  <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi.
-                    Distinctio ipsam dolore et.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
     <section id="contact" class="contact section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Kontak kami</h2>
@@ -519,8 +386,7 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-              data-aos-delay="500">
+            <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -544,7 +410,9 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Pesan berhasil terkirim. Terima kasih!</div>
 
-                  <button type="submit">Kirim pesan</button>
+                  <a href="sms:(0265) 3254183">
+                    <button type="button" class="btn btn-primary">Kirim pesan</button>
+                  </a>
                 </div>
 
               </div>
@@ -564,9 +432,6 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Situgas</span>
-          </a>
           <div class="footer-contact pt-3">
             <p>JL. Cigantang Hilir</p>
             <p>Kota Tasikmalaya, Jawa Bart</p>
@@ -588,7 +453,6 @@
             <li><a href="#about">Tentang kami</a></li>
             <li><a href="#about-web">Tentang aplikasi</a></li>
             <li><a href="#feature">Fitur</a></li>
-            <li><a href="#FAQ">FAQ</a></li>
             <li><a href="#contact">Kontak</a></li>
           </ul>
         </div>
@@ -596,8 +460,8 @@
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Informasi</h4>
           <p>Dapatkan informasi terbaru dari kami terkait informasi sekolah.</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Kirim"></div>
+          <form action="" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="button" value="Kirim"></div>
             <div class="loading">Loading</div>
             <div class="error-message"></div>
             <div class="sent-message">Email berhasil terkirim, Terima kasih!</div>
@@ -610,9 +474,6 @@
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">MTs BPI Baturompe</strong> <span>All Rights
           Reserved</span></p>
-      <div class="credits">
-        Bekerja sama dengan <a href="">Universitas BSI Kota Tasikmalaya</a>
-      </div>
     </div>
 
   </footer>

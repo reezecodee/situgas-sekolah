@@ -2,7 +2,7 @@
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
             <a href="" class="text-nowrap logo-img">
-                <img src="{{ asset('images/logo/situgas.png') }}" width="150" alt="" />
+                <img src="{{ asset('images/logo/logo-situgas.png') }}" width="200" alt="" />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-8"></i>
@@ -65,10 +65,6 @@
                     :href="route('schedule.teaching')">
                     Atur jadwal mengajar
                 </x-staff.link.sidebar-item>
-                {{-- <x-staff.link.sidebar-item icon="ti-settings" page-target="admin/pengaturan"
-                    :href="route('app.setting')">
-                    Pengaturan
-                </x-staff.link.sidebar-item> --}}
                 @endrole
                 <x-staff.link.sidebar-item icon="ti-calendar" page-target="admin/kalender"
                 :href="route('calendar.index')">
