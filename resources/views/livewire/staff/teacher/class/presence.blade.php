@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-end gap-2 mb-5">
-        <a href="{{ route('teacher.presenceHistory', $id) }}" wire:navigate>
+        <a href="{{ route('teacher.presenceHistory', ['id' => $id, 'classId' => $classId]) }}" wire:navigate>
             <button class="btn btn-success">Lihat riwayat presensi</button>
         </a>
         @if($isPresence && $today == $presence->hari)

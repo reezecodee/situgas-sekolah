@@ -17,10 +17,12 @@ class PresenceHistory extends Component
     #[Layout('components.layouts.staff')]
 
     public $id;
+    public $classId;
 
-    public function mount($id)
+    public function mount($id, $classId)
     {
         $this->id = $id;
+        $this->classId = $classId;
     }
 
     public function downloadExcel($id)

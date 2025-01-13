@@ -6,7 +6,6 @@ use App\Models\PresenceStudent;
 use App\Models\PresenceTeacher;
 use App\Models\SchoolYear;
 use App\Models\Student;
-use App\Models\SubjectTeacher;
 use App\Models\Teacher;
 use App\Models\TeachingSchedule;
 use Carbon\Carbon;

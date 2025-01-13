@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Staff\Teacher\Class;
 
+use App\Exports\TeacherScheduleExport;
 use App\Models\SchoolYear;
 use App\Models\Teacher;
 use App\Models\TeachingSchedule;
@@ -9,11 +10,20 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EnterClass extends Component
 {
     #[Title('Masuk Kelas')]
     #[Layout('components.layouts.staff')]
+
+    public function downloadSchedule()
+    {
+        $schoolYear = SchoolYear::where('status', 'Aktif')->first();
+        $periode = str_replace(['/', '\\'], '-', $schoolYear->periode);
+        $fileName = "Jadwal Tahun Ajaran {$periode} Semester {$schoolYear->semester}";
+        return Excel::download(new TeacherScheduleExport($schoolYear->id), "$fileName.xlsx");
+    }
 
     public function render()
     {

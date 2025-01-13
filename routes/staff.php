@@ -51,7 +51,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
     Route::prefix('guru')->middleware(['role:Guru', 'staffSchoolYearCheck'])->group(function () {
         Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
         Route::get('masuk-kelas/{id}/{classId}/presensi', Presence::class)->name('teacher.presence');
-        Route::get('masuk-kelas/{id}/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
+        Route::get('masuk-kelas/{id}/{classId}/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
         Route::get('masuk-kelas/{id}/{date}/edit', EditPresence::class)->name('teacher.editPresence');
 
         Route::get('upload-materi', ListMateri::class)->name('teacher.upload');
@@ -61,10 +61,6 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('penugasan/{id}/{classId}/upload', UploadTask::class)->name('teacher.uploadTask');
         Route::get('penugasan/{id}/{classId}/tugas-dibuat', ListTaskCreated::class)->name('teacher.taskCreated');
         Route::get('penugasan/{id1}/{id2}/evaluasi-tugas', EvaluationTask::class)->name('teacher.evaluationTask');
-
-        Route::get('kirim-hasil-studi', StudyResult::class)->name('teacher.studyResult');
-        Route::get('kirim-hasil-studi/daftar-siswa', ListStudentClass::class)->name('teacher.studentList');
-        Route::get('kirim-hasil-studi/kirim', SendStudyResult::class)->name('teacher.sendStudyResult');
     });
 
     Route::prefix('admin')->middleware('role:Admin')->group(function () {
