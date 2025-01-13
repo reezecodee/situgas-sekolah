@@ -23,13 +23,16 @@
                             class="btn btn-primary">Lihat Daftar Tugas</a>
                         <a href="{{ route('student.downloadMateri', $item['pengampu_id']) }}" wire:navigate
                             class="btn btn-success">Lihat Daftar Materi</a>
+                        <a href="{{ route('student.myPresence', $item['pengampu_id']) }}" wire:navigate
+                            class="btn btn-outline-warning">Absensi Saya</a>
                     </div>
                 </div>
             </div>
         </div>
         @endforeach
     </div>
-    <x-slot name="script">
 
+    <x-slot name="script">
+        
     </x-slot>
 </div>

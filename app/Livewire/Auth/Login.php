@@ -35,6 +35,7 @@ class Login extends Component
 
             $user = Auth::user();
 
+            session()->flash('success', 'Selamat Datang Di Aplikasi SITUGAS');
             if ($user->hasRole('Admin') || $user->hasRole('Guru')) {
                 return redirect()->route('staff.dashboard'); 
             } else {
