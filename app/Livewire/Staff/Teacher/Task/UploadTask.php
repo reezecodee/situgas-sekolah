@@ -70,7 +70,7 @@ class UploadTask extends Component
         ]);
 
         session()->flash('success', 'Berhasil membuat tugas baru.');
-        return redirect()->to(route('teacher.taskCreated', ['id' => $this->id, 'classId' => $this->kelas_id]));
+        return redirect()->to(route('teacher.taskCreated', ['id' => $this->id, 'classId' => $this->classId]));
     }
 
     public function render()

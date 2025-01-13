@@ -22,9 +22,9 @@ class ListTaskCreated extends Component
         $this->classId = $classId;
     }
 
-    public function downloadExcel($id)
+    public function downloadExcel()
     {
-        return Excel::download(new SubmissionExport($id), 'submissions.xlsx');
+        return Excel::download(new SubmissionExport($this->id, $this->classId), 'submissions.xlsx');
     }
 
     public function render()

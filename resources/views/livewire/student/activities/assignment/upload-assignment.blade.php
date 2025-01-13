@@ -5,7 +5,7 @@
 
     <x-slot name="header">
         <x-student.navigation.page-header page-pretitle="overview" :page-title="$title">
-            <a href="{{ route('student.listAssign', $idTeaching) }}" wire:navigate>
+            <a href="{{ route('student.listAssign', $pengampuId) }}" wire:navigate>
                 <button class="btn btn-danger">Kembali</button>
             </a>
         </x-student.navigation.page-header>
@@ -22,7 +22,7 @@
                 {{ $fileUploaded ? $fileUploaded : 'Upload file PDF' }}
             </h5>
             @if($fileUploaded)
-            <a href="{{ asset('storage/'.$file_pengerjaan) }}" target="blank" class="mb-4"><u>Lihat file yang diupload
+            <a href="{{ asset('storage/'.$file_pengerjaan) }}" download class="mb-4"><u>Lihat file yang diupload
                     sebelumnya.</u></a>
             @endif
             <p class="text-muted mb-4">Pilih file PDF dari perangkat Anda untuk diunggah.</p>

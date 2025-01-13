@@ -18,17 +18,18 @@ class SubmissionExport implements FromCollection, WithHeadings, WithStyles, Shou
     */
 
     public $id;
+    public $classId;
 
-    public function __construct($id)
+    public function __construct($id, $classId)
     {
-        $this->id = $id;
+        $this->id = $id; 
+        $this->classId = $classId; 
     }
 
     public function collection()
     {
-        $teachingSchedule = TeachingSchedule::findOrFail($this->id);
-        $students = Student::where('kelas_id', $teachingSchedule->kelas_id)->orderBy('nama', 'asc')->get();
-        $assignments = Assignment::with('submission')->where('jadwal_mengajar_id', $this->id)->get();
+        $students = Student::where('kelas_id', $this->classId)->orderBy('nama', 'asc')->get();
+        $assignments = Assignment::with('submission')->where('pengampu_id', $this->id)->where('kelas_id', $this->classId)->get();
 
         return $students->map(function ($student) use ($assignments) {
             $row = [
@@ -38,7 +39,7 @@ class SubmissionExport implements FromCollection, WithHeadings, WithStyles, Shou
             $totalNilai = 0;
 
             foreach ($assignments as $index => $assignment) {
-                $submission = $assignment->submission->where('siswa_id', $student->id)->first();
+                $submission = $assignment->submission->firstWhere('siswa_id', $student->id);
                 $nilai = $submission ? $submission->nilai : '0';
 
                 $row[$assignment->judul_tugas] = $nilai;
@@ -55,11 +56,11 @@ class SubmissionExport implements FromCollection, WithHeadings, WithStyles, Shou
 
     public function headings(): array
     {
-        $assignments = Assignment::where('jadwal_mengajar_id', $this->id)->get();
+        $assignments = Assignment::where('pengampu_id', $this->id)->where('kelas_id', $this->classId)->get();
         $headers = ['Nama Siswa'];
 
         foreach ($assignments as $index => $assignment) {
-            $headers[] = $assignment->judul_tugas;
+            $headers[] = "Tugas: {$assignment->judul_tugas}";
         }
 
         $headers[] = 'Total Nilai';

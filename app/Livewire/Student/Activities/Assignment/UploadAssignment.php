@@ -20,6 +20,7 @@ class UploadAssignment extends Component
     #[Layout('components.layouts.student')]
 
     public $idTeaching;
+    public $pengampuId;
     #[Validate]
     public $file_pengerjaan;
     public $fileUploaded;
@@ -46,6 +47,7 @@ class UploadAssignment extends Component
 
         $this->idTeaching = $assignment->jadwal_mengajar_id;
         $this->file_pengerjaan = $submission->file_pengerjaan ?? '';
+        $this->pengampuId = $assignment->pengampu_id;
     }
 
     public function submit()

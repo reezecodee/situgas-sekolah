@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4 d-flex gap-2 justify-content-end">
-        <button class="btn btn-success" wire:click="downloadExcel('{{ $id }}')">Rekap Tugas</button>
+        <button class="btn btn-success" wire:click="downloadExcel">Rekap Tugas</button>
         <a wire:navigate href="{{ route('teacher.task') }}">
             <button class="btn btn-danger">Kembali</button>
         </a>
