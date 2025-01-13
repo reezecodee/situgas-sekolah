@@ -102,8 +102,8 @@ class Presence extends Component
 
         PresenceTeacher::create([
             'tahun_ajaran_id' => $schoolYear->id,
-            'pengampu_id' => $teachingSchedule->id,
-            'jadwal_mengajar_id' => $this->id,
+            'pengampu_id' => $this->id,
+            'jadwal_mengajar_id' => $teachingSchedule->id,
             'guru_id' => $this->teacher->id,
             'kelas_id' => $classId,
             'tanggal' => Carbon::today()->toDateString(),
@@ -111,7 +111,7 @@ class Presence extends Component
         ]);
 
         session()->flash('success', 'Berhasil melakukan absensi hari ini.');
-        return redirect()->to(route('teacher.presence', $this->id));
+        return redirect()->to(route('teacher.presence', ['id' => $this->id, 'classId' => $this->classId]));
     }
 
     public function teachingTestimony()

@@ -143,7 +143,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="https://via.placeholder.com/130x130" class="rounded-circle" alt="" srcset="">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" width="130" height="130" class="rounded-circle" alt="" srcset="">
                     </div>
                     <div class="text-center">
                         <h6 class="my-3">{{ $item->nama }}</h6>

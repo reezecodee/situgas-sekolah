@@ -15,4 +15,9 @@ class PresenceStudent extends Model
     {
         return $this->belongsTo(Student::class, 'siswa_id');
     }
+
+    public function presenceTeacher()
+    {
+        return $this->belongsTo(PresenceTeacher::class, 'absen_guru_id');
+    }
 }

@@ -29,7 +29,7 @@ Route::controller(AdminDatatablesController::class)->group(function () {
 Route::controller(TeacherDatatableController::class)->group(function () {
     Route::get('/guru', 'getTeacher')->name('dt.teacher');
     Route::post('/guru/{id}/{status}', 'changeStatus')->name('dt.chStatusTeacher');
-    Route::get('/riwayat-absensi/{id}', 'getPresenceHistory')->name('dt.presenceHistory');
+    Route::get('/riwayat-absensi/{id}/{classId}', 'getPresenceHistory')->name('dt.presenceHistory');
 });
 
 Route::controller(SubjectDatatableController::class)->group(function () {
@@ -58,5 +58,5 @@ Route::controller(MateriDatatableController::class)->group(function(){
 });
 
 Route::controller(MyPresenceDatatableController::class)->group(function(){
-    Route::get('/absensi/{id}', 'getPresences')->name('dt.myPresence');
+    Route::get('/daftar-absensi/{id}', 'getPresences')->name('dt.myPresence');
 });

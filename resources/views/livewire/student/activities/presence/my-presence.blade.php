@@ -13,7 +13,7 @@
 
     <div class="card">
         <div class="card-body">
-            <table id="materiTable">
+            <table id="presenceTable">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -29,7 +29,7 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#materiTable').DataTable({
+                $('#presenceTable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route('dt.myPresence', $id) }}',

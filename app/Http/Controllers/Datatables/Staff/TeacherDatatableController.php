@@ -53,10 +53,10 @@ class TeacherDatatableController extends Controller
         return redirect()->to(route('teacher.list'))->with("success", "Berhasil memperbarui status akun {$teacher->nama} ke {$status}.");
     }
 
-    public function getPresenceHistory($id)
+    public function getPresenceHistory($id, $classId)
     {
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-        $histories = PresenceTeacher::where('jadwal_mengajar_id', $id)->where('tahun_ajaran_id', $schoolYear->id)->get();
+        $histories = PresenceTeacher::where('pengampu_id', $id)->where('tahun_ajaran_id', $schoolYear->id)->where('kelas_id', $classId)->get();
 
         return DataTables::of($histories)
             ->addIndexColumn()

@@ -30,4 +30,9 @@ class PresenceTeacher extends Model
     {
         return $this->belongsTo(Teacher::class, 'guru_id');
     }
+
+    public function presenceStudent()
+    {
+        return $this->belongsTo(PresenceStudent::class, 'absen_guru_id');
+    }
 }
