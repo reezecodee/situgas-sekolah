@@ -17,9 +17,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Judul</th>
-                        <th>Keterangan</th>
-                        <th>Aksi</th>
+                        <th>Tanggal</th>
+                        <th>Hari</th>
+                        <th>Status kehadiran</th>
                     </tr>
                 </thead>
             </table>
@@ -32,20 +32,20 @@
                 $('#materiTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.downloadMateri', $id) }}',
+                    ajax: '{{ route('dt.myPresence', $id) }}',
                     columns: [
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         {
-                            data: 'judul',
-                            name: 'judul'
+                            data: 'tanggal',
+                            name: 'tanggal'
                         },
                         {
-                            data: 'keterangan',
-                            name: 'keterangan'
+                            data: 'hari',
+                            name: 'hari'
                         },
                         {
-                            data: 'action',
-                            name: 'action',
+                            data: 'status',
+                            name: 'status',
                             orderable: false,
                             searchable: false
                         }
