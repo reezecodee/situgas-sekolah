@@ -59,6 +59,42 @@ class CreateStudent extends Component
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'kelas_id.required' => 'Kelas wajib dipilih.',
+            'kelas_id.exists' => 'Kelas yang dipilih tidak valid.',
+        
+            'nama.required' => 'Nama wajib diisi.',
+            'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
+        
+            'nis.required' => 'NIS wajib diisi.',
+            'nis.max' => 'NIS tidak boleh lebih dari :max karakter.',
+            'nis.unique' => 'NIS ini sudah terdaftar, gunakan NIS lain.',
+        
+            'nisn.required' => 'NISN wajib diisi.',
+            'nisn.max' => 'NISN tidak boleh lebih dari :max karakter.',
+            'nisn.unique' => 'NISN ini sudah terdaftar, gunakan NISN lain.',
+        
+            'email.required' => 'Alamat email wajib diisi.',
+            'email.max' => 'Email tidak boleh lebih dari :max karakter.',
+            'email.unique' => 'Email ini sudah terdaftar, gunakan email lain.',
+        
+            'jk.required' => 'Jenis kelamin wajib diisi.',
+            'jk.in' => 'Jenis kelamin harus berupa Laki-laki atau Perempuan.',
+        
+            'alamat.required' => 'Alamat wajib diisi.',
+        
+            'tgl_lahir.required' => 'Tanggal lahir wajib diisi.',
+            'tgl_lahir.date' => 'Tanggal lahir harus berupa format tanggal yang valid.',
+            'tgl_lahir.date_format' => 'Format tanggal lahir harus Y-m-d (contoh: 2025-01-17).',
+            'tgl_lahir.before' => 'Tanggal lahir harus sebelum hari ini.',
+        
+            'status.required' => 'Status wajib diisi.',
+            'status.in' => 'Status harus berupa salah satu dari: Belum lulus, Lulus, atau Nonaktif.',
+        ];
+    }
+
     public function submit()
     {
         $data = $this->validate();

@@ -9,6 +9,7 @@ use App\Livewire\Staff\Admin\Class\CreateClass;
 use App\Livewire\Staff\Admin\Class\DetailClass;
 use App\Livewire\Staff\Admin\Class\EditClass;
 use App\Livewire\Staff\Admin\Class\ListClass;
+use App\Livewire\Staff\Admin\Class\ShowDetailStudent;
 use App\Livewire\Staff\Admin\Class\Subclass;
 use App\Livewire\Staff\Admin\Class\SubjectSchedule;
 use App\Livewire\Staff\Admin\Schedule\ClassList;
@@ -25,6 +26,7 @@ use App\Livewire\Staff\Admin\Subject\EditSubject;
 use App\Livewire\Staff\Admin\Subject\ListSubject;
 use App\Livewire\Staff\Admin\Subject\ListSubjectTeacher;
 use App\Livewire\Staff\Admin\Teacher\CreateTeacher;
+use App\Livewire\Staff\Admin\Teacher\EditTeacher;
 use App\Livewire\Staff\Admin\Teacher\ListTeacher;
 use App\Livewire\Staff\Dashboard\Dashboard;
 use App\Livewire\Staff\Profile\Profile;
@@ -77,9 +79,11 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('kelas/{class}/{id}/edit', EditClass::class)->name('class.edit');
         Route::get('kelas/{class}/{id}/detail', DetailClass::class)->name('class.detail');
         Route::get('kelas/{class}/{id}/jadwal-pelajaran', SubjectSchedule::class)->name('class.schedule');
+        Route::get('kelas/{id}/data-siswa', ShowDetailStudent::class)->name('class.showDetail');
 
         Route::get('guru', ListTeacher::class)->name('teacher.list');
         Route::get('guru/create', CreateTeacher::class)->name('teacher.create');
+        Route::get('guru/{id}/edit', EditTeacher::class)->name('teacher.edit');
 
         Route::get('siswa', ListStudent::class)->name('student.list');
         Route::get('siswa/create', CreateStudent::class)->name('student.create');

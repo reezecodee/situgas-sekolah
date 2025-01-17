@@ -40,6 +40,17 @@ class CreateClass extends Component
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'nama.required' => 'Nama kelas wajib di isi',
+            'tingkat.required' => 'Harap pilih tingkat kelas',
+            'tingkat.in' => 'Harap pilih tingkat VII, VIII, atau IX',
+            'status.required' => 'Harap pilih status kelas',
+            'status.in' => 'Tidak dapat memilih status kelas selain Aktif dan Tidak aktif',
+        ];
+    }
+
     public function submit()
     {
         $data = $this->validate();

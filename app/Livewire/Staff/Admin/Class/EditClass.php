@@ -36,9 +36,31 @@ class EditClass extends Component
     public function rules()
     {
         return [
-            'nama' => 'required',
+            'nama' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    $exists = Classrooms::where('nama', $value)
+                        ->where('tingkat', $this->tingkat)->where('id', $this->id)
+                        ->exists();
+
+                    if (!$exists) {
+                        $fail('Kombinasi nama kelas dan tingkat sudah ada.');
+                    }
+                },
+            ],
             'tingkat' => 'required|in:VII,VIII,IX',
             'status' => 'required|in:Aktif,Tidak aktif'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nama.required' => 'Nama kelas wajib di isi',
+            'tingkat.required' => 'Harap pilih tingkat kelas',
+            'tingkat.in' => 'Harap pilih tingkat VII, VIII, atau IX',
+            'status.required' => 'Harap pilih status kelas',
+            'status.in' => 'Tidak dapat memilih status kelas selain Aktif dan Tidak aktif',
         ];
     }
 

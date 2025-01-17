@@ -10,11 +10,11 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="https://via.placeholder.com/130x130" class="rounded-circle" alt="" srcset="">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="rounded-circle" width="130" height="130" alt="" srcset="">
                     </div>
                     <div class="text-center">
                         <h6 class="my-3">{{ $item->nama }}</h6>
-                        <a href="">
+                        <a href="{{ route('class.showDetail', $item->id) }}">
                             <button class="btn btn-primary">Lihat detail</button>
                         </a>
                     </div>

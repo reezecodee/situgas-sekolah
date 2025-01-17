@@ -23,12 +23,28 @@ class EditYear extends Component
     #[Validate]
     public $tgl_selesai;
 
-    public function rules(){
+    public function rules()
+    {
         return [
-            'periode' => 'required|string|min:3',
+            'periode' => 'required|string|min:9|max:9',
             'semester' => 'required|string|in:Ganjil,Genap',
             'tgl_mulai' => 'required|date',
             'tgl_selesai' => 'required|date',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'periode.required' => 'Periode wajib di isi.',
+            'periode.min' => 'Periode harus berisi 9 karakter contoh: 2024/2025',
+            'periode.max' => 'Periode harus berisi 9 karakter contoh: 2024/2025',
+            'semester.required' => 'Harap pilih semester',
+            'semester.in' => 'Semeter harus berisi Ganjil atau Genap',
+            'tgl_mulai.required' => 'Harap masukkan tanggal mulai tahun ajaran',
+            'tgl_mulai.date' => 'Harap masukkan format tanggal',
+            'tgl_selesai.required' => 'Harap masukkan tanggal selesai tahun ajaran',
+            'tgl_selesai.date' => 'Harap masukkan format tanggal', 
         ];
     }
 

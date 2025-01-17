@@ -27,7 +27,7 @@
             <div class="col-md-6 mb-3">
                 <div class="form-group">
                     <label for="nuptk" class="form-label">NUPTK (opsional)</label>
-                    <input type="text" placeholder="Masukkan NUPTK" id="nuptk" wire:model.blur="nuptk"
+                    <input type="number" placeholder="Masukkan NUPTK" id="nuptk" wire:model.blur="nuptk"
                         class="form-control @error('nuptk') is-invalid @enderror" value="{{ old('nuptk') }}"
                         autocomplete="off">
                     @error('nuptk')
