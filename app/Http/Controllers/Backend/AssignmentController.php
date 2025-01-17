@@ -17,9 +17,11 @@ class AssignmentController extends Controller
 
         $submissions = Submission::where('penugasan_id', $assignment->id)->get();
 
-        foreach ($submissions as $submission) {
-            if ($submission->file_pengerjaan && Storage::disk('public')->exists($submission->file_pengerjaan)) {
-                Storage::disk('public')->delete($submission->file_pengerjaan);
+        if($submissions){
+            foreach ($submissions as $submission) {
+                if ($submission->file_pengerjaan && Storage::disk('public')->exists($submission->file_pengerjaan)) {
+                    Storage::disk('public')->delete($submission->file_pengerjaan);
+                }
             }
         }
 

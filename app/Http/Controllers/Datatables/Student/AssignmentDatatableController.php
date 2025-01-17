@@ -49,8 +49,9 @@ class AssignmentDatatableController extends Controller
             ->addColumn('status', function ($assignment) {
                 $studentId = Auth::user()->student->id;
                 $submission = $assignment->submission->firstWhere('siswa_id', $studentId);
+                $color = $submission && $submission->status == 'Dikerjakan' ? 'success' : 'danger';
 
-                return $submission ? '<span class="badge bg-success">Sudah Mengerjakan</span>' : '<span class="badge bg-warning">Belum Mengerjakan</span>';
+                return $submission ? '<span class="badge bg-'.$color.'">'.($submission->status == "Dikerjakan" ? "Sudah mengerjakan" : $submission->status).'</span>' : '<span class="badge bg-warning">Belum Mengerjakan</span>';
             })
             ->addColumn('action', function ($assignment) {
                 $studentId = Auth::user()->student->id;

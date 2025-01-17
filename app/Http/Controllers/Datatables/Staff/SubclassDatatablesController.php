@@ -29,7 +29,7 @@ class SubclassDatatablesController extends Controller
             $scheduleRoute = route('class.schedule', ['id' => $subkelas->id, 'class' => $class]);
 
             $deleteButton = '';
-            if ($subkelas->total_students === 0) { // Gunakan total_students di sini
+            if ($subkelas->total_students === 0) { 
                 $deleteButton = '
                     <form action="' . route('class.delete', ['id' => $subkelas->id]) . '" method="POST" style="display:inline;" id="form-'. $subkelas->id .'">
                         ' . csrf_field() . '

@@ -21,15 +21,7 @@ class UploadTask extends Component
     public $classId;
 
     #[Validate]
-    public $judul_tugas;
-    #[Validate]
-    public $deskripsi;
-    #[Validate]
-    public $tgl_mulai;
-    #[Validate]
-    public $tgl_selesai;
-    #[Validate]
-    public $file_soal;
+    public $judul_tugas, $deskripsi, $tgl_mulai, $tgl_selesai, $file_soal;
 
     public function mount($id, $classId)
     {
@@ -47,6 +39,27 @@ class UploadTask extends Component
             'tgl_mulai' => 'required|date|date_format:Y-m-d',
             'tgl_selesai' => 'required|date|date_format:Y-m-d|after_or_equal:tgl_mulai',
             'file_soal' => 'required|file|mimes:pdf|max:5120'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'judul_tugas.required' => 'Judul tugas wajib diisi.',
+            'judul_tugas.max' => 'Judul tugas tidak boleh lebih dari 255 karakter.',
+            'deskripsi.required' => 'Deskripsi tugas wajib diisi.',
+            'deskripsi.max' => 'Deskripsi tugas tidak boleh lebih dari 255 karakter.',
+            'tgl_mulai.required' => 'Tanggal mulai tugas wajib diisi.',
+            'tgl_mulai.date' => 'Tanggal mulai tugas harus berupa tanggal yang valid.',
+            'tgl_mulai.date_format' => 'Format tanggal mulai tugas harus YYYY-MM-DD.',
+            'tgl_selesai.required' => 'Tanggal selesai tugas wajib diisi.',
+            'tgl_selesai.date' => 'Tanggal selesai tugas harus berupa tanggal yang valid.',
+            'tgl_selesai.date_format' => 'Format tanggal selesai tugas harus YYYY-MM-DD.',
+            'tgl_selesai.after_or_equal' => 'Tanggal selesai tugas harus sama atau setelah tanggal mulai.',
+            'file_soal.required' => 'File soal tugas wajib diunggah.',
+            'file_soal.file' => 'File soal harus berupa file yang valid.',
+            'file_soal.mimes' => 'File soal harus berformat PDF.',
+            'file_soal.max' => 'Ukuran file soal tidak boleh lebih dari 5 MB.',
         ];
     }
 

@@ -27,7 +27,8 @@ class MyPresenceDatatableController extends Controller
         return DataTables::of($presences)
             ->addIndexColumn()
             ->addColumn('tanggal', function ($presence) {
-                return $presence->presenceTeacher->tanggal;
+                $carbonDate = Carbon::parse($presence->presenceTeacher->tanggal);
+                return $carbonDate->translatedFormat('d F Y');
             })
             ->addColumn('hari', function ($presence) {
                 $carbonDate = Carbon::parse($presence->presenceTeacher->tanggal);

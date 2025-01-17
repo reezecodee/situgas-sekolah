@@ -64,8 +64,10 @@
                     <a download href="{{ asset('storage/'. $item->file_materi) }}">
                         <button class="btn btn-primary">Lihat</button>
                     </a>
-                    <form class="d-inline-block" wire:submit.prevent="deleteMateri('{{ $item->id }}')">
-                        <button type="submit" onclick="alert('Apakah kamu yakin ingin menghapus materi ini.')"
+                    <form class="d-inline-block" method="post" action="{{ route('materi.delete', $item->id) }}" id="form-{{ $item->id }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="submitForm('form-{{ $item->id }}')"
                             class="btn btn-danger">Hapus</button>
                     </form>
                 </td>

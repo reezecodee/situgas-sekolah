@@ -71,11 +71,13 @@ class UploadAssignment extends Component
 
             session()->flash('success', 'Tugas berhasil diperbarui.');
         } else {
+            $status = now()->toDateString() > $assignment->tgl_selesai ? 'Telat mengumpulkan' : 'Dikerjakan';
+            
             Submission::create([
                 'siswa_id' => $student->id,
                 'penugasan_id' => $assignment->id,
                 'file_pengerjaan' => $filePath,
-                'status' => 'Dikerjakan',
+                'status' => $status,
                 'tanggal' => now()->toDateString(),
             ]);
 

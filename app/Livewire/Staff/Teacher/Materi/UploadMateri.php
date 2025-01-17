@@ -22,11 +22,7 @@ class UploadMateri extends Component
     public $schoolYear;
 
     #[Validate]
-    public $judul;
-    #[Validate]
-    public $keterangan;
-    #[Validate]
-    public $file_materi;
+    public $judul, $keterangan, $file_materi;
 
     public function mount($id)
     {
@@ -40,6 +36,20 @@ class UploadMateri extends Component
             'judul' => 'required|max:255',
             'keterangan' => 'required|max:255',
             'file_materi' => 'required|file|mimes:pdf|max:5120'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'judul.required' => 'Judul wajib diisi.',
+            'judul.max' => 'Judul tidak boleh lebih dari 255 karakter.',
+            'keterangan.required' => 'Keterangan wajib diisi.',
+            'keterangan.max' => 'Keterangan tidak boleh lebih dari 255 karakter.',
+            'file_materi.required' => 'File materi wajib diunggah.',
+            'file_materi.file' => 'File materi harus berupa file yang valid.',
+            'file_materi.mimes' => 'File materi harus berupa file dengan format PDF.',
+            'file_materi.max' => 'Ukuran file materi tidak boleh lebih dari 5MB.',
         ];
     }
 
@@ -62,26 +72,6 @@ class UploadMateri extends Component
         session()->flash('success', 'Berhasil menambahkan materi tambahan baru.');
         return redirect()->to(route('teacher.uploadModule', $this->id));
     }
-
-    public function deleteMateri($id)
-    {
-        try {
-            $materi = Materi::findOrFail($id);
-
-            if ($materi->file_materi && Storage::disk('public')->exists($materi->file_materi)) {
-                Storage::disk('public')->delete($materi->file_materi);
-            }
-
-            $materi->delete();
-
-            session()->flash('success', 'Berhasil menghapus materi');
-        } catch (\Exception $e) {
-            session()->flash('failed', 'Terjadi kesalahan saat menghapus materi');
-        }
-
-        return redirect()->route('teacher.uploadModule', $this->id);
-    }
-
 
     public function render()
     {

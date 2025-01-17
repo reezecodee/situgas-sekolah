@@ -30,7 +30,7 @@
                 </td>
                 <td>
                     @if ($item->submission->isNotEmpty() && $item->submission->first()->file_pengerjaan)
-                    Sudah dikerjakan
+                    {{ $item->submission->first()->status }}
                     @else
                     Belum dikerjakan
                     @endif

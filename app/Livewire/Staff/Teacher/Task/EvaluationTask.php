@@ -36,6 +36,14 @@ class EvaluationTask extends Component
         'komentar_guru.*' => 'nullable|string|max:255',
     ];
 
+    protected $messages = [
+        'nilai.*.integer' => 'Nilai harus berupa angka.',
+        'nilai.*.min' => 'Nilai tidak boleh kurang dari 0.',
+        'nilai.*.max' => 'Nilai tidak boleh lebih dari 100.',
+        'komentar_guru.*.string' => 'Komentar guru harus berupa teks.',
+        'komentar_guru.*.max' => 'Komentar guru tidak boleh lebih dari 255 karakter.',
+    ];
+
     public function updatedNilai($value, $key)
     {
         $this->validateOnly("nilai.$key");

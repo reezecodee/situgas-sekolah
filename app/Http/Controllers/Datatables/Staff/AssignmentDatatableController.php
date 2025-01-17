@@ -32,7 +32,7 @@ class AssignmentDatatableController extends Controller
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <div class="dropdown-item" onclick="submitForm(\'form-' . $task->id . '\')">
+                            <div style="cursor: pointer" class="dropdown-item" onclick="submitForm(\'form-' . $task->id . '\')">
                                 <form action="' . route('assignment.delete', $task->id) . '" method="POST" style="display: inline;" id="form-' . $task->id . '">
                                     ' . csrf_field() . '
                                     ' . method_field('DELETE') . '
