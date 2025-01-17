@@ -33,6 +33,10 @@
         </div>
     </div>
 
+    <hr>
+    <h5 class="mb-3"><b>Ganti Password</b></h5>
+    <livewire:components.change-password />
+
     <x-slot name="script">
 
     </x-slot>

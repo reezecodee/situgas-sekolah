@@ -27,7 +27,9 @@
                             </div>
                             <div class="col-md-4 mb-2">
                                 <div class="form-label">Kelas</div>
-                                <input type="text" class="form-control" value="{{ $userActive->classroom->tingkat }} {{ $userActive->classroom->nama }}" readonly>
+                                <input type="text" class="form-control"
+                                    value="{{ $userActive->classroom->tingkat }} {{ $userActive->classroom->nama }}"
+                                    readonly>
                             </div>
                             <div class="col-md-4 mb-2">
                                 <div class="form-label">NIS</div>
@@ -54,6 +56,10 @@
                                 <input type="text" class="form-control" value="{{ $userActive->status }}" readonly>
                             </div>
                         </div>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="mb-4">Ganti Password</h2>
+                        <livewire:components.change-password />
                     </div>
                 </div>
             </div>
