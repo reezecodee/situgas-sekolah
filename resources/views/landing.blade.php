@@ -410,7 +410,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Pesan berhasil terkirim. Terima kasih!</div>
 
-                  <a href="sms:(0265) 3254183">
+                  <a href="mailto:mtsbpibaturompe@gmail.com">
                     <button type="button" class="btn btn-primary">Kirim pesan</button>
                   </a>
                 </div>
