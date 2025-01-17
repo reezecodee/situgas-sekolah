@@ -10,7 +10,7 @@
                         <option selected>Pilih Mata Pelajaran</option>
                         @foreach ($subjects as $item)
                         <option value="{{ $item->id }}" {{ old('mapel_id')==$item->id ? 'selected' : '' }}>
-                            {{ $item->nama }}
+                            {{ $item->nama }} - {{ $item->tingkatan }}
                         </option>
                         @endforeach
                     </select>
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="d-flex gap-2 justify-content-end mt-3">
-            <a wire:navigate href="{{ route('subject.list') }}">
+            <a wire:navigate href="{{ route('subject.teacher') }}">
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
             <button type="submit" class="btn btn-primary">Simpan Pelajaran</button>

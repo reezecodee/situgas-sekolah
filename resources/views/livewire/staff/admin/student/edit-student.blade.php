@@ -93,7 +93,6 @@
                             {{ old('status') ? old('status') : 'Pilih status siswa' }}</option>
                         <option value="Belum lulus">Belum lulus</option>
                         <option value="Lulus">Lulus</option>
-                        <option value="Nonaktif">Nonaktif</option>
                     </select>
                     @error('status')
                     <span class="invalid-feedback">{{ $message }}</span>

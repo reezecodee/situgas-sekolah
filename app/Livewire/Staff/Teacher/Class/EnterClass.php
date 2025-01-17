@@ -19,10 +19,12 @@ class EnterClass extends Component
 
     public function downloadSchedule()
     {
+        $userId = Auth::user()->id;
+        $teacherId = Teacher::where('user_id', $userId)->first();
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
         $periode = str_replace(['/', '\\'], '-', $schoolYear->periode);
         $fileName = "Jadwal Tahun Ajaran {$periode} Semester {$schoolYear->semester}";
-        return Excel::download(new TeacherScheduleExport($schoolYear->id), "$fileName.xlsx");
+        return Excel::download(new TeacherScheduleExport($schoolYear->id, $teacherId->id), "$fileName.xlsx");
     }
 
     public function render()

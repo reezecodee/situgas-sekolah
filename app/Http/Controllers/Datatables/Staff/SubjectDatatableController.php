@@ -42,12 +42,20 @@ class SubjectDatatableController extends Controller
             ->addColumn('pelajaran', function($st){
                 return $st->subject->nama;
             })
-            // ->addColumn('action', function ($st) {
-            //     return '
-            //     <a wire:navigate href="' . route('subject.edit', $st->id) . '" class="btn btn-sm btn-primary">Edit</a>
-            // ';
-            // })
-            // ->rawColumns(['action'])
+            ->addColumn('action', function ($st) {
+                if ($st->teachingSchedule()->count() === 0) {
+                    return '
+                        <form action="' . route('subjectTeacher.delete', $st->id) . '" method="POST" id="form-'.$st->id.'">
+                            ' . csrf_field() . '
+                            ' . method_field('DELETE') . '
+                            <button type="button" onclick="submitForm(\'form-'. $st->id .'\')" class="btn btn-sm btn-danger">Hapus</button>
+                        </form>
+                    ';
+                } else {
+                    return 'Tidak dapat dihapus';
+                }
+            })
+            ->rawColumns(['action'])
             ->make(true);
     }
 }

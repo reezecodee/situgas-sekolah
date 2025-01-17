@@ -13,6 +13,7 @@
                 <th>No</th>
                 <th>Nama Kelas</th>
                 <th>Total Siswa</th>
+                <th>Status</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -27,7 +28,8 @@
                     columns: [
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         { data: 'nama', name: 'nama' },
-                        { data: 'students_count', name: 'students_count' },
+                        { data: 'total_students', name: 'total_students' },
+                        { data: 'status', name: 'status' },
                         { data: 'action', name: 'action', orderable: false, searchable: false }
                     ]
                 });

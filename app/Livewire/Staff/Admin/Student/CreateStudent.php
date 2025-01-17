@@ -38,7 +38,7 @@ class CreateStudent extends Component
 
     public function mount()
     {
-        $this->classes = Classrooms::select('id', 'nama', 'tingkat')
+        $this->classes = Classrooms::select('id', 'nama', 'tingkat')->where('status', 'Aktif')
             ->orderByRaw("FIELD(tingkat, 'VII', 'VIII', 'IX')")
             ->orderBy('nama', 'ASC')
             ->get();

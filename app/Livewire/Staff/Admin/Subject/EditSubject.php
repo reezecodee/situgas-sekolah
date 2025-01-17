@@ -16,21 +16,33 @@ class EditSubject extends Component
     public $id;
 
     #[Validate]
-    public $nama;
-    #[Validate]
-    public $kode;
-    #[Validate]
-    public $tingkatan;
-    #[Validate]
-    public $status;
+    public $nama, $kode, $tingkatan, $status;
 
     public function rules()
     {
         return [
             'nama' => 'required|max:255',
-            'kode' => 'required|max:255|unique:subjects,kode,' . $this->id,
+            'kode' => 'required||max:255|unique:subjects,kode,'.$this->id,
             'tingkatan' => 'required|in:VII,VIII,IX',
             'status' => 'required|in:Aktif,Tidak aktif'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nama.required' => 'Nama mata pelajaran wajib diisi.',
+            'nama.max' => 'Nama mata pelajaran tidak boleh lebih dari :max karakter.',
+        
+            'kode.required' => 'Kode mata pelajaran wajib diisi.',
+            'kode.unique' => 'Kode mata pelajaran sudah terdaftar, gunakan kode lain.',
+            'kode.max' => 'Kode mata pelajaran tidak boleh lebih dari :max karakter.',
+        
+            'tingkatan.required' => 'Tingkatan wajib dipilih.',
+            'tingkatan.in' => 'Tingkatan harus berupa salah satu dari: VII, VIII, atau IX.',
+        
+            'status.required' => 'Status mata pelajaran wajib diisi.',
+            'status.in' => 'Status harus berupa salah satu dari: Aktif atau Tidak aktif.',
         ];
     }
 

@@ -20,6 +20,7 @@ class TeacherDatatableController extends Controller
             ->addColumn('action', function ($teacher) {
                 return '
                 <a wire:navigate href="'. route('teacher.edit', $teacher->id) .'" class="btn btn-sm btn-primary">Edit</a>
+                <a wire:click="downloadSchedule(\''.$teacher->id.'\')" class="btn btn-sm btn-success">Download Jadwal</a>
             ';
             })
             ->addColumn('nuptk', function ($teacher) {

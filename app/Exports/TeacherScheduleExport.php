@@ -18,20 +18,21 @@ class TeacherScheduleExport implements FromCollection, WithHeadings, WithStyles,
     */
 
     public $id;
+    public $teacherId;
 
-    public function __construct($id)
+    public function __construct($id, $teacherId)
     {
         $this->id = $id;
+        $this->teacherId = $teacherId;
     }
 
     public function collection()
     {
-        $user = Auth::user();
-        $teacher = Teacher::where('user_id', $user->id)->first();
+        $id = $this->teacherId;
 
         $teachingSchedules = TeachingSchedule::with(['subjectTeacher', 'classroom'])
         ->where('tahun_ajaran_id', $this->id)
-        ->where('guru_id', $teacher->id)
+        ->where('guru_id', $id)
         ->orderBy('hari') 
         ->get();
 

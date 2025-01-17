@@ -21,11 +21,6 @@ class Student extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function attitudeReport()
-    {
-        return $this->hasMany(AttitudeReport::class, 'siswa_id');
-    }
-
     public function presenceStudent()
     {
         return $this->hasMany(PresenceStudent::class, 'siswa_id');

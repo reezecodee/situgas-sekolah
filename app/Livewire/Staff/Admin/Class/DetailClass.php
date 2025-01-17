@@ -18,7 +18,7 @@ class DetailClass extends Component
     public function mount($class, $id){
         $this->class = $class;
         $this->id = $id;
-        $this->students = Student::where('kelas_id', $id)->get();
+        $this->students = Student::where('kelas_id', $id)->where('status', 'Belum lulus')->get();
     }
 
     public function render()

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('tgl_lahir');
             $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->text('alamat');
-            $table->enum('status', ['Lulus', 'Belum lulus', 'Nonaktif']);
+            $table->enum('status', ['Lulus', 'Belum lulus']);
             $table->timestamps();
         });
     }

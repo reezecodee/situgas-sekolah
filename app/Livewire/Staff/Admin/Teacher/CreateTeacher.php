@@ -15,15 +15,7 @@ class CreateTeacher extends Component
     #[Layout('components.layouts.staff')]
 
     #[Validate]
-    public $nama;
-    #[Validate]
-    public $nuptk;
-    #[Validate]
-    public $email;
-    #[Validate]
-    public $tgl_lahir;
-    #[Validate]
-    public $status;
+    public $nama, $nuptk, $email, $tgl_lahir, $status;
 
     public function rules()
     {

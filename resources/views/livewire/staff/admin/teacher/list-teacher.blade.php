@@ -4,18 +4,20 @@
             <button class="btn btn-primary">Tambah Guru</button>
         </a>
     </div>
-    <table id="teacherTable" class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>NUPTK</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-    </table>
+    <div wire:ignore>
+        <table id="teacherTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>NUPTK</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
     <x-slot name="script">
         <script>
             $(document).ready(function() {
