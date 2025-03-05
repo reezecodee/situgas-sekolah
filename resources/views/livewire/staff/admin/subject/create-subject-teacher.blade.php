@@ -41,7 +41,7 @@
             <a wire:navigate href="{{ route('subject.teacher') }}">
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
-            <button type="submit" class="btn btn-primary">Simpan Pelajaran</button>
+            <button type="submit" class="btn btn-primary">Simpan Pengampu</button>
         </div>
     </form>
 </div>
