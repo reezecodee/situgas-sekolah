@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <label for="" class="form-label">Nama siswa</label>
                     <input type="text" wire:model.blur="nama" class="form-control @error('nama') is-invalid @enderror"
-                        value="{{ old('nama') }}" autocomplete="off" placeholder="Masukkan nama kelas" required>
+                        value="{{ old('nama') }}" autocomplete="off" placeholder="Masukkan nama siswa" required>
                     @error('nama')
                     <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
