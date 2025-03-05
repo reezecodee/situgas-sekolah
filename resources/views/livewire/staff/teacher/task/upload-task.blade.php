@@ -24,7 +24,7 @@
                         <label for="description" class="form-label">Deskripsi</label>
                         <textarea id="description" wire:model.blur="deskripsi"
                             class="form-control @error('deskripsi') is-invalid @enderror" rows="4"
-                            placeholder="Tulis deskripsi singkat tentang materi"></textarea>
+                            placeholder="Tulis deskripsi singkat tentang tugas"></textarea>
                         @error('deskripsi')
                         <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
