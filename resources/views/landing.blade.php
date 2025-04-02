@@ -86,8 +86,6 @@
               MTSS BPI BATUROMPE, sebuah lembaga pendidikan swasta di bawah naungan Kementerian Agama, berlokasi di
               BATUROMPE RT 03/RW 01 JL. CIGANTANG HILIR, Kec. Mangkubumi, Kota Tasikmalaya, Provinsi Jawa Barat.
             </p>
-            <a href="#" class="about-btn align-self-center align-self-xl-start"><span>Tentang kami</span> <i
-                class="bi bi-chevron-right"></i></a>
           </div>
 
           <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
@@ -352,7 +350,7 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
-          <div class="col-lg-6 ">
+          <div class="col-lg-12 ">
             <div class="row gy-4">
 
               <div class="col-lg-12">
@@ -384,41 +382,6 @@
 
             </div>
           </div>
-
-          <div class="col-lg-6">
-            <form action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Pesan berhasil terkirim. Terima kasih!</div>
-
-                  <a href="mailto:mtsbpibaturompe@gmail.com">
-                    <button type="button" class="btn btn-primary">Kirim pesan</button>
-                  </a>
-                </div>
-
-              </div>
-            </form>
-          </div>
-
         </div>
 
       </div>
@@ -434,7 +397,7 @@
         <div class="col-lg-4 col-md-6 footer-about">
           <div class="footer-contact pt-3">
             <p>JL. Cigantang Hilir</p>
-            <p>Kota Tasikmalaya, Jawa Bart</p>
+            <p>Kota Tasikmalaya, Jawa Barat</p>
             <p class="mt-3"><strong>Phone:</strong> <span>(0265) 3254183</span></p>
             <p><strong>Email:</strong> <span>mtsbpibaturompe@gmail.com</span></p>
           </div>
@@ -460,19 +423,13 @@
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Informasi</h4>
           <p>Dapatkan informasi terbaru dari kami terkait informasi sekolah.</p>
-          <form action="" method="post" class="php-email-form">
-            <div class="newsletter-form"><input type="email" name="email"><input type="button" value="Kirim"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Email berhasil terkirim, Terima kasih!</div>
-          </form>
         </div>
 
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">MTs BPI Baturompe</strong> <span>All Rights
+      <p>© <span>Copyright {{ date('Y') }}</span> <strong class="px-1 sitename">MTs BPI Baturompe</strong> <span>All Rights
           Reserved</span></p>
     </div>
 
