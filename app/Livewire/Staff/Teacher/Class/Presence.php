@@ -21,23 +21,10 @@ class Presence extends Component
 
     #[Layout('components.layouts.staff')]
 
-    public $id;
-    public $teachingScheduleId;
-    public $classId;
-    public $presence;
-    public $today;
-    public $hour;
-    public $teacher;
-    public $presenceTeacher;
-    public $isPresence = false;
+    public $subjectTeacherId, $teachingScheduleId, $classId, $presence, $today, $hour, $teacher, $presenceTeacher, $presenceStatus, $isPresence = false;
 
     #[Validate]
-    public $pembelajaran_materi;
-    #[Validate]
-    public $deskripsi;
-    #[Validate]
-    public $bukti;
-    public $presenceStatus;
+    public $pembelajaran_materi, $deskripsi, $bukti;
 
     public function rules()
     {
@@ -48,13 +35,13 @@ class Presence extends Component
         ];
     }
 
-    public function mount($id, $classId)
+    public function mount($subjectTeacherId, $classId)
     {
-        $this->id = $id;
+        $this->subjectTeacherId = $subjectTeacherId;
         $this->classId = $classId;
-        
+
         $this->today = Carbon::now()->translatedFormat('l');
-        $this->presence = TeachingSchedule::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $id)->where('kelas_id', $classId)->where('hari', $this->today)->first() ?? TeachingSchedule::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $id)->where('kelas_id', $classId)->first();
+        $this->presence = TeachingSchedule::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $subjectTeacherId)->where('kelas_id', $classId)->where('hari', $this->today)->first() ?? TeachingSchedule::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $subjectTeacherId)->where('kelas_id', $classId)->first();
 
         $this->hour = Carbon::now()->format('H:i');
         $this->teacher = Teacher::where('user_id', Auth::user()->id)->first();
@@ -88,21 +75,21 @@ class Presence extends Component
     public function submit($classId, $today)
     {
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-        $existingPresence = PresenceTeacher::where('pengampu_id', $this->id)
+        $existingPresence = PresenceTeacher::where('pengampu_id', $this->subjectTeacherId)
             ->where('tahun_ajaran_id', $schoolYear->id)
             ->where('kelas_id', $classId)
             ->whereDate('tanggal', Carbon::today())
             ->first();
-        $teachingSchedule = TeachingSchedule::where('tahun_ajaran_id', $schoolYear->id)->where('pengampu_id', $this->id)->where('kelas_id', $classId)->where('hari', $today)->first();
+        $teachingSchedule = TeachingSchedule::where('tahun_ajaran_id', $schoolYear->id)->where('pengampu_id', $this->subjectTeacherId)->where('kelas_id', $classId)->where('hari', $today)->first();
 
         if ($existingPresence) {
             session()->flash('failed', 'Presensi hari ini sudah dilakukan.');
-            return redirect()->to(route('teacher.presence', $this->id));
+            return redirect()->to(route('teacher.presence', $this->subjectTeacherId));
         }
 
         PresenceTeacher::create([
             'tahun_ajaran_id' => $schoolYear->id,
-            'pengampu_id' => $this->id,
+            'pengampu_id' => $this->subjectTeacherId,
             'jadwal_mengajar_id' => $teachingSchedule->id,
             'guru_id' => $this->teacher->id,
             'kelas_id' => $classId,
@@ -111,19 +98,19 @@ class Presence extends Component
         ]);
 
         session()->flash('success', 'Berhasil melakukan absensi hari ini.');
-        return redirect()->to(route('teacher.presence', ['id' => $this->id, 'classId' => $this->classId]));
+        return redirect()->to(route('teacher.presence', ['id' => $this->subjectTeacherId, 'classId' => $this->classId]));
     }
 
     public function teachingTestimony()
     {
-        $existingPresence = PresenceTeacher::where('jadwal_mengajar_id', $this->id)
+        $existingPresence = PresenceTeacher::where('jadwal_mengajar_id', $this->subjectTeacherId)
             ->where('kelas_id', $this->classId)
             ->whereDate('tanggal', Carbon::today())
             ->first();
 
         if (!$existingPresence) {
             session()->flash('failed', 'Harap lakukan presensi terlebih dahulu.');
-            return redirect()->to(route('teacher.presence', $this->id));
+            return redirect()->to(route('teacher.presence', $this->subjectTeacherId));
         }
 
         $data = $this->validate();
@@ -139,7 +126,7 @@ class Presence extends Component
         ]);
 
         session()->flash('success', 'Berhasil menyimpan bukti kehadiran');
-        return redirect()->to(route('teacher.presence', $this->id));
+        return redirect()->to(route('teacher.presence', $this->subjectTeacherId));
     }
 
     public function presenceStudent($id, $status)

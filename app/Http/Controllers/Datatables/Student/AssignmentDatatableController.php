@@ -8,7 +8,6 @@ use App\Models\SchoolYear;
 use App\Models\Student;
 use App\Models\Submission;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 

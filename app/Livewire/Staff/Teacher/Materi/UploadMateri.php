@@ -18,15 +18,14 @@ class UploadMateri extends Component
 
     protected $listeners = ['deleteMateri'];
 
-    public $id;
-    public $schoolYear;
+    public $subjectTeacherId, $schoolYear;
 
     #[Validate]
     public $judul, $keterangan, $file_materi;
 
-    public function mount($id)
+    public function mount($subjectTeacherId)
     {
-        $this->id = $id;
+        $this->subjectTeacherId = $subjectTeacherId;
         $this->schoolYear = SchoolYear::where('status', 'Aktif')->first();
     }
 
@@ -57,7 +56,7 @@ class UploadMateri extends Component
     {
         $data = $this->validate();
         $data['tahun_ajaran_id'] = $this->schoolYear->id;
-        $data['pengampu_id'] = $this->id;
+        $data['pengampu_id'] = $this->subjectTeacherId;
 
         $originalExtension = $this->file_materi->getClientOriginalExtension();
         $uniqueFileName = uniqid() . '.' . $originalExtension;
@@ -70,13 +69,13 @@ class UploadMateri extends Component
         ]);
 
         session()->flash('success', 'Berhasil menambahkan materi tambahan baru.');
-        return redirect()->to(route('teacher.uploadModule', $this->id));
+        return redirect()->to(route('teacher.uploadModule', $this->subjectTeacherId));
     }
 
     public function render()
     {
         $title = 'Upload Materi Tambahan';
-        $materis = Materi::where('tahun_ajaran_id', $this->schoolYear->id)->where('pengampu_id', $this->id)->paginate(10);
+        $materis = Materi::where('tahun_ajaran_id', $this->schoolYear->id)->where('pengampu_id', $this->subjectTeacherId)->paginate(10);
 
         return view('livewire.staff.teacher.materi.upload-materi', compact('title', 'materis'))->title($title);
     }

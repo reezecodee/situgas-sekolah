@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-end gap-2 mb-5">
-        <a href="{{ route('teacher.presenceHistory', ['id' => $id, 'classId' => $classId]) }}" wire:navigate>
+        <a href="{{ route('teacher.presenceHistory', ['subjectTeacherId' => $subjectTeacherId, 'classId' => $classId]) }}" wire:navigate>
             <button class="btn btn-success">Lihat riwayat presensi</button>
         </a>
         @if($isPresence && $today == $presence->hari)
@@ -143,7 +143,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" width="130" height="130" class="rounded-circle" alt="" srcset="">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" width="130" height="130" class="rounded-circle" alt="" srcset="" loading="lazy">
                     </div>
                     <div class="text-center">
                         <h6 class="my-3">{{ $item->nama }}</h6>

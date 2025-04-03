@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Datatables\Staff;
 
 use App\Http\Controllers\Controller;
 use App\Models\Classrooms;
-use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class SubclassDatatablesController extends Controller

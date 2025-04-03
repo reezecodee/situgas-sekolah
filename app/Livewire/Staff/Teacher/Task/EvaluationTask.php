@@ -5,7 +5,6 @@ namespace App\Livewire\Staff\Teacher\Task;
 use App\Models\Assignment;
 use App\Models\Student;
 use App\Models\Submission;
-use App\Models\TeachingSchedule;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -14,21 +13,17 @@ class EvaluationTask extends Component
 {
     #[Layout('components.layouts.staff')]
 
-    public $id1;
-    public $id2;
-    public $pengampu_id;
+    public $assignmentId, $classId, $subjectTeacherId;
 
     #[Validate]
-    public $nilai = [];
-    #[Validate]
-    public $komentar_guru = [];
+    public $nilai = [], $komentar_guru = [];
 
-    public function mount($id1, $id2)
+    public function mount($assignmentId, $classId)
     {
-        $this->id1 = $id1;
-        $this->id2 = $id2;
-        $assignment = Assignment::findOrFail($id1);
-        $this->pengampu_id = $assignment->pengampu_id;
+        $this->assignmentId = $assignmentId;
+        $this->classId = $classId;
+        $assignment = Assignment::findOrFail($assignmentId);
+        $this->subjectTeacherId = $assignment->pengampu_id;
     }
 
     protected $rules = [
@@ -49,7 +44,7 @@ class EvaluationTask extends Component
         $this->validateOnly("nilai.$key");
 
         $submission = Submission::where('siswa_id', $key)
-            ->where('penugasan_id', $this->id1)
+            ->where('penugasan_id', $this->assignmentId)
             ->first();
 
         if ($submission) {
@@ -62,7 +57,7 @@ class EvaluationTask extends Component
         $this->validateOnly("komentar_guru.$key");
 
         $submission = Submission::where('siswa_id', $key)
-            ->where('penugasan_id', $this->id1)
+            ->where('penugasan_id', $this->assignmentId)
             ->first();
 
         if ($submission) {
@@ -75,9 +70,9 @@ class EvaluationTask extends Component
         $title = 'Evaluasi Pengerjaan Tugas';
 
         $students = Student::with(['submission' => function ($query) {
-            $query->where('penugasan_id', $this->id1);
+            $query->where('penugasan_id', $this->assignmentId);
         }])
-            ->where('kelas_id', $this->id2)
+            ->where('kelas_id', $this->classId)
             ->orderBy('nama', 'asc')
             ->get();
 

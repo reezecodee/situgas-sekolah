@@ -13,18 +13,17 @@ class ListTaskCreated extends Component
 {
     #[Layout('components.layouts.staff')]
 
-    public $id;
-    public $classId;
+    public $subjectTeacherId, $classId;
 
-    public function mount($id, $classId)
+    public function mount($subjectTeacherId, $classId)
     {
-        $this->id = $id;
+        $this->subjectTeacherId = $subjectTeacherId;
         $this->classId = $classId;
     }
 
     public function downloadExcel()
     {
-        return Excel::download(new SubmissionExport($this->id, $this->classId), 'submissions.xlsx');
+        return Excel::download(new SubmissionExport($this->subjectTeacherId, $this->classId), 'submissions.xlsx');
     }
 
     public function render()

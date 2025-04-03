@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Datatables\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Materi;
 use App\Models\SchoolYear;
-use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class MateriDatatableController extends Controller

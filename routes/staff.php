@@ -47,31 +47,37 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
     Route::get('kalender', Calendar::class)->name('calendar.index');
 
     Route::prefix('guru')->middleware(['role:Guru', 'staffSchoolYearCheck'])->group(function () {
-        Route::get('masuk-kelas', EnterClass::class)->name('teacher.enterClass');
-        Route::get('masuk-kelas/{id}/{classId}/presensi', Presence::class)->name('teacher.presence');
-        Route::get('masuk-kelas/{id}/{classId}/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
-        Route::get('masuk-kelas/{id}/{date}/edit', EditPresence::class)->name('teacher.editPresence');
+        Route::prefix('masuk-kelas')->group(function () {
+            Route::get('/', EnterClass::class)->name('teacher.enterClass');
+            Route::get('{subjectTeacherId}/{classId}/presensi', Presence::class)->name('teacher.presence');
+            Route::get('{subjectTeacherId}/{classId}/riwayat', PresenceHistory::class)->name('teacher.presenceHistory');
+            Route::get('{teachingScheduleId}/{date}/edit', EditPresence::class)->name('teacher.editPresence');
+        });
 
-        Route::get('upload-materi', ListMateri::class)->name('teacher.upload');
-        Route::get('upload-materi/{id}/upload', UploadMateri::class)->name('teacher.uploadModule');
+        Route::prefix('upload-materi')->group(function () {
+            Route::get('/', ListMateri::class)->name('teacher.upload');
+            Route::get('{subjectTeacherId}/upload', UploadMateri::class)->name('teacher.uploadModule');
+        });
 
-        Route::get('penugasan', ListTask::class)->name('teacher.task');
-        Route::get('penugasan/{id}/{classId}/upload', UploadTask::class)->name('teacher.uploadTask');
-        Route::get('penugasan/{id}/{classId}/tugas-dibuat', ListTaskCreated::class)->name('teacher.taskCreated');
-        Route::get('penugasan/{id1}/{id2}/evaluasi-tugas', EvaluationTask::class)->name('teacher.evaluationTask');
+        Route::prefix('penugasan')->group(function () {
+            Route::get('/', ListTask::class)->name('teacher.task');
+            Route::get('{subjectTeacherId}/{classId}/upload', UploadTask::class)->name('teacher.uploadTask');
+            Route::get('{subjectTeacherId}/{classId}/tugas-dibuat', ListTaskCreated::class)->name('teacher.taskCreated');
+            Route::get('{assignmentId}/{classId}/evaluasi-tugas', EvaluationTask::class)->name('teacher.evaluationTask');
+        });
     });
 
     Route::prefix('admin')->middleware('role:Admin')->group(function () {
         Route::get('admin', ListAdmin::class)->name('admin.list');
         Route::get('admin/create', CreateAdmin::class)->name('admin.create');
 
-        Route::prefix('tahun-ajaran')->group(function(){
+        Route::prefix('tahun-ajaran')->group(function () {
             Route::get('', ListYear::class)->name('year.list');
             Route::get('create', CreateYear::class)->name('year.create');
             Route::get('{schoolYearId}/edit', EditYear::class)->name('year.edit');
         });
 
-        Route::prefix('kelas')->group(function(){
+        Route::prefix('kelas')->group(function () {
             Route::get('/', ListClass::class)->name('class.list');
             Route::get('create', CreateClass::class)->name('class.create');
             Route::get('{classLevel}', Subclass::class)->name('class.subclass');

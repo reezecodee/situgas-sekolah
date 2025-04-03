@@ -16,19 +16,17 @@ class UploadTask extends Component
 
     #[Layout('components.layouts.staff')]
 
-    public $id;
-    public $teachingSchedule;
-    public $classId;
+    public $subjectTeacherId, $teachingSchedule, $classId;
 
     #[Validate]
     public $judul_tugas, $deskripsi, $tgl_mulai, $tgl_selesai, $file_soal;
 
-    public function mount($id, $classId)
+    public function mount($subjectTeacherId, $classId)
     {
-        $this->id = $id;
+        $this->subjectTeacherId = $subjectTeacherId;
         $this->classId = $classId;
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-        $this->teachingSchedule = TeachingSchedule::with('classroom')->where('pengampu_id', $id)->where('kelas_id', $classId)->where('tahun_ajaran_id', $schoolYear->id)->first();
+        $this->teachingSchedule = TeachingSchedule::with('classroom')->where('pengampu_id', $subjectTeacherId)->where('kelas_id', $classId)->where('tahun_ajaran_id', $schoolYear->id)->first();
     }
 
     public function rules()
@@ -83,7 +81,7 @@ class UploadTask extends Component
         ]);
 
         session()->flash('success', 'Berhasil membuat tugas baru.');
-        return redirect()->to(route('teacher.taskCreated', ['id' => $this->id, 'classId' => $this->classId]));
+        return redirect()->to(route('teacher.taskCreated', ['subjectTeacherId' => $this->subjectTeacherId, 'classId' => $this->classId]));
     }
 
     public function render()

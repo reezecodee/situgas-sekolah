@@ -16,24 +16,24 @@ class PresenceHistory extends Component
     #[Title('Riwayat Presensi')]
     #[Layout('components.layouts.staff')]
 
-    public $id;
+    public $subjectTeacherId;
     public $classId;
 
-    public function mount($id, $classId)
+    public function mount($subjectTeacherId, $classId)
     {
-        $this->id = $id;
+        $this->subjectTeacherId = $subjectTeacherId;
         $this->classId = $classId;
     }
 
-    public function downloadExcel($id)
+    public function downloadExcel($presenceTeacherId)
     {
-        $presenceTeacher = PresenceTeacher::findOrFail($id); 
-        $students = Student::where('kelas_id', $presenceTeacher->kelas_id)
+        $classId = PresenceTeacher::findOrFail($presenceTeacherId)->kelas_id; 
+        $students = Student::where('kelas_id', $classId)
             ->orderBy('nama', 'asc')
             ->get();
 
-        $data = $students->map(function ($student) use ($presenceTeacher) {
-            $presenceStatus = PresenceStudent::where('absen_guru_id', $presenceTeacher->id)
+        $data = $students->map(function ($student) use ($presenceTeacherId) {
+            $presenceStatus = PresenceStudent::where('absen_guru_id', $presenceTeacherId)
                 ->where('siswa_id', $student->id)
                 ->first();
 
@@ -44,7 +44,7 @@ class PresenceHistory extends Component
             ];
         });
 
-        return Excel::download(new PresenceExport($data, $id), 'presence.xlsx');
+        return Excel::download(new PresenceExport($data, $presenceTeacherId), 'presence.xlsx');
     }
 
     public function render()

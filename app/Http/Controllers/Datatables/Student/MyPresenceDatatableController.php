@@ -7,7 +7,6 @@ use App\Models\PresenceStudent;
 use App\Models\Student;
 use App\Models\SubjectTeacher;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 

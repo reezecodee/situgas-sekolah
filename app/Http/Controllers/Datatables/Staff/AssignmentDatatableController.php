@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Assignment;
 use App\Models\SchoolYear;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class AssignmentDatatableController extends Controller
@@ -50,8 +49,8 @@ class AssignmentDatatableController extends Controller
                         <li>
                             <div class="dropdown-item">
                                 <a href="' . route('teacher.evaluationTask', [
-                                    'id1' => $task->id,
-                                    'id2' => $task->kelas_id
+                                    'assignmentId' => $task->id,
+                                    'classId' => $task->kelas_id
                                 ]) . '">
                                 <span class="text-black">Cek pengerjaan</span>
                                 </a>

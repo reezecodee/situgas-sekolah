@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\PresenceTeacher;
 use App\Models\SchoolYear;
 use App\Models\Teacher;
-use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class TeacherDatatableController extends Controller
@@ -66,7 +65,7 @@ class TeacherDatatableController extends Controller
             })
             ->addColumn('action', function ($history) {
                 return '
-                <a wire:navigate href="'. route('teacher.editPresence', ['id' => $history->jadwal_mengajar_id, 'date' => $history->tanggal]) .'" class="btn btn-sm btn-primary">Edit</a>
+                <a wire:navigate href="'. route('teacher.editPresence', ['teachingScheduleId' => $history->jadwal_mengajar_id, 'date' => $history->tanggal]) .'" class="btn btn-sm btn-primary">Edit</a>
                 <a wire:click="downloadExcel(\''.$history->id.'\')"  class="btn btn-sm btn-success">Rekap</a>
             ';
             })

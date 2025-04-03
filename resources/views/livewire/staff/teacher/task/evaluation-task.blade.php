@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a wire:navigate href="{{ route('teacher.taskCreated', ['id' => $pengampu_id, 'classId' => $id2]) }}">
+        <a wire:navigate href="{{ route('teacher.taskCreated', ['subjectTeacherId' => $subjectTeacherId, 'classId' => $classId]) }}">
             <button class="btn btn-danger">Kembali</button>
         </a>
     </div>
