@@ -19,13 +19,11 @@ class UploadAssignment extends Component
     #[Title('Upload Tugas')]
     #[Layout('components.layouts.student')]
 
-    public $idTeaching;
-    public $pengampuId;
+    public $idTeaching, $pengampuId, $fileUploaded, $id;
+
     #[Validate]
     public $file_pengerjaan;
-    public $fileUploaded;
-    public $id;
-
+   
     public function rules()
     {
         return [
@@ -33,10 +31,10 @@ class UploadAssignment extends Component
         ];
     }
 
-    public function mount($id)
+    public function mount($assignmentId)
     {
         $student = Student::where('user_id', Auth::user()->id)->first();
-        $assignment = Assignment::findOrFail($id);
+        $assignment = Assignment::findOrFail($assignmentId);
         $submission = Submission::where('siswa_id', $student->id)->where('penugasan_id', $assignment->id)->first();
 
         if ($submission) {

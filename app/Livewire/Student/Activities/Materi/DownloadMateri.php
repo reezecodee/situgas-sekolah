@@ -12,16 +12,16 @@ class DownloadMateri extends Component
     #[Title('Daftar Materi')]
     #[Layout('components.layouts.student')]
 
-    public $id;
+    public $subjectTeacherId;
 
-    public function mount($id)
+    public function mount($subjectTeacherId)
     {
-        $this->id = $id;
+        $this->subjectTeacherId = $subjectTeacherId;
     }
     
     public function render()
     {
-        $subjectTeacher = SubjectTeacher::with('subject')->findOrFail($this->id);
+        $subjectTeacher = SubjectTeacher::with('subject')->findOrFail($this->subjectTeacherId);
         $title = "Daftar Materi Mata Pelajaran {$subjectTeacher->subject->nama}";
 
         return view('livewire.student.activities.materi.download-materi', compact('title'));

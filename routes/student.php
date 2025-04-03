@@ -22,12 +22,14 @@ Route::prefix('student')->middleware(['role:Siswa', 'auth', 'getDataUser', 'stud
     });
 
     Route::prefix('kegiatan')->group(function () {
-        Route::get('penugasan', Assignment::class)->name('student.assignment');
-        Route::get('penugasan/{id}/daftar', ListAssignment::class)->name('student.listAssign');
-        Route::get('penugasan/{id}/upload', UploadAssignment::class)->name('student.uploadAssignment');
+        Route::prefix('penugasan')->group(function(){
+            Route::get('/', Assignment::class)->name('student.assignment');
+            Route::get('{subjectTeacherId}/daftar', ListAssignment::class)->name('student.listAssign');
+            Route::get('{assignmentId}/upload', UploadAssignment::class)->name('student.uploadAssignment');
+        });
 
-        Route::get('materi-belajar/{id}', DownloadMateri::class)->name('student.downloadMateri');
-        Route::get('absensi-saya/{id}', MyPresence::class)->name('student.myPresence');
+        Route::get('materi-belajar/{subjectTeacherId}', DownloadMateri::class)->name('student.downloadMateri');
+        Route::get('absensi-saya/{subjectTeacherId}', MyPresence::class)->name('student.myPresence');
     });
 
     Route::get('profile', Profile::class)->name('student.profile');

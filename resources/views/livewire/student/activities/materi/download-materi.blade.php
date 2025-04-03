@@ -32,7 +32,7 @@
                 $('#materiTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.downloadMateri', $id) }}',
+                    ajax: '{{ route('dt.downloadMateri', $subjectTeacherId) }}',
                     columns: [
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         {

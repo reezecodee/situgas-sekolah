@@ -11,11 +11,11 @@ class ListAssignment extends Component
     #[Layout('components.layouts.student')]
     #[Title('Daftar Tugas')]
 
-    public $id;
+    public $subjectTeacherId;
 
-    public function mount($id)
+    public function mount($subjectTeacherId)
     {
-        $this->id = $id;
+        $this->subjectTeacherId = $subjectTeacherId;
     }
 
     public function render()

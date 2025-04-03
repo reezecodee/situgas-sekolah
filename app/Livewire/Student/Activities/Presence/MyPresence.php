@@ -11,11 +11,11 @@ class MyPresence extends Component
     #[Title('Absensi Saya')]
     #[Layout('components.layouts.student')]
 
-    public $id;
+    public $subjectTeacherId;
 
-    public function mount($id)
+    public function mount($subjectTeacherId)
     {
-        $this->id = $id;
+        $this->subjectTeacherId = $subjectTeacherId;
     }
     
     public function render()

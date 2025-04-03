@@ -36,7 +36,7 @@
                 $('#taskTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.taskStudent', $id) }}',
+                    ajax: '{{ route('dt.taskStudent', $subjectTeacherId) }}',
                     scrollX: true,
                     columnDefs: [
                         { targets: 0, width: "30px" },

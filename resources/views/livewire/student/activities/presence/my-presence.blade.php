@@ -32,7 +32,7 @@
                 $('#presenceTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.myPresence', $id) }}',
+                    ajax: '{{ route('dt.myPresence', $subjectTeacherId) }}',
                     columns: [
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         {
