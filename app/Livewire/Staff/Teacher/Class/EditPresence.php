@@ -24,6 +24,7 @@ class EditPresence extends Component
 
     public $id;
     public $classId;
+    public $pengampuId;
     public $date;
     public $presence;
     public $teacher;
@@ -55,6 +56,7 @@ class EditPresence extends Component
         $this->date = $date;
         $this->presence = TeachingSchedule::with(['subjectTeacher', 'classroom'])->findOrFail($id);
         $this->classId = $this->presence->kelas_id;
+        $this->pengampuId = $this->presence->pengampu_id;
         $this->teacher = Teacher::where('user_id', Auth::user()->id)->first();
 
         $presence = PresenceTeacher::where('jadwal_mengajar_id', $id)->where('tanggal', $date)->first();

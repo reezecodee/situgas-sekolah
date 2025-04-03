@@ -2,7 +2,6 @@
 
 use App\Livewire\Staff\Admin\Admin\CreateAdmin;
 use App\Livewire\Staff\Admin\Admin\ListAdmin;
-use App\Livewire\Staff\Admin\App\Setting;
 use App\Livewire\Staff\Admin\Calendar\Calendar;
 use App\Livewire\Staff\Admin\Calendar\CreateCalendar;
 use App\Livewire\Staff\Admin\Class\CreateClass;
@@ -36,9 +35,6 @@ use App\Livewire\Staff\Teacher\Class\Presence;
 use App\Livewire\Staff\Teacher\Class\PresenceHistory;
 use App\Livewire\Staff\Teacher\Materi\ListMateri;
 use App\Livewire\Staff\Teacher\Materi\UploadMateri;
-use App\Livewire\Staff\Teacher\Result\ListStudentClass;
-use App\Livewire\Staff\Teacher\Result\SendStudyResult;
-use App\Livewire\Staff\Teacher\Result\StudyResult;
 use App\Livewire\Staff\Teacher\Task\EvaluationTask;
 use App\Livewire\Staff\Teacher\Task\ListTask;
 use App\Livewire\Staff\Teacher\Task\ListTaskCreated;

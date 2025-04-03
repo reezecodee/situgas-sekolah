@@ -16,6 +16,11 @@ class SubjectTeacher extends Model
         return $this->hasMany(TeachingSchedule::class, 'pengampu_id');
     }
 
+    public function presenceTeacher()
+    {
+        return $this->hasMany(PresenceTeacher::class, 'pengampu_id');
+    }
+
     public function teacher()
     {
         return $this->belongsTo(Teacher::class, 'guru_id');

@@ -5,11 +5,10 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>SITUGAS MTs BPI Baturompe</title>
-  <meta name="description" content="Situgas adalah platform milik MTs BPI Baturompe yang didedikasikan untuk mendukung para guru dalam menjalankan tugas mulia mereka.">
+  <meta name="description"
+    content="Situgas adalah platform milik MTs BPI Baturompe yang didedikasikan untuk mendukung para guru dalam menjalankan tugas mulia mereka.">
   <meta name="keywords" content="situgas">
-  <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon"
-
-  <!-- Fonts -->
+  <link rel="shortcut icon" href="{{ asset('icon.ico') }}" type="image/x-icon" <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
@@ -429,7 +428,8 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright {{ date('Y') }}</span> <strong class="px-1 sitename">MTs BPI Baturompe</strong> <span>All Rights
+      <p>© <span>Copyright {{ date('Y') }}</span> <strong class="px-1 sitename">MTs BPI Baturompe</strong> <span>All
+          Rights
           Reserved</span></p>
     </div>
 
