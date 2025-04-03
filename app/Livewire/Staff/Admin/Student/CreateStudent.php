@@ -15,26 +15,10 @@ class CreateStudent extends Component
     #[Title('Tambah Siswa')]
     #[Layout('components.layouts.staff')]
 
-    #[Validate]
-    public $kelas_id;
-    #[Validate]
-    public $nama;
-    #[Validate]
-    public $nis;
-    #[Validate]
-    public $nisn;
-    #[Validate]
-    public $email;
-    #[Validate]
-    public $jk;
-    #[Validate]
-    public $alamat;
-    #[Validate]
-    public $status;
-    #[Validate]
-    public $tgl_lahir;
-
     public $classes;
+
+    #[Validate]
+    public $kelas_id, $nama, $nis, $nisn, $email, $jk, $alamat, $status, $tgl_lahir;
 
     public function mount()
     {
@@ -64,32 +48,32 @@ class CreateStudent extends Component
         return [
             'kelas_id.required' => 'Kelas wajib dipilih.',
             'kelas_id.exists' => 'Kelas yang dipilih tidak valid.',
-        
+
             'nama.required' => 'Nama wajib diisi.',
             'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
-        
+
             'nis.required' => 'NIS wajib diisi.',
             'nis.max' => 'NIS tidak boleh lebih dari :max karakter.',
             'nis.unique' => 'NIS ini sudah terdaftar, gunakan NIS lain.',
-        
+
             'nisn.required' => 'NISN wajib diisi.',
             'nisn.max' => 'NISN tidak boleh lebih dari :max karakter.',
             'nisn.unique' => 'NISN ini sudah terdaftar, gunakan NISN lain.',
-        
+
             'email.required' => 'Alamat email wajib diisi.',
             'email.max' => 'Email tidak boleh lebih dari :max karakter.',
             'email.unique' => 'Email ini sudah terdaftar, gunakan email lain.',
-        
+
             'jk.required' => 'Jenis kelamin wajib diisi.',
             'jk.in' => 'Jenis kelamin harus berupa Laki-laki atau Perempuan.',
-        
+
             'alamat.required' => 'Alamat wajib diisi.',
-        
+
             'tgl_lahir.required' => 'Tanggal lahir wajib diisi.',
             'tgl_lahir.date' => 'Tanggal lahir harus berupa format tanggal yang valid.',
             'tgl_lahir.date_format' => 'Format tanggal lahir harus Y-m-d (contoh: 2025-01-17).',
             'tgl_lahir.before' => 'Tanggal lahir harus sebelum hari ini.',
-        
+
             'status.required' => 'Status wajib diisi.',
             'status.in' => 'Status harus berupa salah satu dari: Belum lulus, Lulus, atau Nonaktif.',
         ];

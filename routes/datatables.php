@@ -19,7 +19,7 @@ Route::controller(SchoolYearDatatableController::class)->group(function () {
 });
 
 Route::controller(SubclassDatatablesController::class)->group(function () {
-    Route::get('/subkelas/{class}', 'getSubclass')->name('dt.subclass');
+    Route::get('/subkelas/{classLevel}', 'getSubclass')->name('dt.subclass');
 });
 
 Route::controller(AdminDatatablesController::class)->group(function () {

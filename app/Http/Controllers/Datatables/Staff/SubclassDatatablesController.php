@@ -9,9 +9,9 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SubclassDatatablesController extends Controller
 {
-    public function getSubclass($class)
+    public function getSubclass($classLevel)
     {
-        $data = Classrooms::where('tingkat', $class)
+        $data = Classrooms::where('tingkat', $classLevel)
         ->withCount(['students as total_students' => function ($query) {
             $query->where('status', 'Belum lulus'); 
         }])
@@ -23,15 +23,15 @@ class SubclassDatatablesController extends Controller
         ->addColumn('status', function($subkelas){
             return $subkelas->status == 'Aktif' ? '<span class="badge bg-success">'.$subkelas->status.'</span>' : '<span class="badge bg-danger">'.$subkelas->status.'</span>';
         })
-        ->addColumn('action', function ($subkelas) use ($class) {
-            $editRoute = route('class.edit', ['id' => $subkelas->id, 'class' => $class]);
-            $detailRoute = route('class.detail', ['id' => $subkelas->id, 'class' => $class]);
-            $scheduleRoute = route('class.schedule', ['id' => $subkelas->id, 'class' => $class]);
+        ->addColumn('action', function ($subkelas) use ($classLevel) {
+            $editRoute = route('class.edit', ['classId' => $subkelas->id, 'classLevel' => $classLevel]);
+            $detailRoute = route('class.detail', ['classId' => $subkelas->id, 'classLevel' => $classLevel]);
+            $scheduleRoute = route('class.schedule', ['classId' => $subkelas->id, 'classLevel' => $classLevel]);
 
             $deleteButton = '';
             if ($subkelas->total_students === 0) { 
                 $deleteButton = '
-                    <form action="' . route('class.delete', ['id' => $subkelas->id]) . '" method="POST" style="display:inline;" id="form-'. $subkelas->id .'">
+                    <form action="' . route('class.delete', ['classId' => $subkelas->id]) . '" method="POST" style="display:inline;" id="form-'. $subkelas->id .'">
                         ' . csrf_field() . '
                         ' . method_field('DELETE') . '
                         <button type="button" class="btn btn-sm btn-danger" onclick="submitForm(\'form-'. $subkelas->id .'\')">Hapus</button>

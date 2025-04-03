@@ -15,13 +15,7 @@ class CreateAdmin extends Component
     #[Layout('components.layouts.staff')]
 
     #[Validate]
-    public $nama;
-    #[Validate]
-    public $email;
-    #[Validate]
-    public $tgl_lahir;
-    #[Validate]
-    public $status;
+    public $nama, $email, $tgl_lahir, $status;
 
     public function rules()
     {
@@ -36,21 +30,21 @@ class CreateAdmin extends Component
     public function messages()
     {
         return [
-                'nama.required' => 'Nama wajib diisi.',
-                'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
-            
-                'email.required' => 'Alamat email wajib diisi.',
-                'email.email' => 'Format email tidak valid.',
-                'email.max' => 'Email tidak boleh lebih dari :max karakter.',
-                'email.unique' => 'Email ini sudah terdaftar, gunakan email lain.',
-            
-                'tgl_lahir.required' => 'Tanggal lahir wajib diisi.',
-                'tgl_lahir.date' => 'Tanggal lahir harus berupa format tanggal yang valid.',
-                'tgl_lahir.date_format' => 'Format tanggal lahir harus Y-m-d (contoh: 2025-01-17).',
-                'tgl_lahir.before' => 'Tanggal lahir harus sebelum hari ini.',
-            
-                'status.required' => 'Status wajib diisi.',
-                'status.in' => 'Status harus berupa salah satu dari: Aktif atau Tidak aktif.',
+            'nama.required' => 'Nama wajib diisi.',
+            'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
+
+            'email.required' => 'Alamat email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.max' => 'Email tidak boleh lebih dari :max karakter.',
+            'email.unique' => 'Email ini sudah terdaftar, gunakan email lain.',
+
+            'tgl_lahir.required' => 'Tanggal lahir wajib diisi.',
+            'tgl_lahir.date' => 'Tanggal lahir harus berupa format tanggal yang valid.',
+            'tgl_lahir.date_format' => 'Format tanggal lahir harus Y-m-d (contoh: 2025-01-17).',
+            'tgl_lahir.before' => 'Tanggal lahir harus sebelum hari ini.',
+
+            'status.required' => 'Status wajib diisi.',
+            'status.in' => 'Status harus berupa salah satu dari: Aktif atau Tidak aktif.',
         ];
     }
 

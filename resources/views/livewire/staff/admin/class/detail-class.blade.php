@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a wire:navigate href="{{ route('class.subclass', $class) }}">
+        <a wire:navigate href="{{ route('class.subclass', $classLevel) }}">
             <button class="btn btn-danger">Kembali</button>
         </a>
     </div>

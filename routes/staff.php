@@ -65,35 +65,45 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
         Route::get('admin', ListAdmin::class)->name('admin.list');
         Route::get('admin/create', CreateAdmin::class)->name('admin.create');
 
-        Route::get('tahun-ajaran', ListYear::class)->name('year.list');
-        Route::get('tahun-ajaran/create', CreateYear::class)->name('year.create');
-        Route::get('tahun-ajaran/{id}/edit', EditYear::class)->name('year.edit');
+        Route::prefix('tahun-ajaran')->group(function(){
+            Route::get('', ListYear::class)->name('year.list');
+            Route::get('create', CreateYear::class)->name('year.create');
+            Route::get('{schoolYearId}/edit', EditYear::class)->name('year.edit');
+        });
 
-        Route::get('kelas', ListClass::class)->name('class.list');
-        Route::get('kelas/create', CreateClass::class)->name('class.create');
-        Route::get('kelas/{class}', Subclass::class)->name('class.subclass');
-        Route::get('kelas/{class}/{id}/edit', EditClass::class)->name('class.edit');
-        Route::get('kelas/{class}/{id}/detail', DetailClass::class)->name('class.detail');
-        Route::get('kelas/{class}/{id}/jadwal-pelajaran', SubjectSchedule::class)->name('class.schedule');
-        Route::get('kelas/{id}/data-siswa', ShowDetailStudent::class)->name('class.showDetail');
+        Route::prefix('kelas')->group(function(){
+            Route::get('/', ListClass::class)->name('class.list');
+            Route::get('create', CreateClass::class)->name('class.create');
+            Route::get('{classLevel}', Subclass::class)->name('class.subclass');
+            Route::get('{classLevel}/{classId}/edit', EditClass::class)->name('class.edit');
+            Route::get('{classLevel}/{classId}/detail', DetailClass::class)->name('class.detail');
+            Route::get('{classLevel}/{classId}/jadwal-pelajaran', SubjectSchedule::class)->name('class.schedule');
+            Route::get('{classId}/data-siswa', ShowDetailStudent::class)->name('class.showDetail');
+        });
 
-        Route::get('guru', ListTeacher::class)->name('teacher.list');
-        Route::get('guru/create', CreateTeacher::class)->name('teacher.create');
-        Route::get('guru/{id}/edit', EditTeacher::class)->name('teacher.edit');
+        Route::prefix('guru')->group(function () {
+            Route::get('', ListTeacher::class)->name('teacher.list');
+            Route::get('create', CreateTeacher::class)->name('teacher.create');
+            Route::get('{teacherId}/edit', EditTeacher::class)->name('teacher.edit');
+        });
 
-        Route::get('siswa', ListStudent::class)->name('student.list');
-        Route::get('siswa/create', CreateStudent::class)->name('student.create');
-        Route::get('siswa/{id}/edit', EditStudent::class)->name('student.edit');
+        Route::prefix('siswa')->group(function () {
+            Route::get('', ListStudent::class)->name('student.list');
+            Route::get('create', CreateStudent::class)->name('student.create');
+            Route::get('{studentId}/edit', EditStudent::class)->name('student.edit');
+        });
 
-        Route::get('pelajaran', ListSubject::class)->name('subject.list');
-        Route::get('pelajaran/create', CreateSubject::class)->name('subject.create');
-        Route::get('pelajaran/{id}/edit', EditSubject::class)->name('subject.edit');
-        Route::get('pelajaran/guru-pengampu', ListSubjectTeacher::class)->name('subject.teacher');
-        Route::get('pelajaran/guru-pengampu/create', CreateSubjectTeacher::class)->name('subject.createTeacher');
+        Route::prefix('pelajaran')->group(function () {
+            Route::get('/', ListSubject::class)->name('subject.list');
+            Route::get('create', CreateSubject::class)->name('subject.create');
+            Route::get('{subjectId}/edit', EditSubject::class)->name('subject.edit');
+            Route::get('guru-pengampu', ListSubjectTeacher::class)->name('subject.teacher');
+            Route::get('guru-pengampu/create', CreateSubjectTeacher::class)->name('subject.createTeacher');
+        });
 
-        Route::middleware('staffSchoolYearCheck')->group(function(){
-            Route::get('jadwal-mengajar', ClassList::class)->name('schedule.teaching');
-            Route::get('jadwal-mengajar/{level}', CreateSchedule::class)->name('schedule.create');
+        Route::prefix('jadwal-mengajar')->middleware('staffSchoolYearCheck')->group(function () {
+            Route::get('/', ClassList::class)->name('schedule.teaching');
+            Route::get('/{level}', CreateSchedule::class)->name('schedule.create');
         });
 
         Route::get('kalender/create', CreateCalendar::class)->name('calendar.create');

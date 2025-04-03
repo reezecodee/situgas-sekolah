@@ -13,21 +13,17 @@ class EditClass extends Component
     #[Title('Edit Kelas VI')]
     #[Layout('components.layouts.staff')]
 
-    public $class;
-    public $id;
+    public $classId, $classLevel;
 
     #[Validate]
-    public $nama;
-    #[Validate]
-    public $tingkat;
-    #[Validate]
-    public $status;
+    public $nama, $tingkat, $status;
 
-    public function mount($class, $id){
-        $this->class = $class;
-        $this->id = $id;
+    public function mount($classLevel, $classId)
+    {
+        $this->classLevel = $classLevel;
+        $this->classId = $classId;
 
-        $class = Classrooms::findOrFail($id);
+        $class = Classrooms::findOrFail($classId);
         $this->nama = $class->nama;
         $this->tingkat = $class->tingkat;
         $this->status = $class->status;
@@ -68,16 +64,16 @@ class EditClass extends Component
     {
         $data = $this->validate();
 
-        $classroom = Classrooms::findOrFail($this->id);
+        $classroom = Classrooms::findOrFail($this->classId);
         $classroom->update($data);
 
         session()->flash("success", "Berhasil memperbarui kelas {$this->tingkat} {$this->nama}");
-        return redirect()->to(route('class.subclass', $this->class));
+        return redirect()->to(route('class.subclass', $this->classLevel));
     }
 
     public function render()
     {
-        $title = "Edit Kelas {$this->class} {$this->nama}";
+        $title = "Edit Kelas {$this->classLevel} {$this->nama}";
 
         return view('livewire.staff.admin.class.edit-class', compact('title'))->title($title);
     }

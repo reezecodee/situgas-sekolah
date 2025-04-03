@@ -50,7 +50,8 @@
         </div>
     </div>
     <div class="d-flex gap-2 justify-content-end">
-        <a href="{{ route('class.detail', ['class' => $student->classroom->tingkat, 'id' => $student->kelas_id]) }}">
+        <a
+            href="{{ route('class.detail', ['classLevel' => $student->classroom->tingkat, 'classId' => $student->kelas_id]) }}">
             <button class="btn btn-danger">Kembali</button>
         </a>
         <a href="{{ route('student.edit', $student->id) }}">

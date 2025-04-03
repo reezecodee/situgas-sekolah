@@ -13,15 +13,10 @@ class EditYear extends Component
     #[Title('Edit Tahun Ajaran')]
     #[Layout('components.layouts.staff')]
 
-    public $id;
+    public $schoolYearId;
+
     #[Validate]
-    public $periode;
-    #[Validate]
-    public $semester;
-    #[Validate]
-    public $tgl_mulai;
-    #[Validate]
-    public $tgl_selesai;
+    public $periode, $semester, $tgl_mulai, $tgl_selesai;
 
     public function rules()
     {
@@ -48,9 +43,9 @@ class EditYear extends Component
         ];
     }
 
-    public function mount($id){
-        $this->id = $id;
-        $schoolYear = SchoolYear::findOrFail($this->id);
+    public function mount($schoolYearId){
+        $this->schoolYearId = $schoolYearId;
+        $schoolYear = SchoolYear::findOrFail($this->schoolYearId);
 
         $this->periode = $schoolYear->periode;
         $this->semester = $schoolYear->semester;
@@ -62,11 +57,11 @@ class EditYear extends Component
     {
         $data = $this->validate();
 
-        $schoolYear = SchoolYear::findOrFail($this->id);
+        $schoolYear = SchoolYear::findOrFail($this->schoolYearId);
         $schoolYear->update($data);
 
         session()->flash("success", "Berhasil memperbarui tahun ajaran baru periode {$this->periode}");
-        return redirect()->to(route('year.edit', $this->id));
+        return redirect()->to(route('year.edit', $this->schoolYearId));
     }
 
     public function render()

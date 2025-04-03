@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="d-flex gap-2 justify-content-end mt-3">
-            <a href="{{ route('class.subclass', $class) }}">
+            <a href="{{ route('class.subclass', $classLevel) }}">
                 <button type="button" class="btn btn-danger">Kembali</button>
             </a>
             <button type="submit" class="btn btn-primary">Edit Kelas</button>

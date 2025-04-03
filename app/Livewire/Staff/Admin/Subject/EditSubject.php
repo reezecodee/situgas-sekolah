@@ -13,7 +13,7 @@ class EditSubject extends Component
     #[Title('Edit Mata Pelajaran')]
     #[Layout('components.layouts.staff')]
 
-    public $id;
+    public $subjectId;
 
     #[Validate]
     public $nama, $kode, $tingkatan, $status;
@@ -46,11 +46,11 @@ class EditSubject extends Component
         ];
     }
 
-    public function mount($id)
+    public function mount($subjectId)
     {
-        $subject = Subject::findOrFail($id);
+        $subject = Subject::findOrFail($subjectId);
 
-        $this->id = $subject->id;
+        $this->subjectId = $subject->id;
         $this->nama = $subject->nama;
         $this->kode = $subject->kode;
         $this->tingkatan = $subject->tingkatan;
@@ -61,7 +61,7 @@ class EditSubject extends Component
     {
         $data = $this->validate();
 
-        $subject = Subject::findOrFail($this->id);
+        $subject = Subject::findOrFail($this->subjectId);
         $subject->update($data);
 
         session()->flash('success', "Berhasil memperbarui mata pelajaran {$subject->nama}.");

@@ -12,18 +12,18 @@ class SubjectSchedule extends Component
     #[Title('Jadwal Pelajaran')]
     #[Layout('components.layouts.staff')]
 
-    public $class, $id;
+    public $classLevel, $classId;
 
-    public function mount($class, $id)
+    public function mount($classLevel, $classId)
     {
-        $this->class = $class;
-        $this->id = $id;
+        $this->classLevel = $classLevel;
+        $this->classId = $classId;
     }
     
     public function render()
     {
         $schedules = TeachingSchedule::with(['subjectTeacher.teacher', 'subjectTeacher.subject'])
-        ->where('kelas_id', $this->id)
+        ->where('kelas_id', $this->classId)
         ->orderByRaw("FIELD(hari, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu')")
         ->get();
 

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Assignment;
 use App\Models\Submission;
 use App\Models\TeachingSchedule;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class AssignmentController extends Controller

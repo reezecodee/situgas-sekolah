@@ -24,7 +24,7 @@
                 $('#subclassTable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.subclass', $class) }}',
+                    ajax: '{{ route('dt.subclass', $classLevel) }}',
                     columns: [
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         { data: 'nama', name: 'nama' },

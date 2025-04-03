@@ -14,12 +14,8 @@ class CreateClass extends Component
     #[Layout('components.layouts.staff')]
 
     #[Validate]
-    public $nama;
-    #[Validate]
-    public $tingkat;
-    #[Validate]
-    public $status;
-
+    public $nama, $tingkat, $status;
+    
     public function rules()
     {
         return [

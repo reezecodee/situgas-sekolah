@@ -10,16 +10,16 @@ class ShowDetailStudent extends Component
 {
     #[Layout('components.layouts.staff')]
 
-    public $id;
+    public $classId;
 
-    public function mount($id)
+    public function mount($classId)
     {
-        $this->id = $id;
+        $this->classId = $classId;
     }
 
     public function render()
     {
-        $student = Student::with(['user', 'classroom'])->findOrFail($this->id);
+        $student = Student::with(['user', 'classroom'])->findOrFail($this->classId);
         $title = "Detail Siswa {$student->nama}";
 
         return view('livewire.staff.admin.class.show-detail-student', compact('student'))->title($title);

@@ -9,16 +9,16 @@ class Subclass extends Component
 {
     #[Layout('components.layouts.staff')]
 
-    public $class;
+    public $classLevel;
 
-    public function mount($class)
+    public function mount($classLevel)
     {
-        $this->class = $class;
+        $this->classLevel = $classLevel;
     }
 
     public function render()
     {
-        $title = "Daftar Subkelas {$this->class}";
+        $title = "Daftar Subkelas {$this->classLevel}";
 
         return view('livewire.staff.admin.class.subclass', compact('title'))->title($title);
     }

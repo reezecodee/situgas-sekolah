@@ -51,9 +51,9 @@ class EditTeacher extends Component
         ];
     }
 
-    public function mount($id)
+    public function mount($teacherId)
     {
-        $this->teacher = Teacher::with('user')->findOrFail($id);
+        $this->teacher = Teacher::with('user')->findOrFail($teacherId);
         $this->nama = $this->teacher->nama;
         $this->nuptk = $this->teacher->nuptk;
         $this->email = $this->teacher->user->email;
