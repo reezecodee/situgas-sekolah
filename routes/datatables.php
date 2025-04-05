@@ -30,6 +30,7 @@ Route::controller(TeacherDatatableController::class)->group(function () {
     Route::get('/guru', 'getTeacher')->name('dt.teacher');
     Route::post('/guru/{id}/{status}', 'changeStatus')->name('dt.chStatusTeacher');
     Route::get('/riwayat-absensi/{id}/{classId}', 'getPresenceHistory')->name('dt.presenceHistory');
+    Route::get('/riwayat-kehadiran/{id}', 'getAttendanceHistory')->name('dt.teacherAttendance');
 });
 
 Route::controller(SubjectDatatableController::class)->group(function () {

@@ -24,6 +24,7 @@ use App\Livewire\Staff\Admin\Subject\CreateSubjectTeacher;
 use App\Livewire\Staff\Admin\Subject\EditSubject;
 use App\Livewire\Staff\Admin\Subject\ListSubject;
 use App\Livewire\Staff\Admin\Subject\ListSubjectTeacher;
+use App\Livewire\Staff\Admin\Teacher\AttendanceTeacher;
 use App\Livewire\Staff\Admin\Teacher\CreateTeacher;
 use App\Livewire\Staff\Admin\Teacher\EditTeacher;
 use App\Livewire\Staff\Admin\Teacher\ListTeacher;
@@ -91,6 +92,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
             Route::get('', ListTeacher::class)->name('teacher.list');
             Route::get('create', CreateTeacher::class)->name('teacher.create');
             Route::get('{teacherId}/edit', EditTeacher::class)->name('teacher.edit');
+            Route::get('{teacherId}/kehadiran', AttendanceTeacher::class)->name('teacher.attendance');
         });
 
         Route::prefix('siswa')->group(function () {

@@ -1,7 +1,7 @@
 <div>
     <div class="mb-4 d-flex justify-content-end">
-        <a wire:navigate href="{{ route('teacher.create') }}">
-            <button class="btn btn-primary">Tambah Guru</button>
+        <a wire:navigate href="{{ route('teacher.list') }}">
+            <button class="btn btn-danger">Kembali</button>
         </a>
     </div>
     <div wire:ignore class="table-wrapper">
@@ -9,10 +9,11 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>NUPTK</th>
-                    <th>Status</th>
+                    <th>Mata pelajaran</th>
+                    <th>Kelas</th>
+                    <th>Tanggal</th>
+                    <th>Materi</th>
+                    <th>Deskripsi</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -24,24 +25,28 @@
                 $('#datatable').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('dt.teacher') }}',
+                    ajax: '{{ route('dt.teacherAttendance', $teacherId) }}',
                     columns: [
                         { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                         {
-                            data: 'nama',
-                            name: 'nama'
+                            data: 'mata_pelajaran',
+                            name: 'mata_pelajaran'
                         },
                         {
-                            data: 'email',
-                            name: 'email'
+                            data: 'kelas',
+                            name: 'kelas'
                         },
                         {
-                            data: 'nuptk',
-                            name: 'nuptk'
+                            data: 'tanggal',
+                            name: 'tanggal'
                         },
                         {
-                            data: 'status',
-                            name: 'status'
+                            data: 'pembelajaran_materi',
+                            name: 'pembelajaran_materi'
+                        },
+                        {
+                            data: 'deskripsi',
+                            name: 'deskripsi'
                         },
                         {
                             data: 'action',

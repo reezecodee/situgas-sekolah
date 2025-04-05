@@ -14,7 +14,7 @@
     <div id="calendar" class="mb-5"></div>
 
     @role('Admin')
-    <table id="calendarTable" class="table table-bordered table-striped">
+    <table id="datatable" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>No</th>
@@ -38,16 +38,14 @@
                 eventContent: function(info) {
                     let bootstrapClass = '';
 
-                    // Atur warna berdasarkan tipe event
                     if (info.event.extendedProps.description === 'Libur') {
-                        bootstrapClass = 'bg-danger'; // Merah
+                        bootstrapClass = 'bg-danger'; 
                     } else if (info.event.extendedProps.description === 'Kegiatan') {
-                        bootstrapClass = 'bg-success'; // Hijau
+                        bootstrapClass = 'bg-success'; 
                     } else {
-                        bootstrapClass = 'bg-warning'; // Kuning
+                        bootstrapClass = 'bg-warning'; 
                     }
 
-                    // Kembalikan elemen HTML dengan kelas Bootstrap
                     return {
                         html: `<div title="${info.event.title}" class="overflow-hidden text-white p-1 ${bootstrapClass}">${info.event.title}</div>`
                     };
@@ -59,7 +57,7 @@
         @role('Admin')
         <script>
             $(document).ready(function() {
-                $('#calendarTable').DataTable({
+                $('#datatable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route('dt.calendar') }}',

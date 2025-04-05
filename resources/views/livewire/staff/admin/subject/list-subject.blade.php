@@ -8,7 +8,7 @@
         </a>
     </div>
 
-    <table id="subjectTable" class="table table-bordered table-striped">
+    <table id="datatable" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Kode</th>
@@ -23,7 +23,7 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#subjectTable').DataTable({
+                $('#datatable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route('dt.subject') }}',

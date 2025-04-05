@@ -30,7 +30,7 @@ class SubclassDatatablesController extends Controller
             $deleteButton = '';
             if ($subkelas->total_students === 0) { 
                 $deleteButton = '
-                    <form action="' . route('class.delete', ['classId' => $subkelas->id]) . '" method="POST" style="display:inline;" id="form-'. $subkelas->id .'">
+                    <form action="' . route('class.delete', ['id' => $subkelas->id]) . '" method="POST" style="display:inline;" id="form-'. $subkelas->id .'">
                         ' . csrf_field() . '
                         ' . method_field('DELETE') . '
                         <button type="button" class="btn btn-sm btn-danger" onclick="submitForm(\'form-'. $subkelas->id .'\')">Hapus</button>

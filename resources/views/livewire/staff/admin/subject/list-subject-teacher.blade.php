@@ -8,7 +8,7 @@
         </a>
     </div>
 
-    <table id="subjectTeacherTable" class="table table-bordered table-striped">
+    <table id="datatable" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Nama guru</th>
@@ -21,7 +21,7 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#subjectTeacherTable').DataTable({
+                $('#datatable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route('dt.subjectTeacher') }}',

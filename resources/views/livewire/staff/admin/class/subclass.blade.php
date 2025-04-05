@@ -7,7 +7,7 @@
             <button class="btn btn-danger">Kembali</button>
         </a>
     </div>
-    <table id="subclassTable" class="table table-bordered table-striped">
+    <table id="datatable" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>No</th>
@@ -21,7 +21,7 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#subclassTable').DataTable({
+                $('#datatable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route('dt.subclass', $classLevel) }}',

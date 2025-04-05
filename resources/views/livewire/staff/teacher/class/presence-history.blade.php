@@ -5,7 +5,7 @@
         </a>
     </div>
     <div wire:ignore>
-        <table id="adminTable" class="table table-bordered table-striped">
+        <table id="datatable" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>No</th>
@@ -20,7 +20,7 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#adminTable').DataTable({
+                $('#datatable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route('dt.presenceHistory', ['id' => $subjectTeacherId, 'classId' => $classId]) }}',

@@ -5,7 +5,7 @@
         </a>
     </div>
 
-    <table id="schoolYear" class="table table-bordered table-striped">
+    <table id="datatable" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Tahun ajaran</th>
@@ -21,7 +21,7 @@
     <x-slot name="script">
         <script>
             $(document).ready(function() {
-                $('#schoolYear').DataTable({
+                $('#datatable').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{{ route('dt.schoolYear') }}',
