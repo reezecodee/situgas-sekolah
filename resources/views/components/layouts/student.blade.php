@@ -14,10 +14,6 @@
 
     <!-- CSS template files -->
     <link href="/student/css/tabler.min.css?1684106062" rel="stylesheet" />
-    <link href="/student/css/tabler-flags.min.css?1684106062" rel="stylesheet" />
-    <link href="/student/css/tabler-payments.min.css?1684106062" rel="stylesheet" />
-    <link href="/student/css/tabler-vendors.min.css?1684106062" rel="stylesheet" />
-    <link href="/student/css/demo.min.css?1684106062" rel="stylesheet" />
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
@@ -38,7 +34,6 @@
 </head>
 
 <body class="font-sans antialiased">
-    <script src="/student/js/demo-theme.min.js?1684106062"></script>
     <div class="page">
         <x-student.navigation.navbar />
         <div class="page-wrapper">
@@ -57,7 +52,6 @@
         </div>
     </div>
     <script data-navigate-once src="/student/js/tabler.min.js?1684106062" defer></script>
-    <script src="/student/js/demo.min.js?1684106062" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
