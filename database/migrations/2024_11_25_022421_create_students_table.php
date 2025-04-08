@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained('users');
-            $table->foreignUuid('kelas_id')->constrained('classrooms');
+            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignUuid('kelas_id')->constrained('classrooms')->cascadeOnDelete();
             $table->string('nama');
             $table->string('nis');
             $table->string('nisn');
             $table->string('tgl_lahir');
             $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->text('alamat');
-            $table->enum('status', ['Lulus', 'Belum lulus']);
+            $table->enum('status', ['Lulus', 'Belum lulus'])->index();
             $table->timestamps();
         });
     }

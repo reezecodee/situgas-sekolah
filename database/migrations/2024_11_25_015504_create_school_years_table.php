@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('school_years', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('periode');
-            $table->enum('semester', ['Ganjil', 'Genap']);
+            $table->string('periode')->index();
+            $table->enum('semester', ['Ganjil', 'Genap'])->index();
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
-            $table->enum('status', ['Aktif', 'Tidak aktif'])->default('Tidak aktif');
+            $table->enum('status', ['Aktif', 'Tidak aktif'])->default('Tidak aktif')->index();
             $table->timestamps();
         });
     }

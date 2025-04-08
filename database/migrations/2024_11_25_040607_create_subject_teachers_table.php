@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('subject_teachers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('guru_id')->constrained('teachers');
-            $table->foreignUuid('mapel_id')->constrained('subjects');
+            $table->foreignUuid('guru_id')->constrained('teachers')->cascadeOnDelete();
+            $table->foreignUuid('mapel_id')->constrained('subjects')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained('users');
+            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('nama');
             $table->string('tgl_lahir');
-            $table->enum('status', ['Aktif', 'Tidak aktif']);
+            $table->enum('status', ['Aktif', 'Tidak aktif'])->index();
             $table->timestamps();
         });
     }

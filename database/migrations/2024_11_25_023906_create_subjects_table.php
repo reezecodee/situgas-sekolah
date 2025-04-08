@@ -15,8 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('nama');
             $table->string('kode');
-            $table->enum('tingkatan', ['VII', 'VIII', 'IX']);
-            $table->enum('status', ['Aktif', 'Tidak aktif']);
+            $table->enum('tingkatan', ['VII', 'VIII', 'IX'])->index();
+            $table->enum('status', ['Aktif', 'Tidak aktif'])->index();
             $table->timestamps();
         });
     }

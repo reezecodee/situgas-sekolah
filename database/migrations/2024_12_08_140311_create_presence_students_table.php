@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('presence_students', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('absen_guru_id')->constrained('presence_teachers');
-            $table->foreignUuid('mapel_id')->constrained('subjects');
-            $table->foreignUuid('siswa_id')->constrained('students');
-            $table->enum('status_kehadiran', ['Hadir', 'Izin', 'Alpha', 'Sakit']);
+            $table->foreignUuid('absen_guru_id')->constrained('presence_teachers')->cascadeOnDelete();
+            $table->foreignUuid('mapel_id')->constrained('subjects')->cascadeOnDelete();
+            $table->foreignUuid('siswa_id')->constrained('students')->cascadeOnDelete();
+            $table->enum('status_kehadiran', ['Hadir', 'Izin', 'Alpha', 'Sakit'])->index();
             $table->date('tanggal');
             $table->timestamps();
         });

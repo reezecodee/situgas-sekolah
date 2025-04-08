@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('materis', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('tahun_ajaran_id')->constrained('school_years');
-            $table->foreignUuid('pengampu_id')->constrained('subject_teachers');
+            $table->foreignUuid('tahun_ajaran_id')->constrained('school_years')->cascadeOnDelete();
+            $table->foreignUuid('pengampu_id')->constrained('subject_teachers')->cascadeOnDelete();
             $table->string('judul');
             $table->string('keterangan');
             $table->string('file_materi');

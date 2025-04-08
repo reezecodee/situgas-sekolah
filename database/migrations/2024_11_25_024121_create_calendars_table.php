@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('calendars', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('judul');
-            $table->enum('keterangan', ['Libur', 'Kegiatan', 'Lainnya']);
+            $table->enum('keterangan', ['Libur', 'Kegiatan', 'Lainnya'])->index();
             $table->date('tgl_mulai');
             $table->date('tgl_selesai')->nullable();
             $table->timestamps();
