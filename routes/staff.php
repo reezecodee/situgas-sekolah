@@ -43,7 +43,7 @@ use App\Livewire\Staff\Teacher\Task\UploadTask;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->group(function () {
-    Route::get('dashboard', Dashboard::class)->name('staff.dashboard');
+    Route::get('dashboard', Dashboard::class)->middleware('staffSchoolYearCheck')->name('staff.dashboard');
     Route::get('profile-saya', Profile::class)->name('staff.profile');
     Route::get('kalender', Calendar::class)->name('calendar.index');
 
@@ -92,7 +92,7 @@ Route::prefix('staff')->middleware(['auth', 'role:Admin|Guru', 'getDataUser'])->
             Route::get('', ListTeacher::class)->name('teacher.list');
             Route::get('create', CreateTeacher::class)->name('teacher.create');
             Route::get('{teacherId}/edit', EditTeacher::class)->name('teacher.edit');
-            Route::get('{teacherId}/kehadiran', AttendanceTeacher::class)->name('teacher.attendance');
+            Route::get('{teacherId}/kehadiran', AttendanceTeacher::class)->middleware('staffSchoolYearCheck')->name('teacher.attendance');
         });
 
         Route::prefix('siswa')->group(function () {

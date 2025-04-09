@@ -22,7 +22,7 @@ class TeacherDatatableController extends Controller
                 <div class="d-flex gap-1 align-items-center">
                 <a wire:navigate href="' . route('teacher.edit', $teacher->id) . '" class="btn btn-sm btn-primary">Edit</a>
                 <a href="'. route('teacher.attendance', $teacher->id) .'" class="btn btn-sm btn-warning">Kehadiran</a>
-                <a wire:click="downloadSchedule(\'' . $teacher->id . '\')" class="btn btn-sm btn-success inline">Jadwal</a>
+                <a wire:click="downloadSchedule(\'' . $teacher->id . '\')" class="btn btn-sm btn-success inline">Download Jadwal</a>
                 </div>
             ';
             })
@@ -80,7 +80,7 @@ class TeacherDatatableController extends Controller
     public function getAttendanceHistory($id)
     {
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
-        $histories = PresenceTeacher::with(['subjectTeacher', 'classrooms'])->where('pengampu_id', $id)->where('tahun_ajaran_id', $schoolYear->id)->get();
+        $histories = PresenceTeacher::with(['subjectTeacher', 'classroom'])->where('pengampu_id', $id)->where('tahun_ajaran_id', $schoolYear->id)->get();
 
         return DataTables::of($histories)
             ->addIndexColumn()

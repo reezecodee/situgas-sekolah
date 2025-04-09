@@ -21,13 +21,16 @@ class SchoolYearStaffMiddleware
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
 
         if (!$schoolYear) {
-            if($user->hasRole('Admin')){
+            if ($user->hasRole('Admin')) {
                 $message = 'Tidak ada tahun ajaran yang aktif.';
-                
-                return response()->view('school-year.admin-info', compact('message')); 
-            }else{
+                if (request()->is('staff/dashboard')) {
+                    return $next($request);
+                }
+
+                return response()->view('school-year.admin-info', compact('message'));
+            } else {
                 $message = 'Tidak ada tahun ajaran yang aktif. Mohon hubungi admin sekolah Anda.';
-                return response()->view('school-year.info', compact('message')); 
+                return response()->view('school-year.info', compact('message'));
             }
         }
 

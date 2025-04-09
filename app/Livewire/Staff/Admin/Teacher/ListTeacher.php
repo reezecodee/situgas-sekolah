@@ -17,9 +17,16 @@ class ListTeacher extends Component
     public function downloadSchedule($id)
     {
         $schoolYear = SchoolYear::where('status', 'Aktif')->first();
+
+        if (!$schoolYear) {
+            session()->flash('failed', 'Tidak ada tahun ajaran yang aktif');
+            return redirect()->to(route('teacher.list'));
+        }
+
         $periode = str_replace(['/', '\\'], '-', $schoolYear->periode);
-        $fileName = "Jadwal Tahun Ajaran {$periode} Semester {$schoolYear->semester}";
-        return Excel::download(new TeacherScheduleExport($schoolYear->id, $id), "$fileName.xlsx");
+        $fileName = "Jadwal Tahun Ajaran {$periode} Semester {$schoolYear->semester}.xlsx";
+
+        return Excel::download(new TeacherScheduleExport($schoolYear->id, $id), $fileName);
     }
 
     public function render()
