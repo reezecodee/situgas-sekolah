@@ -15,13 +15,13 @@ class CreateTeacher extends Component
     #[Layout('components.layouts.staff')]
 
     #[Validate]
-    public $nama, $nuptk, $email, $tgl_lahir, $status;
+    public $nama, $nuptk_nis, $email, $tgl_lahir, $status;
 
     public function rules()
     {
         return [
             'nama' => 'required|max:255',
-            'nuptk' => 'nullable|unique:teachers,nuptk|max:255',
+            'nuptk_nis' => 'required|unique:users,nuptk_nis|max:255',
             'email' => 'required|email|max:255|unique:users,email',
             'tgl_lahir' => 'required|date|date_format:Y-m-d|before:today',
             'status' => 'required|in:Aktif,Tidak aktif'
@@ -34,8 +34,9 @@ class CreateTeacher extends Component
             'nama.required' => 'Nama wajib diisi.',
             'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
         
-            'nuptk.unique' => 'NUPTK ini sudah terdaftar, gunakan NUPTK lain.',
-            'nuptk.max' => 'NUPTK tidak boleh lebih dari :max karakter.',
+            'nuptk_nis.required' => 'NUPTK wajib diisi.',
+            'nuptk_nis.unique' => 'NUPTK ini sudah terdaftar, gunakan NUPTK lain.',
+            'nuptk_nis.max' => 'NUPTK tidak boleh lebih dari :max karakter.',
         
             'email.required' => 'Alamat email wajib diisi.',
             'email.email' => 'Format email tidak valid.',

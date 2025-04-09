@@ -13,10 +13,10 @@
                         <form wire:submit.prevent="check">
                             @csrf
                             <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                    placeholder="example@email.com" autocomplete="off" wire:model.lazy="email">
-                                @error('email')
+                                <label class="form-label">NUPTK atau NIS</label>
+                                <input type="number" class="form-control @error('nuptk_nis') is-invalid @enderror"
+                                    placeholder="Masukkan NUPTK atau NIS" autocomplete="off" wire:model.lazy="nuptk_nis">
+                                @error('nuptk_nis')
                                 <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>

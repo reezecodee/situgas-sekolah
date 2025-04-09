@@ -19,7 +19,7 @@ class EditStudent extends Component
     public $studentId;
 
     #[Validate]
-    public $kelas_id, $nama, $nis, $nisn, $email, $jk, $alamat, $status, $tgl_lahir;
+    public $kelas_id, $nama, $nuptk_nis, $nisn, $email, $jk, $alamat, $status, $tgl_lahir;
 
     public $classes;
 
@@ -36,7 +36,7 @@ class EditStudent extends Component
         $this->studentId = $student->id;
         $this->kelas_id = $student->kelas_id;
         $this->nama = $student->nama;
-        $this->nis = $student->nis;
+        $this->nuptk_nis = $student->user->nuptk_nis;
         $this->nisn = $student->nisn;
         $this->email = $student->user->email;
         $this->jk = $student->jk;
@@ -50,7 +50,7 @@ class EditStudent extends Component
         return [
             'kelas_id' => 'required|exists:classrooms,id',
             'nama' => 'required|max:255',
-            'nis' => 'required|max:255|unique:students,nis,' . $this->studentId,
+            'nuptk_nis' => 'required|max:255|unique:users,nuptk_nis,' . $this->userId,
             'nisn' => 'required|max:255|unique:students,nisn,' . $this->studentId,
             'email' => 'required|max:255|unique:users,email,' . $this->userId,
             'jk' => 'required|in:Laki-laki,Perempuan',
@@ -69,9 +69,9 @@ class EditStudent extends Component
             'nama.required' => 'Nama wajib diisi.',
             'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
         
-            'nis.required' => 'NIS wajib diisi.',
-            'nis.max' => 'NIS tidak boleh lebih dari :max karakter.',
-            'nis.unique' => 'NIS ini sudah terdaftar, gunakan NIS lain.',
+            'nuptk_nis.required' => 'NIS wajib diisi.',
+            'nuptk_nis.max' => 'NIS tidak boleh lebih dari :max karakter.',
+            'nuptk_nis.unique' => 'NIS ini sudah terdaftar, gunakan NIS lain.',
         
             'nisn.required' => 'NISN wajib diisi.',
             'nisn.max' => 'NISN tidak boleh lebih dari :max karakter.',
@@ -102,6 +102,7 @@ class EditStudent extends Component
 
         $user = User::findOrFail($this->userId);
         $user->update([
+            'nuptk_nis' => $data['nuptk_nis'],
             'email' => $data['email'],
         ]);
 
@@ -115,7 +116,6 @@ class EditStudent extends Component
         $student->update([
             'kelas_id' => $data['kelas_id'],
             'nama' => $data['nama'],
-            'nis' => $data['nis'],
             'nisn' => $data['nisn'],
             'jk' => $data['jk'],
             'tgl_lahir' => $data['tgl_lahir'],

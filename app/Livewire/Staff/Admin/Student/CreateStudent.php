@@ -18,7 +18,7 @@ class CreateStudent extends Component
     public $classes;
 
     #[Validate]
-    public $kelas_id, $nama, $nis, $nisn, $email, $jk, $alamat, $status, $tgl_lahir;
+    public $kelas_id, $nama, $nuptk_nis, $nisn, $email, $jk, $alamat, $status, $tgl_lahir;
 
     public function mount()
     {
@@ -33,7 +33,7 @@ class CreateStudent extends Component
         return [
             'kelas_id' => 'required|exists:classrooms,id',
             'nama' => 'required|max:255',
-            'nis' => 'required|max:255|unique:students,nis',
+            'nuptk_nis' => 'required|max:255|unique:users,nuptk_nis',
             'nisn' => 'required|max:255|unique:students,nisn',
             'email' => 'required|max:255|unique:users,email',
             'jk' => 'required|in:Laki-laki,Perempuan',
@@ -52,9 +52,9 @@ class CreateStudent extends Component
             'nama.required' => 'Nama wajib diisi.',
             'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
 
-            'nis.required' => 'NIS wajib diisi.',
-            'nis.max' => 'NIS tidak boleh lebih dari :max karakter.',
-            'nis.unique' => 'NIS ini sudah terdaftar, gunakan NIS lain.',
+            'nuptk_nis.required' => 'NIS wajib diisi.',
+            'nuptk_nis.max' => 'NIS tidak boleh lebih dari :max karakter.',
+            'nuptk_nis.unique' => 'NIS ini sudah terdaftar, gunakan NIS lain.',
 
             'nisn.required' => 'NISN wajib diisi.',
             'nisn.max' => 'NISN tidak boleh lebih dari :max karakter.',
@@ -84,6 +84,7 @@ class CreateStudent extends Component
         $data = $this->validate();
 
         $user = User::create([
+            'nuptk_nis' => $data['nuptk_nis'],
             'email' => $data['email'],
             'password' => bcrypt($data['tgl_lahir'])
         ]);
@@ -93,7 +94,6 @@ class CreateStudent extends Component
             'user_id' => $user->id,
             'kelas_id' => $data['kelas_id'],
             'nama' => $data['nama'],
-            'nis' => $data['nis'],
             'nisn' => $data['nisn'],
             'jk' => $data['jk'],
             'tgl_lahir' => $data['tgl_lahir'],

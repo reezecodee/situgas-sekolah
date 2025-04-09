@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignUuid('kelas_id')->constrained('classrooms')->cascadeOnDelete();
             $table->string('nama');
-            $table->string('nis');
             $table->string('nisn');
             $table->string('tgl_lahir');
             $table->enum('jk', ['Laki-laki', 'Perempuan']);

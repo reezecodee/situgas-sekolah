@@ -15,6 +15,17 @@
             </div>
             <div class="col-md-6 mb-3">
                 <div class="form-group">
+                    <label for="nuptk_nis" class="form-label">NUPTK</label>
+                    <input type="number" placeholder="Masukkan NUPTK" id="nuptk_nis" wire:model.blur="nuptk_nis"
+                        class="form-control @error('nuptk_nis') is-invalid @enderror" value="{{ old('nuptk_nis') }}"
+                        autocomplete="off" required>
+                    @error('nuptk_nis')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" placeholder="Masukkan email" id="email" wire:model.blur="email"
                         class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"

@@ -14,13 +14,13 @@ class EditTeacher extends Component
     
     public $teacher;
     #[Validate]
-    public $nama, $nuptk, $email, $tgl_lahir, $status;
+    public $nama, $nuptk_nis, $email, $tgl_lahir, $status;
 
     public function rules()
     {
         return [
             'nama' => 'required|max:255',
-            'nuptk' => 'nullable|max:255|unique:teachers,nuptk,'. $this->teacher->id,
+            'nuptk_nis' => 'required|max:255|unique:users,nuptk_nis,'. $this->teacher->user_id,
             'email' => 'required|email|max:255|unique:users,email,'. $this->teacher->user_id,
             'tgl_lahir' => 'required|date|date_format:Y-m-d|before:today',
             'status' => 'required|in:Aktif,Tidak aktif'
@@ -32,9 +32,10 @@ class EditTeacher extends Component
         return [
             'nama.required' => 'Nama wajib diisi.',
             'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
-        
-            'nuptk.unique' => 'NUPTK ini sudah terdaftar, gunakan NUPTK lain.',
-            'nuptk.max' => 'NUPTK tidak boleh lebih dari :max karakter.',
+            
+            'nuptk_nis.required' => 'NUPTK wajib diisi.',
+            'nuptk_nis.unique' => 'NUPTK ini sudah terdaftar, gunakan NUPTK lain.',
+            'nuptk_nis.max' => 'NUPTK tidak boleh lebih dari :max karakter.',
         
             'email.required' => 'Alamat email wajib diisi.',
             'email.email' => 'Format email tidak valid.',
@@ -55,7 +56,7 @@ class EditTeacher extends Component
     {
         $this->teacher = Teacher::with('user')->findOrFail($teacherId);
         $this->nama = $this->teacher->nama;
-        $this->nuptk = $this->teacher->nuptk;
+        $this->nuptk_nis = $this->teacher->user->nuptk_nis;
         $this->email = $this->teacher->user->email;
         $this->tgl_lahir = $this->teacher->tgl_lahir;
         $this->status = $this->teacher->status;
@@ -68,12 +69,12 @@ class EditTeacher extends Component
 
         $user = User::findOrFail($this->teacher->user_id);
         $user->update([
+            'nuptk_nis' => $data['nuptk_nis'],
             'email' => $data['email']
         ]);
 
         $this->teacher->update([
             'nama' => $data['nama'],
-            'nuptk' => $data['nuptk'],
             'tgl_lahir' => $data['tgl_lahir'],
             'status' => $data['status'],
         ]);

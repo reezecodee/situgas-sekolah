@@ -15,7 +15,6 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('nama');
-            $table->string('nuptk')->nullable();
             $table->string('tgl_lahir');
             $table->enum('status', ['Aktif', 'Tidak aktif']);
             $table->timestamps();

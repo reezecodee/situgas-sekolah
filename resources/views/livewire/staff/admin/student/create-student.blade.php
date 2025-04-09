@@ -31,10 +31,10 @@
             </div>
             <div class="col-md-6 mb-3">
                 <div class="form-group">
-                    <label for="" class="form-label">Nomor Induk Siswa (NIS)</label>
-                    <input type="number" wire:model.blur="nis" class="form-control @error('nis') is-invalid @enderror"
-                        value="{{ old('nis') }}" autocomplete="off" placeholder="Masukkan NIS siswa" required>
-                    @error('nis')
+                    <label for="nuptk_nis" class="form-label">Nomor Induk Siswa (NIS)</label>
+                    <input type="number" wire:model.blur="nuptk_nis" class="form-control @error('nuptk_nis') is-invalid @enderror"
+                        value="{{ old('nuptk_nis') }}" autocomplete="off" placeholder="Masukkan NIS siswa" required>
+                    @error('nuptk_nis')
                     <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>

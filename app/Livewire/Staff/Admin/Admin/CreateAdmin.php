@@ -15,12 +15,13 @@ class CreateAdmin extends Component
     #[Layout('components.layouts.staff')]
 
     #[Validate]
-    public $nama, $email, $tgl_lahir, $status;
+    public $nama, $email, $nuptk_nis, $tgl_lahir, $status;
 
     public function rules()
     {
         return [
             'nama' => 'required|max:255',
+            'nuptk_nis' => 'required|max:255|unique:users,nuptk_nis',
             'email' => 'required|email|max:255|unique:users,email',
             'tgl_lahir' => 'required|date|date_format:Y-m-d|before:today',
             'status' => 'required|in:Aktif,Tidak aktif'
@@ -32,6 +33,10 @@ class CreateAdmin extends Component
         return [
             'nama.required' => 'Nama wajib diisi.',
             'nama.max' => 'Nama tidak boleh lebih dari :max karakter.',
+
+            'nuptk_nis.required' => 'NUPTK wajib diisi.',
+            'nuptk_nis.max' => 'NUPTK tidak boleh lebih dari :max karakter.',
+            'nuptk_nis.unique' => 'NUPTK ini sudah terdaftar, gunakan NUPTK lain.',
 
             'email.required' => 'Alamat email wajib diisi.',
             'email.email' => 'Format email tidak valid.',
@@ -53,6 +58,7 @@ class CreateAdmin extends Component
         $data = $this->validate();
 
         $user = User::create([
+            'nuptk_nis' => $data['nuptk_nis'],
             'email' => $data['email'],
             'password' => bcrypt($data['tgl_lahir'])
         ]);

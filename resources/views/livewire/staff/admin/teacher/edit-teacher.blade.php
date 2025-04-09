@@ -26,11 +26,11 @@
             </div>
             <div class="col-md-6 mb-3">
                 <div class="form-group">
-                    <label for="nuptk" class="form-label">NUPTK (opsional)</label>
-                    <input type="number" placeholder="Masukkan NUPTK" id="nuptk" wire:model.blur="nuptk"
-                        class="form-control @error('nuptk') is-invalid @enderror" value="{{ old('nuptk') }}"
-                        autocomplete="off">
-                    @error('nuptk')
+                    <label for="nuptk_nis" class="form-label">NUPTK</label>
+                    <input type="number" placeholder="Masukkan NUPTK" id="nuptk_nis" wire:model.blur="nuptk_nis"
+                        class="form-control @error('nuptk_nis') is-invalid @enderror" value="{{ old('nuptk_nis') }}"
+                        autocomplete="off" required>
+                    @error('nuptk_nis')
                     <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>

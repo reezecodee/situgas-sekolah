@@ -3,10 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
-use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -21,26 +19,23 @@ class UsersSeeder extends Seeder
             [
                 'id' => Str::uuid(),
                 'email' => 'admin@gmail.com',
+                'nuptk_nis' => '19230825',
                 'password' => bcrypt('12345678'),
                 'role' => 'Admin',
             ],
             [
                 'id' => Str::uuid(),
                 'email' => 'guru@gmail.com',
+                'nuptk_nis' => '19230826',
                 'password' => bcrypt('12345678'),
                 'role' => 'Guru',
-            ],
-            [
-                'id' => Str::uuid(),
-                'email' => 'siswa@gmail.com',
-                'password' => bcrypt('12345678'),
-                'role' => 'Siswa',
             ],
         ];
 
         foreach ($users as $userData) {
             $user = User::create([
                 'id' => $userData['id'],
+                'nuptk_nis' => $userData['nuptk_nis'],
                 'email' => $userData['email'],
                 'password' => $userData['password']
             ]);
@@ -59,7 +54,6 @@ class UsersSeeder extends Seeder
         $guru = [
             'user_id' => $users[1]['id'],
             'nama' => 'Akun Guru',
-            'nuptk' => '918230123',
             'tgl_lahir' => '2005-09-02',
             'status' => 'Aktif'
         ];

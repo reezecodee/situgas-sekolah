@@ -15,16 +15,16 @@ class Login extends Component
     #[Title('Login Ke Aplikasi Monitoring Tugas Siswa')]
     #[Layout('components.layouts.auth')]
 
-    public $email;
+    public $nuptk_nis;
     public $password;
 
     protected $rules = [
-        'email' => 'required',
+        'nuptk_nis' => 'required',
         'password' => 'required|min:8'
     ];
 
     protected $messages = [
-        'email.required' => 'Email wajib diisi.',
+        'nuptk_nis.required' => 'NUPTK atau NIS wajib diisi.',
         'password.required' => 'Password wajib diisi.',
         'password.min' => 'Password harus berisi 8 karakter.'
     ];
@@ -33,7 +33,7 @@ class Login extends Component
     {
         $this->validate();
 
-        if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+        if (Auth::attempt(['nuptk_nis' => $this->nuptk_nis, 'password' => $this->password])) {
             session()->regenerate();
 
             $user = Auth::user();
